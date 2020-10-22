@@ -57,17 +57,19 @@ Are the bride and groom impressed? You betcha!
 
 ## Contributors:
 
-1. Ann-Marie Orozco
-1. Brian Lopez
-1. Ahmad El Gamal
+| Name             | Role | GitHub Account                  |
+| ---------------- | ---- | ------------------------------- |
+| Ann-Marie Orozco | ...  | https://github.com/ann760       |
+| Brian Lopez      | ...  | https://github.com/brianslopez  |
+| Ahmad El Gamal   | ...  | https://github.com/ahmadelgamal |
 
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE).
 
-## Patent and commercial rights
+## Patent and Commercial Rights
 
-This project is not protected by any patents, nor do the contributors claim any commercial rights from the reproduction of the code nor the use of the idea or method of the app.
+This project is not protected by any patents. The contributors do not claim any commercial rights from the reproduction of the code, nor do they claim any rights for the use of the idea or method of the app.
 
 ## Features
 
