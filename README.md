@@ -63,7 +63,11 @@ Are the bride and groom impressed? You betcha!
 
 ## License
 
-This project is licensed under the terms of the MIT license. Also, anyone, including the contributors, individually and/or collectively, may duplicate the code and/or use the app idea without any obligation towards or copyrights for the contributors.
+This project is licensed under the terms of the [MIT license](LICENSE).
+
+## Patent and commercial rights
+
+This project is not protected by any patents, nor do the contributors claim any commercial rights from the reproduction of the code or the use of the idea or method of the app.
 
 ## Features
 
