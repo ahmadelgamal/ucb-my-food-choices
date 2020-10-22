@@ -67,7 +67,7 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 
 ## Patent and commercial rights
 
-This project is not protected by any patents, nor do the contributors claim any commercial rights from the reproduction of the code or the use of the idea or method of the app.
+This project is not protected by any patents, nor do the contributors claim any commercial rights from the reproduction of the code nor the use of the idea or method of the app.
 
 ## Features
 
