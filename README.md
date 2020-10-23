@@ -22,13 +22,13 @@ https://ahmadelgamal.github.io/ucb-my-food-choices/
 
 ## Usage
 
-1. Kitchens at work
 1. Restaurants
 1. Travel: airlines, cruise ships, hotels, etc.
 1. Education: universities, colleges, schools, daycares, and nurseries.
-1. Personal: family and friends, whether it is large gatherings, like weddings, or smaller ones, like thanksgiving.
+1. Office Kitchens
+1. Personal: gatherings of family and friends, whether they are large gatherings, like weddings, or smaller ones, like Thanksgiving.
 
-Simply put, whether it is business or personal, as long as food is served, this app will make everyone happy!
+Simply put, whether it is business or personal, this app will help you find the food of your choice!
 
 ### Example 1
 
@@ -61,7 +61,7 @@ Are the bride and groom impressed? You betcha!
 | ---------------- | ---- | ------------------------------- |
 | Ann-Marie Orozco | ...  | https://github.com/ann760       |
 | Brian Lopez      | ...  | https://github.com/brianslopez  |
-| Ahmad El Gamal   | ...  | https://github.com/ahmadelgamal |
+| Ahmad El Gamal   | ...  | https://github.com/ahmadelgamal |
 
 ## License
 
@@ -86,7 +86,7 @@ This project is not protected by any patents. The contributors do not claim any 
    1. Vegetarian/Vegan
    1. Weight Management
    1. Workout
-   1. Other: [fill in]
+   1. Other
 1. Multiple profiles per user account
 1. "Share profile" for event(s)
 
