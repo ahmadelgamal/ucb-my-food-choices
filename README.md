@@ -89,8 +89,8 @@ Are the bride and groom impressed? You betcha!
 - Heroku
 - _one new library, package, or technology that we haven’t discussed_
 - MVC Paradigm folder structure
-- Cookies
-- Express session
+- Authentication (Cookies and Express session)
+- Protected API keys and sensitive information using environment variables
 
 ## License
 
