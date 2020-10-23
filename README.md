@@ -10,6 +10,17 @@ Well, the solution is **My Food Choices!**
 
 It has an interface for users to enter their dietary choices, and another for event organizers/food servers to view the needs of the entire list of guests.
 
+## Table of Contents
+
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Constributors](#Contributors)
+- [Technologies Used](#Technologies-Used)
+- [License](#License)
+- [Patent and Commercial Rights](#Patent-and-Commercial-Rights)
+- [Features](#Features)
+- [UCB Extension](#UCB-Extension)
+
 ## Installation
 
 ### GitHub Repo URL
@@ -55,13 +66,31 @@ You simply send a link with the wedding invitation to each guest. Users can opt 
 
 Are the bride and groom impressed? You betcha!
 
-## Contributors:
+## Contributors
 
 | Name             | Role | GitHub Account                  |
 | ---------------- | ---- | ------------------------------- |
 | Ann-Marie Orozco | ...  | https://github.com/ann760       |
 | Brian Lopez      | ...  | https://github.com/brianslopez  |
 | Ahmad El Gamal   | ...  | https://github.com/ahmadelgamal |
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express.js
+- RESTful API
+- Handlebars.js
+- MySQL
+- Sequelize ORM
+- GET and POST routes
+- Heroku
+- _one new library, package, or technology that we haven’t discussed_
+- MVC Paradigm folder structure
+- Cookies
+- Express session
 
 ## License
 
