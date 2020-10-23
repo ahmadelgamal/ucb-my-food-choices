@@ -12,22 +12,21 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 ## Table of Contents
 
-- [Installation](#Installation)
+- [GitHub Repo URL](#GitHub-Repo-URL)
+- [Deployment URL](#Deployment-URL)
 - [Usage](#Usage)
+- [Screenshots](#Screenshots)
+- [Features](#Features)
 - [Constributors](#Contributors)
 - [Technologies Used](#Technologies-Used)
 - [License](#License)
 - [Patent and Commercial Rights](#Patent-and-Commercial-Rights)
-- [Features](#Features)
-- [UCB Extension](#UCB-Extension)
 
-## Installation
-
-### GitHub Repo URL
+## GitHub Repo URL
 
 https://github.com/ahmadelgamal/ucb-my-food-choices
 
-### Deployment URL
+## Deployment URL
 
 https://ahmadelgamal.github.io/ucb-my-food-choices/
 
@@ -66,7 +65,32 @@ You simply send a link with the wedding invitation to each guest. Users can opt 
 
 Are the bride and groom impressed? You betcha!
 
+## Screenshots
+
+...
+
+## Features
+
+1. Food favorites
+1. Food preferences, such as:
+   1. pasta or rice
+   1. french fries or mashed potatoes
+   1. shakes or ice cream
+1. Food dislikes
+1. Dietary restrictions, such as:
+   1. Allergies
+   1. Medical
+   1. Religious
+   1. Vegetarian/Vegan
+   1. Weight Management
+   1. Workout
+   1. Other
+1. Multiple profiles per user account
+1. "Share profile" for event(s)
+
 ## Contributors
+
+This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
 | Name             | Role | GitHub Account                  |
 | ---------------- | ---- | ------------------------------- |
@@ -99,26 +123,3 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 ## Patent and Commercial Rights
 
 This project is not protected by any patents. The contributors do not claim any commercial rights from the reproduction of the code, nor do they claim any rights for the use of the idea or method of the app.
-
-## Features
-
-1. Food favorites
-1. Food preferences, such as:
-   1. pasta or rice
-   1. french fries or mashed potatoes
-   1. shakes or ice cream
-1. Food dislikes
-1. Dietary restrictions, such as:
-   1. Allergies
-   1. Medical
-   1. Religious
-   1. Vegetarian/Vegan
-   1. Weight Management
-   1. Workout
-   1. Other
-1. Multiple profiles per user account
-1. "Share profile" for event(s)
-
-## UCB Extension
-
-This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended).
