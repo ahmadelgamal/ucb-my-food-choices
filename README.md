@@ -2,7 +2,7 @@
 
 ## Description
 
-Ever been to an event where food was served and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
+Ever been to an event where food was served, and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
 
 Well, the solution is **My Food Choices!**
 
@@ -12,23 +12,23 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 ## Table of Contents
 
-- [GitHub Repo URL](#GitHub-Repo-URL)
 - [Deployment URL](#Deployment-URL)
+- [GitHub Repo URL](#GitHub-Repo-URL)
 - [Usage](#Usage)
 - [Screenshots](#Screenshots)
 - [Features](#Features)
-- [Constributors](#Contributors)
+- [Contributors](#Contributors)
 - [Technologies Used](#Technologies-Used)
 - [License](#License)
 - [Patent and Commercial Rights](#Patent-and-Commercial-Rights)
 
-## GitHub Repo URL
-
-https://github.com/ahmadelgamal/ucb-my-food-choices
-
 ## Deployment URL
 
 https://ahmadelgamal.github.io/ucb-my-food-choices/
+
+## GitHub Repo URL
+
+https://github.com/ahmadelgamal/ucb-my-food-choices
 
 ## Usage
 
@@ -67,7 +67,7 @@ Are the bride and groom impressed? You betcha!
 
 ## Screenshots
 
-...
+_Coming soon, God willing_
 
 ## Features
 
