@@ -71,6 +71,9 @@ _Coming soon, God willing_
 
 ## Features
 
+- Guests will receive an email from the organizer with a link (url) to the page where they enter their food preferences.
+- Organizers will have the option to run multiple reports, such as: "detailed report", which lists all guests and their food choices, and "categorized" reports which display allergies, or medical conditions, etc.
+
 1. Food favorites
 1. Food preferences, such as:
    1. pasta or rice
@@ -88,15 +91,19 @@ _Coming soon, God willing_
 1. Multiple profiles per user account
 1. "Share profile" for event(s)
 
+## Future Upgrades
+
+...
+
 ## Contributors
 
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
-| Name             | Role | GitHub Account                  |
-| ---------------- | ---- | ------------------------------- |
-| Ann-Marie Orozco | ...  | https://github.com/ann760       |
-| Brian Lopez      | ...  | https://github.com/brianslopez  |
-| Ahmad El Gamal   | ...  | https://github.com/ahmadelgamal |
+| Name             | Role             | GitHub Account                  |
+| ---------------- | ---------------- | ------------------------------- |
+| Ann-Marie Orozco | Database Manager | https://github.com/ann760       |
+| Brian Lopez      | ...              | https://github.com/brianslopez  |
+| Ahmad El Gamal   | ...              | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 
