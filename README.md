@@ -123,6 +123,12 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - Authentication (Cookies and Express session)
 - Protected API keys and sensitive information using environment variables
 
+## Installation
+To run this program you will need to run the commands
+init npm
+and 
+npm install bcrypt connect-session-sequelize dotenv express express-handlebars express-session jest mysql2 sequelize
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE).
