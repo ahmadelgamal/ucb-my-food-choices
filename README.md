@@ -99,11 +99,11 @@ _Coming soon, God willing_
 
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
-| Name             | Role                                  | Responsibilities                  | GitHub Account                  |
-| ---------------- | ------------------------------------- | --------------------------------- | ------------------------------- |
-| Ann-Marie Orozco | Database Manager                      | Database, Server & Authentication | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer                    | Routes & tests                    | https://github.com/brianslopez  |
-| Ahmad El Gamal   | Project Manager & Front-end Developer | UI, handlebars.js & Heroku        | https://github.com/ahmadelgamal |
+| Name             | Role               | Responsibilities                  | GitHub Account                  |
+| ---------------- | ------------------ | --------------------------------- | ------------------------------- |
+| Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer | APIs, Routes & tests              | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | UI, handlebars.js & Heroku        | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 
@@ -120,7 +120,7 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - Heroku
 - Materialize CSS Framework
 - MVC Paradigm folder structure
-- Authentication (Cookies and Express session)
+- Authentication (Cookies, Express session & MySQL)
 - Protected API keys and sensitive information using environment variables
 
 ## Installation
