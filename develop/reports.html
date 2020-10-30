@@ -41,14 +41,14 @@
         </div>
       </nav>
 
-      <ul class="sidenav" id="mobile-demo">
+      <ul class="sidenav">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="signup.html">Sign Up</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="#">Logout</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
       </ul>
     </header>
 
@@ -56,12 +56,36 @@
       <div class="container">
         <h3>Reports</h3>
         <h4>10/15/20 | Brunch | The Doe's | John Doe</h4>
+
+        <h6>178 guests, out of 210, replied with the following:</h6>
+
+        <!-- Dropdown Trigger -->
+        <a
+          class="btn dropdown-trigger green darken-2"
+          href="#!"
+          data-target="report-filter-dropdown"
+          >Filter By<i class="material-icons right">arrow_drop_down</i></a
+        >
+        <!-- Dropdown Structure -->
+        <ul id="report-filter-dropdown" class="dropdown-content">
+          <li><a class="green-text text-darken-3" href="#!">All</a></li>
+          <li class="divider"></li>
+          <li><a class="green-text text-darken-3" href="#!">Allergies</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Medical</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Religious</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Substance</a></li>
+          <li>
+            <a class="green-text text-darken-3" href="#!">Weight Management</a>
+          </li>
+          <li><a class="green-text text-darken-3" href="#!">Other</a></li>
+        </ul>
+
         <h5>Allergies</h5>
-        <table>
+        <table class="striped">
           <thead>
             <tr>
-              <th>Allergy</th>
-              <th>No. of Guests</th>
+              <th class="col1">Allergy</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -102,11 +126,11 @@
         </table>
 
         <h5>Medical</h5>
-        <table>
+        <table class="striped">
           <thead>
             <tr>
-              <th>Medical Restriction</th>
-              <th>No. of Guests</th>
+              <th class="col1">Medical Restriction</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -135,11 +159,11 @@
         </table>
 
         <h5>Religious</h5>
-        <table>
+        <table class="striped">
           <thead>
             <tr>
-              <th>Religion</th>
-              <th>No. of Guests</th>
+              <th class="col1">Religion</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -170,11 +194,11 @@
         </table>
 
         <h5>Substance</h5>
-        <table>
+        <table class="striped">
           <thead>
             <tr>
-              <th>Substance</th>
-              <th>No. of Guests</th>
+              <th class="col1">Substance</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -189,12 +213,13 @@
             </tr>
           </tbody>
         </table>
+
         <h5>Weight Management</h5>
         <table>
           <thead>
             <tr>
-              <th>Diet</th>
-              <th>No. of Guests</th>
+              <th class="col1">Diet</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -221,12 +246,13 @@
             </tr>
           </tbody>
         </table>
+
         <h5>Other</h5>
-        <table>
+        <table class="striped">
           <thead>
             <tr>
-              <th>Restriction</th>
-              <th>No. of Guests</th>
+              <th class="col1">Restriction</th>
+              <th class="col2">No. of Guests</th>
             </tr>
           </thead>
 
@@ -253,12 +279,12 @@
         <div class="row">
           <ul class="right hide-on-med-and-down">
             <li>
-              <a class="grey-text text-lighten-3" href="events.html">Events</a>
-            </li>
-            <li>
               <a class="grey-text text-lighten-3" href="profile.html"
                 >Profile</a
               >
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="events.html">Events</a>
             </li>
             <li>
               <a class="grey-text text-lighten-3" href="about.html">About</a>
