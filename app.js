@@ -1,4 +1,5 @@
 const express = require('express');
+const User = require('./models/User');
 
 // express app
 const app = express();
@@ -21,6 +22,10 @@ app.use((req, res, next) => {
 // static files
 app.use(express.static('public'));
 
+// middleware
+app.use(express.urlencoded({ extended: true}));
+
+// GET routes
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -52,6 +57,15 @@ app.get('/restrictions.html', (req, res) => {
 app.get('/signup.html', (req, res) => {
     res.render('signup');
 });
+
+// POST routes
+app.post('/User', (req, res) => {
+    console.log(req.body);
+    const user = new User(req.body);
+    user.save().then((result) => {
+        res.redirect('restrictions');
+    })
+})
 
 // 404
 app.use((req, res) => {
