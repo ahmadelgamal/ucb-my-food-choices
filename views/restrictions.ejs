@@ -1,57 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!--Import materialize.css-->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
-    <!-- custom styles -->
-    <link type="text/css" rel="stylesheet" href="css/styles.css" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Food Choices - Dietary Restrictions</title>
-  </head>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
 
   <body>
     <header>
-      <nav class="green">
-        <div class="container nav-wrapper">
-          <a href="#!" class="brand-logo hide-on-med-and-down"
-            ><i class="material-icons">local_dining</i>My Food Choices</a
-          >
-          <a href="#!" class="brand-logo hide-on-large-only"
-            ><i class="material-icons">local_dining</i>MFC</a
-          >
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="material-icons">menu</i></a
-          >
-          <ul class="right hide-on-med-and-down">
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="#">Logout</a></li>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">Events</a></li>
-        <li>
-          <a href="#"><i class="material-icons">person</i></a>
-        </li>
-        <li><a href="#">Logout</a></li>
-      </ul>
+      <%- include('./partials/nav.ejs') %>
     </header>
 
     <main>
@@ -274,28 +226,8 @@
       </div>
     </main>
 
-    <footer class="page-footer green lighten-1">
-      <div class="container">
-        <div class="row">
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <a class="grey-text text-lighten-3" href="events.html">Events</a>
-            </li>
-            <li>
-              <a class="grey-text text-lighten-3" href="about.html">About</a>
-            </li>
-            <li>
-              <a class="grey-text text-lighten-3" href="contact.html"
-                >Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">© 2020 Copyright My Food Choices</div>
-      </div>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
+    
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

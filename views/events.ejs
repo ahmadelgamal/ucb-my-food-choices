@@ -1,0 +1,67 @@
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <header>
+      <%- include('./partials/nav.ejs') %>
+    </header>
+
+    <main>
+      <div class="container">
+        <h4>Events</h4>
+        <p>
+          You have been invited to send your dietary restrictions to the
+          following events:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Venue</th>
+              <th>Host</th>
+              <th>Reply Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>10/15/20</td>
+              <td>Brunch</td>
+              <td>The Doe's</td>
+              <td>John Doe</td>
+              <td>Dietary Restrictions Sent</td>
+            </tr>
+            <tr>
+              <td>10/25/20</td>
+              <td>Employee of the Year Dinner</td>
+              <td>Googleplex</td>
+              <td>Google Inc.</td>
+              <td><a href="#">Send Now?</a></td>
+            </tr>
+            <tr>
+              <td>11/18/20</td>
+              <td>Wedding</td>
+              <td>The Park</td>
+              <td>Martina Garcia</td>
+              <td>Dietary Restrictions Sent</td>
+            </tr>
+            <tr>
+              <td>12/08/20</td>
+              <td>Birthday Party</td>
+              <td>The Masry's</td>
+              <td>Muhammad El Masry</td>
+              <td><a href="#">Send Now?</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
