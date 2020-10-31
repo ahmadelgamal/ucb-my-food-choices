@@ -1,13 +1,11 @@
-// for side navbar, as per materialize docs
 document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {});
-});
+  // init side navbar, as per materialize docs
+  const sideNavEls = document.querySelectorAll('.sidenav');
+  const sideNavInstances = M.Sidenav.init(sideNavEls, {});
 
-// for dropdown buttons, as per materialize docs
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.dropdown-trigger');
-  var instances = M.Dropdown.init(elems, {});
+  // init dropdown buttons, as per materialize docs
+  const dropDownEls = document.querySelectorAll('.dropdown-trigger');
+  const dropDownInstances = M.Dropdown.init(dropDownEls, {});
 });
 
 M.AutoInit();
