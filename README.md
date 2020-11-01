@@ -6,7 +6,7 @@ Ever been to an event where food was served, and you, or someone you know, had a
 
 Well, the solution is **My Food Choices!**
 
-**My Food Choices** is a simple tool for users to store their food favorites, preferences, dislikes and dietary restrictions to share with event organizers for any event where food is served!
+**My Food Choices** is a simple tool for users to store their dietary restrictions to share with event organizers for any event where food is served!
 
 It has an interface for users to enter their dietary choices, and another for event organizers/food servers to view the needs of the entire list of guests.
 
@@ -48,7 +48,11 @@ You work in Human Resources for a mid-size firm and you are organizing an event 
 1. Aaditi: She wants no beef because she's hindhu, but she also does not eat fish.
 1. Muhammad: He wants halal food, but he's also diabetic and doesn't like broccoli.
 1. Amy: She's vegetarian.
+
+_Future options:_
+
 1. 150 guests prefer mashed potatoes over french fries
+
 1. 120 guests prefer pasta over rice.
 1. 50 guests are following a keto diet.
 1. Only 10 guests like canned juice.
@@ -71,8 +75,16 @@ _Coming soon, God willing_
 
 ## Features
 
-- Guests will receive an email from the organizer with a link (url) to the page where they enter their food preferences.
-- Organizers will have the option to run multiple reports, such as: "detailed report", which lists all guests and their food choices, and "categorized" reports which display allergies, or medical conditions, etc.
+1. Guests will receive an email from the organizer with a link (url) to the page where they sign up then enter their food preferences.
+1. Dietary restrictions, such as:
+   1. Religious
+   1. Medical
+   1. Allergies
+   1. Weight Management
+   1. Other
+1. Organizer will get a report with how many guests filled out their profiles and the total number of guests in each dietary restriction category. This will help the organizer plan the food that better fits the guests needs.
+
+## Future Upgrades
 
 1. Food favorites
 1. Food preferences, such as:
@@ -80,30 +92,18 @@ _Coming soon, God willing_
    1. french fries or mashed potatoes
    1. shakes or ice cream
 1. Food dislikes
-1. Dietary restrictions, such as:
-   1. Allergies
-   1. Medical
-   1. Religious
-   1. Vegetarian/Vegan
-   1. Weight Management
-   1. Workout
-   1. Other
 1. Multiple profiles per user account
-1. "Share profile" for event(s)
-
-## Future Upgrades
-
-...
+1. Organizers will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
 
 ## Contributors
 
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
-| Name             | Role               | Responsibilities                  | GitHub Account                  |
+| Name             | Role               | Technical Responsibilities        | GitHub Account                  |
 | ---------------- | ------------------ | --------------------------------- | ------------------------------- |
 | Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
 | Brian Lopez      | Back-end Developer | APIs, Routes & tests              | https://github.com/brianslopez  |
-| Ahmad El Gamal   | Project Manager    | UI, handlebars.js & Heroku        | https://github.com/ahmadelgamal |
+| Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 
@@ -113,7 +113,7 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - Node.js
 - Express.js
 - RESTful API
-- Handlebars.js
+- EJS
 - MySQL
 - Sequelize ORM
 - GET and POST routes
@@ -122,13 +122,6 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - MVC Paradigm folder structure
 - Authentication (Cookies, Express session & MySQL)
 - Protected API keys and sensitive information using environment variables
-
-## Installation
-
-To run this program you will need to run the commands
-init npm
-and
-npm install bcrypt connect-session-sequelize dotenv express express-handlebars express-session jest mysql2 sequelize
 
 ## License
 
