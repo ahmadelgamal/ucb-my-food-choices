@@ -112,14 +112,11 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - JavaScript
 - Node.js
 - Express.js
-- RESTful API
 - EJS
 - MySQL
-- Sequelize ORM
-- GET and POST routes
+- Sequelize
 - Heroku
 - Materialize CSS Framework
-- MVC Paradigm folder structure
 - Authentication (Cookies, Express session & MySQL)
 - Protected API keys and sensitive information using environment variables
 
