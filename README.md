@@ -99,11 +99,11 @@ _Coming soon, God willing_
 
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
-| Name             | Role             | GitHub Account                  |
-| ---------------- | ---------------- | ------------------------------- |
-| Ann-Marie Orozco | Database Manager | https://github.com/ann760       |
-| Brian Lopez      | ...              | https://github.com/brianslopez  |
-| Ahmad El Gamal   | ...              | https://github.com/ahmadelgamal |
+| Name             | Role               | Responsibilities                  | GitHub Account                  |
+| ---------------- | ------------------ | --------------------------------- | ------------------------------- |
+| Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer | APIs, Routes & tests              | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | UI, handlebars.js & Heroku        | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 
@@ -118,10 +118,17 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - Sequelize ORM
 - GET and POST routes
 - Heroku
-- _one new library, package, or technology that we haven’t discussed_
+- Materialize CSS Framework
 - MVC Paradigm folder structure
-- Authentication (Cookies and Express session)
+- Authentication (Cookies, Express session & MySQL)
 - Protected API keys and sensitive information using environment variables
+
+## Installation
+
+To run this program you will need to run the commands
+init npm
+and
+npm install bcrypt connect-session-sequelize dotenv express express-handlebars express-session jest mysql2 sequelize
 
 ## License
 
