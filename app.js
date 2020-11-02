@@ -9,15 +9,7 @@ app.set('view engine', 'ejs');
 
 // listen for requests
 app.listen(3000);
-
-// log requests to console
-app.use((req, res, next) => {
-    console.log('new request:');
-    console.log('host: ', req.hostname);
-    console.log('path: ', req.path);
-    console.log('method: ', req.method);
-    next();
-});
+console.log('listening on PORT 3000')
 
 // static files
 app.use(express.static('public'));
@@ -27,35 +19,23 @@ app.use(express.urlencoded({ extended: true}));
 
 // GET routes
 app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/index.html', (req, res) => {
-    res.render('index');
-});
-
-app.get('/about.html', (req, res) => {
-    res.render('about');
-});
-
-app.get('/contact.html', (req, res) => {
-    res.render('contact');
-});
-
-app.get('/events.html', (req, res) => {
-    res.render('events');
+    res.render('login', { title: 'Login' });
 });
 
 app.get('/login.html', (req, res) => {
-    res.render('index');
+    res.render('login', { title: 'Login'});
 });
 
-app.get('/restrictions.html', (req, res) => {
-    res.render('restrictions');
+app.get('/profile.html', (req, res) => {
+    res.render('profile', { title: 'Profile'});
+});
+
+app.get('/reports.html', (req, res) => {
+    res.render('reports', { title: 'Reports'});
 });
 
 app.get('/signup.html', (req, res) => {
-    res.render('signup');
+    res.render('signup', { title: 'Sign Up'});
 });
 
 // POST routes
@@ -63,11 +43,11 @@ app.post('/User', (req, res) => {
     console.log(req.body);
     const user = new User(req.body);
     user.save().then((result) => {
-        res.redirect('restrictions');
-    })
-})
+        res.redirect('profile');
+    });
+});
 
 // 404
 app.use((req, res) => {
-    res.status(404).render('404');
+    res.status(404).render('404', { title: '404'});
 });
