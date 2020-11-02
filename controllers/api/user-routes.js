@@ -3,6 +3,7 @@ const { User } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
+console.log("=========GET========="); 
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -15,6 +16,7 @@ router.get("/", (req, res) => {
 
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
+  console.log("=========GET=ID========");
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
