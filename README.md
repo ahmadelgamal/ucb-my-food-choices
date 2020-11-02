@@ -118,7 +118,6 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 - Heroku
 - Materialize CSS Framework
 - Authentication (Cookies, Express session & MySQL)
-- Protected API keys and sensitive information using environment variables
 
 ## License
 
