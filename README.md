@@ -102,7 +102,7 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 | Name             | Role               | Technical Responsibilities        | GitHub Account                  |
 | ---------------- | ------------------ | --------------------------------- | ------------------------------- |
 | Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer | APIs, Routes & tests              | https://github.com/brianslopez  |
+| Brian Lopez      | Back-end Developer | APIs, Routes, EJS & tests         | https://github.com/brianslopez  |
 | Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
 
 ## Technologies Used
