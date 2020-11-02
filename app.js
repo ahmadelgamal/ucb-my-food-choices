@@ -41,10 +41,18 @@ app.get('/signup.html', (req, res) => {
 // POST routes
 app.post('/User', (req, res) => {
     console.log(req.body);
-    const user = new User(req.body);
-    user.save().then((result) => {
-        res.redirect('profile');
-    });
+    // const user = new User(req.body);
+    // user.save().then((result) => {
+    //     res.redirect('profile');
+    // });
+});
+
+app.post('/Restriction', (req, res) => {
+    console.log(req.body);
+    // const user = new Restriction(req.body);
+    // user.save().then((result) => {
+    //     res.redirect('reports');
+    // });
 });
 
 // 404
