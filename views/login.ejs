@@ -2,14 +2,12 @@
   <%- include('./partials/head.ejs') %>
 
   <body>
-    <header>
-      <%- include('./partials/nav.ejs') %>
-    </header>
+    <header><%- include('./partials/nav.ejs') %></header>
 
     <main>
       <div class="container">
         <div class="row">
-          <form class="col s12">
+          <form class="login-form col s12">
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">email</i>
@@ -25,6 +23,13 @@
               </div>
             </div>
           </form>
+          <button
+            class="btn btn-large waves-effect waves-light green hoverable"
+            type="submit"
+            name="action"
+          >
+            Login<i class="material-icons right">send</i>
+          </button>
         </div>
         <p class="center-align">
           Not a member? <a href="signup.html">Sign Up</a>
