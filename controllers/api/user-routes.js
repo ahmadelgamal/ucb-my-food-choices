@@ -38,7 +38,8 @@ router.get("/:id", (req, res) => {
 
 // POST create new user /api/users
 router.post("/", (req, res) => {
-  // expects {username: 'User', email: 'user@email.com', password: '1234'}
+  console.log("========POST========"); 
+  // expects {first_name: 'User', last_name: Smith, email: 'user@email.com', password: '1234'}
   User.create({
     username: req.body.username,
     email: req.body.email,

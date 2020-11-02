@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Restriction extends Model {}
+class Profile extends Model {}
 
-Restriction.init(
+Profile.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,21 +11,27 @@ Restriction.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    restriction: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    category: {
+    user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+    restriction_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "restriction",
+        key: "id",
+      },
     },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "restriction",
+    modelName: "profile",
   }
 );
 
-module.exports = Restriction;
+module.exports = Profile;

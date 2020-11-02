@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Event, User, Restriction } = require("../../models");
+const {User, Restriction } = require("../../models");
 
 // GET all restrictions /api/restrictions
 router.get("/", (req, res) => {
