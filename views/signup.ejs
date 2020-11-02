@@ -1,0 +1,54 @@
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <header>
+      <%- include('./partials/nav.ejs') %>
+    </header>
+
+    <main>
+      <div class="container">
+        <h4>Sign Up</h4>
+        <div class="row">
+          <form action="/User" method="POST" class="signup-form col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name" name="first_name" type="text" class="validate" />
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" name="last_name" type="text" class="validate" />
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input id="email" name="email" type="email" class="validate" />
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">security</i>
+                <input id="password" name="password" type="password" class="validate" />
+                <label for="password">Password</label>
+              </div>
+            </div>
+            <button>Submit</button>
+          </form>
+        </div>
+        <p class="center-align">
+          Already a member? <a href="login.html">Login</a>
+        </p>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
