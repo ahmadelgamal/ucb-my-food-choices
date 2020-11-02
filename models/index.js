@@ -6,7 +6,7 @@ User.hasMany(Restriction, {
   foreignKey: "user_id",
 });
 
-Restriction.belongsTo(User, {
+Restriction.hasMany(User, {
   foreignKey: "user_id",
 });
 
