@@ -8,12 +8,32 @@
             <a href="login.html" data-target="mobile-nav" class="sidenav-trigger">
                 <i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="signup.html">Sign Up</a></li>
+                <% if (userId) { %>
+                <li>
+                    <form method='post' action='/logout'>
+                        <button>Logout</button>
+                    </form>
+                </li>
+                <% } else { %>
+                <li>
+                    <a href="signup.html">Sign Up</a>
+                </li>
+                <% } %>   
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-nav">
-      <li><a href="signup.html">Sign Up</a></li>
+        <% if (userId) { %>
+            <li>
+                <form method='post' action='/logout'>
+                    <button>Logout</button>
+                </form>
+            </li>
+            <% } else { %>
+            <li>
+                <a href="signup.html">Sign Up</a>
+            </li>
+            <% } %>
     </ul>
 </header>
