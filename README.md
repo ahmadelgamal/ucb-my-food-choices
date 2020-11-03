@@ -24,7 +24,7 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 ## Deployment URL
 
-https://ahmadelgamal.github.io/ucb-my-food-choices/
+https://my-food-choices.herokuapp.com/
 
 ## GitHub Repo URL
 
