@@ -5,7 +5,7 @@ const { User, Restriction, Profile } = require("../../models");
 router.get("/", (req, res) => {
   console.log("=========GET=========");
   Restriction.findAll({
-    attributes: ["id", "restriction_name", "category"],
+    attributes: ["id", "restriction_name", "category", "created_at", "updated_at"],
 
     include: [
       {
