@@ -39,20 +39,20 @@ app.get('/signup.html', (req, res) => {
 });
 
 // POST routes
-app.post('/user', (req, res) => {
+app.post('/users', (req, res) => {
     console.log(req.body);
-    // const user = new User(req.body);
-    // user.save().then((result) => {
-    //     res.redirect('profile');
-    // });
+    const user = new User(req.body);
+    user.save().then((result) => {
+        res.redirect('profile');
+    });
 });
 
 app.post('/restriction', (req, res) => {
     console.log(req.body);
-    // const user = new Restriction(req.body);
-    // user.save().then((result) => {
-    //     res.redirect('reports');
-    // });
+    const user = new Restriction(req.body);
+    user.save().then((result) => {
+        res.redirect('reports');
+    });
 });
 
 // 404

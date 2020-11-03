@@ -4,7 +4,6 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sess = {
@@ -16,6 +15,9 @@ const sess = {
     db: sequelize,
   }),
 };
+
+// register view engine
+app.set('view engine', 'ejs');
 
 app.use(session(sess));
 
