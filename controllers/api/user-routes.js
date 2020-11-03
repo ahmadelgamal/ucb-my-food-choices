@@ -41,7 +41,8 @@ router.post("/", (req, res) => {
   console.log("========POST========"); 
   // expects {first_name: 'User', last_name: Smith, email: 'user@email.com', password: '1234'}
   User.create({
-    username: req.body.username,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
   })
@@ -62,7 +63,7 @@ router.post("/", (req, res) => {
 
 // PUT update a user /api/users/1
 router.put("/:id", (req, res) => {
-  // expects {username: 'User, email: 'user@email.com', password: '1234'}
+  // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
   User.update(req.body, {
     individualHooks: true,
     where: {

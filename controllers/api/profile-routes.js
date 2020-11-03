@@ -4,13 +4,13 @@ const { User, Restriction, Profile } = require("../../models");
 // GET all restrictions /api/restrictions
 router.get("/", (req, res) => {
   console.log("=========GET=========");
-  Restriction.findAll({
-    attributes: ["id", "restriction_name", "category"],
+  Profile.findAll({
+    attributes: ["id", "user_id", "restriction_id"],
 
     include: [
       {
-        model: Profile,
-        attributes: ["id"],
+        model: Restriction,
+        attributes: ["restriction_name"],
         include: {
           model: User,
           attributes: ["first_name"],
@@ -32,33 +32,33 @@ router.get("/", (req, res) => {
 // GET a restriction by id /api/restrictions/1
 router.get("/:id", (req, res) => {
   console.log("========GET=ID========");
-  Restriction.findOne({
+  Profile.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "restriction_name"],
+    attributes: ["id", "user_id", "restriction_id"],
 
     include: [
       {
-        model: User,
-        attributes: ["first_name"],
+        model: Restriction,
+        attributes: ["restriction_name"],
         include: {
           model: User,
-          attributes: ["last_name"],
+          attributes: ["first_name"],
         },
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["last_rname"],
       },
     ],
   })
-    .then((dbRestrictData) => {
-      if (!dbRestrictData) {
+    .then((dbProfileData) => {
+      if (!dbProfileData) {
         res.status(404).json({ message: "No restricton found with this id" });
         return;
       }
-      res.json(dbRestrictData);
+      res.json(dbProfileData);
     })
     .catch((err) => {
       console.log(err);
@@ -69,12 +69,12 @@ router.get("/:id", (req, res) => {
 // POST create a restriction /api/restrictions
 router.post("/", (req, res) => {
   console.log("=========POST=========");
-  // expects {"restriction_name": "My restriction", "category": Allergies}
-  Restriction.create({
-    restriction: req.body.restriction,
-    category: req.body.category,
+  // expects {"event_name": "My Party" ,"event_date": "2020-11-10" user_id: 1}
+  Profile.create({
+    user_id: req.body.user_id,
+    restriction_id: req.body.restriction_id,
   })
-    .then((dbRestrictData) => res.json(dbRestrictData))
+    .then((dbProfileData) => res.json(dbProfileData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -84,10 +84,10 @@ router.post("/", (req, res) => {
 // PUT update a restriction by id /api/restrictions/1
 router.put("/:id", (req, res) => {
   console.log("=========PUT=========");
-  Restriction.update(
+  Profile.update(
     {
-      restriction: req.body.restriction,
-      category: req.body.category,
+      user_id: req.body.user_id,
+      restriction_id: req.body.restriction_id,
     },
     {
       where: {
@@ -95,12 +95,12 @@ router.put("/:id", (req, res) => {
       },
     }
   )
-    .then((dbRestrictData) => {
-      if (!dbRestrictData) {
+    .then((dbProfileData) => {
+      if (!dbProfileData) {
         res.status(404).json({ message: "No restriction found with this id" });
         return;
       }
-      res.json(dbRestrictData);
+      res.json(dbProfileData);
     })
     .catch((err) => {
       console.log(err);
@@ -112,17 +112,17 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   console.log("=========DELETE========");
   console.log("id", req.params.id);
-  Restriction.destroy({
+  Profile.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbRestrictData) => {
-      if (!dbRestrictData) {
+    .then((dbProfileData) => {
+      if (!dbProfileData) {
         res.status(404).json({ message: "No restriction found with this id" });
         return;
       }
-      res.json(dbRestrictData);
+      res.json(dbProfileData);
     })
     .catch((err) => {
       console.log(err);

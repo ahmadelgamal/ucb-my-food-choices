@@ -1,23 +1,18 @@
 // import all models
+const Profile = require("./Profile");
 const User = require("./User");
 const Restriction = require("./Restriction");
-const Profile = require("./Restriction");
 
-User.belongsTo(Profile, {
+User.belongsToMany(Restriction, {
+  through: "profile",
+  as: "restriction",
   foreignKey: "user_id",
 });
 
-Restriction.belongsTo(Profile, {
-  foreignKey: 'restriction_id'
-});
-
-Profile.hasMany(User, {
-  foreignKey: "user_id",
-});
-
-Profile.hasMany(Restriction, {
+Restriction.belongsToMany(User, {
+  through: "profile",
+  as: "user",
   foreignKey: "restriction_id",
 });
-
 
 module.exports = { User, Profile, Restriction };

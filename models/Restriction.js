@@ -11,14 +11,14 @@ Restriction.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    restriction: {
+    restriction_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     category: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
-    },
+    }
   },
   {
     sequelize,

@@ -2,103 +2,103 @@ const { Restriction } = require("../models");
 
 const restrictiondata = [
   {
-    restriction: "Eggs",
+    restriction_name: "Eggs",
     category: "Allergies"
   },
   {
-    Restriction: "Fish",
+    restriction_name: "Fish",
     category: "Allergies"
   },
   {
-    Restriction: "Gluten",
+    restriction_name: "Gluten",
     category: "Allergies"
   },
   {
-    Restriction: "Peanuts",
+    restriction_name: "Peanuts",
     category: "Allergies"
   },
   {
-    Restriction: "Shellfish",
+    restriction_name: "Shellfish",
     category: "Allergies"
   },
   {
-    Restriction: "Soy",
+    restriction_name: "Soy",
     category: "Allergies"
   },
   {
-    Restriction: "Tree Nuts",
+    restriction_name: "Tree Nuts",
     category: "Allergies"
   },
   {
-    Restriction: "Wheat",
+    restriction_name: "Wheat",
     category: "Allergies"
   },
   {
-    Restriction: "Celiac Disease: Gluten Free",
+    restriction_name: "Celiac Disease: Gluten Free",
     category: "Medical"
   },
   {
-    Restriction: "Diabetes: Sugar Free",
+    restriction_name: "Diabetes: Sugar Free",
     category: "Medical"
   },
   {
-    Restriction: "Gout: High Vegetables & Low Meat",
+    restriction_name: "Gout: High Vegetables & Low Meat",
     category: "Medical"
   },
   {
-    Restriction: "Hypertension: Low Salt",
+    restriction_name: "Hypertension: Low Salt",
     category: "Medical"
   },
   {
-    Restriction: "Lactose Intolerance: Dairy Free",
+    restriction_name: "Lactose Intolerance: Dairy Free",
     category: "Medical"
   },
   {
-    Restriction: "Buddhist: No Meat, Garlic, Onions",
+    restriction_name: "Buddhist: No Meat, Garlic, Onions",
     category: "Religious"
   },
   {
-    Restriction: "Hindu: No Beef, Eggs",
+    restriction_name: "Hindu: No Beef, Eggs",
     category: "Religious"
   },
   {
-    Restriction: "Jewish: Kosher",
+    restriction_name: "Jewish: Kosher",
     category: "Religious"
   },
   {
-    Restriction: "Alcohol Free",
+    restriction_name: "Alcohol Free",
     category: "Substance"
   },
   {
-    Restriction: "Caffeine Free",
+    restriction_name: "Caffeine Free",
     category: "Substance"
   },
   {
-    Restriction: "Atkins",
+    restriction_name: "Atkins",
     category: "Weight Management"
   },
   {
-    Restriction: "Keto",
+    restriction_name: "Keto",
     category: "Weight Management"
   },
   {
-    Restriction: "Low Fat",
+    restriction_name: "Low Fat",
     category: "Weight Management"
   },
   {
-    Restriction: "Paleo",
+    restriction_name: "Paleo",
     category: "Weight Management"
   },
   {
-    Restriction: "Pescetarian",
+    restriction_name: "Pescetarian",
     category: "Other"
   },
   {
-    Restriction: "Vegan",
+    restriction_name: "Vegan",
     category: "Other"
   },
   {
-    Restriction: "Vegetarian",
+    restriction_name: "Vegetarian",
     category: "Other"
   }
 ];
