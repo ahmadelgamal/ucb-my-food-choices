@@ -1,3 +1,4 @@
+// For side navbar. As per materialize docs
 document.addEventListener('DOMContentLoaded', function () {
   // init side navbar, as per materialize docs
   const sideNavEls = document.querySelectorAll('.sidenav');

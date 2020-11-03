@@ -93,7 +93,8 @@ _Coming soon, God willing_
    1. shakes or ice cream
 1. Food dislikes
 1. Multiple profiles per user account
-1. Organizers will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Admin (Organizers) will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Admin will be able to delete users (if an employee leaves a company, for example).
 
 ## Contributors
 
