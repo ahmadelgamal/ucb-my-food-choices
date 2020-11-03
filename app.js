@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('./models/User');
+const Restriction = require('./models/Restriction');
 
 // express app
 const app = express();
@@ -50,7 +51,7 @@ app.post('/User', (req, res) => {
 app.post('/Restriction', (req, res) => {
     console.log(req.body);
     // const user = new Restriction(req.body);
-    // user.save().then((result) => {
+    // restriction.save().then((result) => {
     //     res.redirect('reports');
     // });
 });
