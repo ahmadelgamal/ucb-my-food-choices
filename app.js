@@ -39,7 +39,7 @@ app.get('/signup.html', (req, res) => {
 });
 
 // POST routes
-app.post('/User', (req, res) => {
+app.post('/user', (req, res) => {
     console.log(req.body);
     // const user = new User(req.body);
     // user.save().then((result) => {
@@ -47,7 +47,7 @@ app.post('/User', (req, res) => {
     // });
 });
 
-app.post('/Restriction', (req, res) => {
+app.post('/restriction', (req, res) => {
     console.log(req.body);
     // const user = new Restriction(req.body);
     // user.save().then((result) => {
