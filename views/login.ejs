@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <h1>Login</h1>
-          <form class="login-form col s12" action="/" method="GET">
+          <form class="login-form col s12" action="/profile" method="GET">
             <div class="row">
               <div class="input-field col s12 hoverable">
                 <i class="material-icons prefix">email</i>
@@ -21,10 +21,9 @@
                 <input id="password" type="password" class="validate" />
                 <label for="password">Password</label>
               </div>
-              <button
+              <button id="login-btn"
                 class="btn btn-large waves-effect waves-light green hoverable"
-                type="submit"
-                name="action"
+                type="submit" value="accept"
               >
                 Login
                 <i class="material-icons right">send</i>
@@ -39,5 +38,6 @@
     </main>
     <%- include('./partials/footer.ejs') %>
   </body>
-  <script src="/js/login.js"></script>
+  <script src="./js/login.js"></script>
+  
 </html>

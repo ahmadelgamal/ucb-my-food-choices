@@ -14,21 +14,21 @@ router.get("/", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
-// router.get("/", (req, res) => {
-//   res.render("login", { title: "Login" });
-// });
+router.get("/", (req, res) => {
+  res.render("login", { title: "Login" });
+});
 
-// router.get('/profile', (req, res) => {
-//     res.render('profile', { title: 'Profile'});
-// });
+router.get("/profile", (req, res) => {
+  res.render("profile", { title: "Profile" });
+});
 
-// app.get('/reports.html', (req, res) => {
-//     res.render('reports', { title: 'Reports'});
-// });
+router.get("/reports.html", (req, res) => {
+  res.render("reports", { title: "Reports" });
+});
 
-// app.get('/signup.html', (req, res) => {
-//     res.render('signup', { title: 'Sign Up'});
-// });
+router.get("/signup.html", (req, res) => {
+  res.render("signup", { title: "Sign Up" });
+});
 
 // // POST routes
 // app.post('/user', (req, res) => {

@@ -39,14 +39,14 @@ router.get("/:id", (req, res) => {
     attributes: ["id", "user_id", "restriction_id"],
 
     include: [
-      {
-        model: Restriction,
-        attributes: ["restriction_name"],
-        include: {
-          model: User,
-          attributes: ["first_name"],
-        },
-      },
+    //   {
+    //     model: Restriction,
+    //     attributes: ["restriction_name"],
+    //     include: {
+    //       model: User,
+    //       attributes: ["first_name"],
+    //     },
+    //   },
       {
         model: User,
         attributes: ["last_rname"],
