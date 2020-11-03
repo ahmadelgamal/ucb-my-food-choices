@@ -3,7 +3,7 @@ const { User, Restriction, Profile } = require("../../models");
 
 // GET all restrictions /api/restrictions
 router.get("/", (req, res) => {
-  console.log("=========GET=========");
+  console.log("====GET=profile====");
   Profile.findAll({
     attributes: ["id", "user_id", "restriction_id"],
 
@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 
 // GET a restriction by id /api/restrictions/1
 router.get("/:id", (req, res) => {
-  console.log("========GET=ID========");
+  console.log("====GET=ID=profile====");
   Profile.findOne({
     where: {
       id: req.params.id,
@@ -68,7 +68,7 @@ router.get("/:id", (req, res) => {
 
 // POST create a restriction /api/restrictions
 router.post("/", (req, res) => {
-  console.log("=========POST=========");
+  console.log("======POST=profile=====");
   // expects {"event_name": "My Party" ,"event_date": "2020-11-10" user_id: 1}
   Profile.create({
     user_id: req.body.user_id,
@@ -83,7 +83,7 @@ router.post("/", (req, res) => {
 
 // PUT update a restriction by id /api/restrictions/1
 router.put("/:id", (req, res) => {
-  console.log("=========PUT=========");
+  console.log("=====PUT==profile=====");
   Profile.update(
     {
       user_id: req.body.user_id,
@@ -110,7 +110,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE a restriction by id /api/restrictions/1
 router.delete("/:id", (req, res) => {
-  console.log("=========DELETE========");
+  console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
   Profile.destroy({
     where: {

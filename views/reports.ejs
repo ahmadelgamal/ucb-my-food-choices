@@ -1,232 +1,232 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <%- include('./partials/head.ejs') %>
-    <body>
-        <%- include('./partials/header.ejs') %>
-        <main>
-            <div class="container">
-              <h1>Reports</h1>
-      
-              <h3>Bootcamp Inc.</h3>
-              <p>
-                As of, {today's date}, 178, out of 210 employees, replied with the
-                following:
-              </p>
-      
-              <!-- Dropdown Trigger -->
-              <a
-                class="btn dropdown-trigger green darken-2"
-                href="#!"
-                data-target="report-filter-dropdown"
-                >Filter By<i class="material-icons right">arrow_drop_down</i></a
-              >
-              <!-- Dropdown Structure -->
-              <ul id="report-filter-dropdown" class="dropdown-content">
-                <li><a class="green-text text-darken-3" href="#!">All</a></li>
-                <li class="divider"></li>
-                <li><a class="green-text text-darken-3" href="#!">Allergies</a></li>
-                <li><a class="green-text text-darken-3" href="#!">Medical</a></li>
-                <li><a class="green-text text-darken-3" href="#!">Religious</a></li>
-                <li><a class="green-text text-darken-3" href="#!">Substance</a></li>
-                <li>
-                  <a class="green-text text-darken-3" href="#!">Weight Management</a>
-                </li>
-                <li><a class="green-text text-darken-3" href="#!">Other</a></li>
-              </ul>
-      
-              <h3>Allergies</h3>
-              <table class="striped">
-                <thead>
-                  <tr>
-                    <th class="col1">Allergy</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Eggs</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Fish</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>Gluten</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>Peanuts</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>Shellfish</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Soy</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Tree Nuts</td>
-                    <td>2</td>
-                  </tr>
-                  <tr>
-                    <td>Wheat</td>
-                    <td>3</td>
-                  </tr>
-                </tbody>
-              </table>
-      
-              <h3>Medical</h3>
-              <table class="striped">
-                <thead>
-                  <tr>
-                    <th class="col1">Medical Restriction</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Celiac Disease: Gluten Free</td>
-                    <td>17</td>
-                  </tr>
-                  <tr>
-                    <td>Diabetes: Sugar Free</td>
-                    <td>54</td>
-                  </tr>
-                  <tr>
-                    <td>Gout: High Vegetables & Low Meat</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Hypertension: Low Salt</td>
-                    <td>12</td>
-                  </tr>
-                  <tr>
-                    <td>Lactose Intolerance: Dairy Free</td>
-                    <td>20</td>
-                  </tr>
-                </tbody>
-              </table>
-      
-              <h3>Religious</h3>
-              <table class="striped">
-                <thead>
-                  <tr>
-                    <th class="col1">Religion</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Buddhist: No Meat, Garlic &amp; Onions</td>
-                    <td>18</td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>Hindu: No Meat, Garlic &amp; Onions</td>
-                    <td>7</td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>Jewish: Kosher</td>
-                    <td>12</td>
-                  </tr>
-                </tbody>
-                <tbody>
-                  <tr>
-                    <td>Muslim: Halal</td>
-                    <td>15</td>
-                  </tr>
-                </tbody>
-              </table>
-      
-              <h3>Substance</h3>
-              <table class="striped">
-                <thead>
-                  <tr>
-                    <th class="col1">Substance</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Alcohol Free</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Caffeine Free</td>
-                    <td>6</td>
-                  </tr>
-                </tbody>
-              </table>
-      
-              <h3>Weight Management</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th class="col1">Diet</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Atkins</td>
-                    <td>17</td>
-                  </tr>
-                  <tr>
-                    <td>Keto</td>
-                    <td>26</td>
-                  </tr>
-                  <tr>
-                    <td>Low Carb</td>
-                    <td>48</td>
-                  </tr>
-                  <tr>
-                    <td>Low Fat</td>
-                    <td>40</td>
-                  </tr>
-                  <tr>
-                    <td>Paleo</td>
-                    <td>2</td>
-                  </tr>
-                </tbody>
-              </table>
-      
-              <h3>Other</h3>
-              <table class="striped">
-                <thead>
-                  <tr>
-                    <th class="col1">Restriction</th>
-                    <th class="col2">No. of Employees</th>
-                  </tr>
-                </thead>
-      
-                <tbody>
-                  <tr>
-                    <td>Pescetarian</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <td>Vegan</td>
-                    <td>23</td>
-                  </tr>
-                  <tr>
-                    <td>Vegetarian</td>
-                    <td>58</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-        </main>
-        <%- include('./partials/footer.ejs') %>
-    </body>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+      <div class="container">
+        <h1>Reports</h1>
+
+        <h3>Bootcamp Inc.</h3>
+        <p>
+          As of, {today's date}, 178, out of 210 employees, replied with the
+          following:
+        </p>
+
+        <!-- Dropdown Trigger -->
+        <a
+          class="btn dropdown-trigger green darken-2"
+          href="#!"
+          data-target="report-filter-dropdown"
+          >Filter By<i class="material-icons right">arrow_drop_down</i></a
+        >
+        <!-- Dropdown Structure -->
+        <ul id="report-filter-dropdown" class="dropdown-content">
+          <li><a class="green-text text-darken-3" href="#!">All</a></li>
+          <li class="divider"></li>
+          <li><a class="green-text text-darken-3" href="#!">Allergies</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Medical</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Religious</a></li>
+          <li><a class="green-text text-darken-3" href="#!">Substance</a></li>
+          <li>
+            <a class="green-text text-darken-3" href="#!">Weight Management</a>
+          </li>
+          <li><a class="green-text text-darken-3" href="#!">Other</a></li>
+        </ul>
+
+        <h3>Allergies</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Allergy</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Eggs</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Fish</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Gluten</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Peanuts</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Shellfish</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Soy</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>Tree Nuts</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Wheat</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Medical</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Medical Restriction</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Celiac Disease: Gluten Free</td>
+              <td>17</td>
+            </tr>
+            <tr>
+              <td>Diabetes: Sugar Free</td>
+              <td>54</td>
+            </tr>
+            <tr>
+              <td>Gout: High Vegetables & Low Meat</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Hypertension: Low Salt</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>Lactose Intolerance: Dairy Free</td>
+              <td>20</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Religious</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Religion</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Buddhist: No Meat, Garlic &amp; Onions</td>
+              <td>18</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Hindu: No Meat, Garlic &amp; Onions</td>
+              <td>7</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Jewish: Kosher</td>
+              <td>12</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Muslim: Halal</td>
+              <td>15</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Substance</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Substance</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alcohol Free</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>Caffeine Free</td>
+              <td>6</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Weight Management</h3>
+        <table>
+          <thead>
+            <tr>
+              <th class="col1">Diet</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Atkins</td>
+              <td>17</td>
+            </tr>
+            <tr>
+              <td>Keto</td>
+              <td>26</td>
+            </tr>
+            <tr>
+              <td>Low Carb</td>
+              <td>48</td>
+            </tr>
+            <tr>
+              <td>Low Fat</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <td>Paleo</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Other</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Restriction</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Pescetarian</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Vegan</td>
+              <td>23</td>
+            </tr>
+            <tr>
+              <td>Vegetarian</td>
+              <td>58</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+  </body>
 </html>

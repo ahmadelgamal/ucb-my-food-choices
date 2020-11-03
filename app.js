@@ -1,5 +1,9 @@
 const express = require('express');
-const User = require('./models/User');
+const routes = require("./controllers");
+//const User = require('./models/User');
+const sequelize = require("./config/connection");
+const path = require("path");
+const PORT = process.env.PORT || 3001;
 
 // express app
 const app = express();
@@ -7,55 +11,77 @@ const app = express();
 // register view engine
 app.set('view engine', 'ejs');
 
-// listen for requests
-app.listen(3000);
-console.log('listening on PORT 3000')
+//session
+const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sess = {
+  secret: "Super secret secret",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
+app.use(session(sess));
+
+app.use(express.json());
 // static files
-app.use(express.static('public'));
+//app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, "public")));
 
 // middleware
 app.use(express.urlencoded({ extended: true}));
 
-// GET routes
-app.get('/', (req, res) => {
-    res.render('login', { title: 'Login' });
-});
+// listen for requests
+// app.listen(3000);
+// console.log('listening on PORT 3000')
 
-app.get('/login.html', (req, res) => {
-    res.render('login', { title: 'Login'});
-});
+// turn on connection to db and server
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log("Now listening"));
+  });
 
-app.get('/profile.html', (req, res) => {
-    res.render('profile', { title: 'Profile'});
-});
+// // GET routes
+// app.get('/', (req, res) => {
+//     res.render('login', { title: 'Login' });
+// });
 
-app.get('/reports.html', (req, res) => {
-    res.render('reports', { title: 'Reports'});
-});
+// app.get('/login.html', (req, res) => {
+//     res.render('login', { title: 'Login'});
+// });
 
-app.get('/signup.html', (req, res) => {
-    res.render('signup', { title: 'Sign Up'});
-});
+// app.get('/profile.html', (req, res) => {
+//     res.render('profile', { title: 'Profile'});
+// });
 
-// POST routes
-app.post('/User', (req, res) => {
-    console.log(req.body);
-    // const user = new User(req.body);
-    // user.save().then((result) => {
-    //     res.redirect('profile');
-    // });
-});
+// app.get('/reports.html', (req, res) => {
+//     res.render('reports', { title: 'Reports'});
+// });
 
-app.post('/Restriction', (req, res) => {
-    console.log(req.body);
-    // const user = new Restriction(req.body);
-    // user.save().then((result) => {
-    //     res.redirect('reports');
-    // });
-});
+// app.get('/signup.html', (req, res) => {
+//     res.render('signup', { title: 'Sign Up'});
+// });
 
-// 404
-app.use((req, res) => {
-    res.status(404).render('404', { title: '404'});
-});
+// // POST routes
+// app.post('/user', (req, res) => {
+//     console.log(req.body);
+//     // const user = new User(req.body);
+//     // user.save().then((result) => {
+//     //     res.redirect('profile');
+//     // });
+// });
+
+// app.post('/Restriction', (req, res) => {
+//     console.log(req.body);
+//     // const user = new Restriction(req.body);
+//     // user.save().then((result) => {
+//     //     res.redirect('reports');
+//     // });
+// });
+
+// // 404
+// app.use((req, res) => {
+//     res.status(404).render('404', { title: '404'});
+// });
