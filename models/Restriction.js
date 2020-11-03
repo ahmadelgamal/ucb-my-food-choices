@@ -11,24 +11,14 @@ Restriction.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    restriction: {
+    restriction_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
-    event_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "event",
-        key: "id",
-      },
-    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
   },
   {
     sequelize,
