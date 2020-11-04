@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
 // });
 
 router.get("/signup", (req, res) => {
+  console.log("=====GET=signup=app======="); 
   res.render("signup", { title: "Sign Up" });
 });
 
@@ -28,10 +29,10 @@ router.get("/profile", (req, res) => {
   res.render("profile", { title: "Profile" });
 });
 
-router.get("/profile", (req, res) => {
-  console.log("=====GET=profile=app======="); 
-  res.render("profile", { title: "Profile" });
-});
+// router.get("/profile", (req, res) => {
+//   console.log("=====GET=profile=app======="); 
+//   res.render("profile", { title: "Profile" });
+// });
 
 // // POST routes
 // app.post('/user', (req, res) => {

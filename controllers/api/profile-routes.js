@@ -69,7 +69,7 @@ router.get("/:id", (req, res) => {
 // POST create a restriction /api/profile
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
-  // expects {"event_name": "My Party" ,"event_date": "2020-11-10" user_id: 1}
+  // expects {"user_id": 1 ,"restriecton_id": 8}
   Profile.create({
     user_id: req.body.user_id,
     restriction_id: req.body.restriction_id,
