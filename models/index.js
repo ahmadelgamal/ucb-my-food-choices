@@ -3,15 +3,23 @@ const Profile = require("./Profile");
 const User = require("./User");
 const Restriction = require("./Restriction");
 
-User.belongsToMany(Restriction, {
-  through: "profile",
-  as: "restriction",
+User.hasMany(Profile, {
   foreignKey: "user_id",
 });
 
-Restriction.belongsToMany(User, {
-  through: "profile",
-  as: "user",
+Profile.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+Restriction.belongsTo(User, {
+  foreignKey: "restriction_id",
+});
+
+Restriction.belongsTo(Profile, {
+  foreignKey: "restriction_id",
+});
+
+Profile.hasMany(Restriction, {
   foreignKey: "restriction_id",
 });
 

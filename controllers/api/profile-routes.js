@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Restriction, Profile } = require("../../models");
 
-// GET all restrictions /api/restrictions
+// GET all restrictions /api/profile
 router.get("/", (req, res) => {
   console.log("====GET=profile====");
   Profile.findAll({
@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// GET a restriction by id /api/restrictions/1
+// GET a restriction by id /api/profile/1
 router.get("/:id", (req, res) => {
   console.log("====GET=ID=profile====");
   Profile.findOne({
@@ -66,7 +66,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// POST create a restriction /api/restrictions
+// POST create a restriction /api/profile
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
   // expects {"event_name": "My Party" ,"event_date": "2020-11-10" user_id: 1}
@@ -81,7 +81,7 @@ router.post("/", (req, res) => {
     });
 });
 
-// PUT update a restriction by id /api/restrictions/1
+// PUT update a restriction by id /api/profile/1
 router.put("/:id", (req, res) => {
   console.log("=====PUT==profile=====");
   Profile.update(
@@ -108,7 +108,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-// DELETE a restriction by id /api/restrictions/1
+// DELETE a restriction by id /api/profile/1
 router.delete("/:id", (req, res) => {
   console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
