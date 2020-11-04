@@ -2,7 +2,7 @@
 
 ## Description
 
-Ever been to an event where food was served, and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
+Have you ever been to an event where food was served, and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
 
 Well, the solution is **My Food Choices!**
 
