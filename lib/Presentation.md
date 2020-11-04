@@ -1,6 +1,6 @@
 # Class Presentation Outline
 
-This document outlines the presentation due on Wednesday, November rd, 2020.
+This document outlines the presentation due on Wednesday, November 4th, 2020.
 
 ## 1- App Description
 
@@ -10,23 +10,28 @@ Well, the solution is **My Food Choices!**
 
 **My Food Choices** is a simple tool for users to store their dietary restrictions to share with event organizers for any event where food is served!
 
-It has an interface for users to enter their dietary choices, and another for event organizers/food servers to view the needs of the entire list of guests."
+It has an interface for users to enter their dietary choices, and another for admin (event organizers/food servers) to view the needs of the entire list of guests.
 
 ## 2- Walk thru UI
+
+1. Simple, sleek, intuitive UI
+1. Reponsive design
+1. Minimum Viable Product (MVP)
+1. Users can sign up, login, update profile and logout
+1. Admin can login from same login page, view reports and logout
 
 ## 3- Front End Technologies Used
 
 1. HTML5
 1. CSS3
 1. JavaScript
-1. Materialize
-1. Responsive Design
+1. Materialize CSS
 
 ## 4- Back End Technologies Used
 
 1. Database
 1. Routes
-1. Handlebars.js / EJS
+1. EJS
 
 ## 5- Deployment:
 
