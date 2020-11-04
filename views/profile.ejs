@@ -6,6 +6,7 @@
     <main>
       <!-- MATERIALIZE: The `for` attribute is necessary to bind our custom checkbox with the input.
               Add the input's `id` as the value of the for attribute of the label. -->
+<<<<<<< HEAD
       <form action="/Restriction" method="POST">
         <div class="container">
           <h1>Dietary Restrictions</h1>
@@ -207,4 +208,207 @@
     </main>
     <%- include('./partials/footer.ejs') %>
   </body>
+=======
+            <form action="restriction" method="POST">
+                <div class="container">
+                <h1>Dietary Restrictions</h1>
+                <h3>Allergies</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='eggs-allergy'/>
+                        <span>Eggs</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='fish-allergy'/>
+                        <span>Fish</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='gluten-allergy'/>
+                        <span>Gluten</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='peanut-allergy'/>
+                        <span>Peanuts</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='shellfish-allergy'/>
+                        <span>Shellfish</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='soy-allergy'/>
+                        <span>Soy</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='treenut-allergy'/>
+                        <span>Tree Nuts</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='wheat-allergy'/>
+                        <span>Wheat</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container">
+                <h3>Medical</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='celiac'/>
+                        <span>Celiac Disease: Gluten Free</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='suger-free'/>
+                        <span>Diabetes: Sugar Free</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='gout'/>
+                        <span>Gout: High Vegetables & Low Meat</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='hypertension'/>
+                        <span>Hypertension: Low Salt</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='lactose-intolerant'/>
+                        <span>Lactose Intolerance: Dairy Free</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container">
+                <h3>Religious</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='buddhist'/>
+                        <span>Buddhist: No Meat, Garlic &amp; Onions</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='hindu'/>
+                        <span>Hindu: No Beef &amp; Eggs</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='jewish'/>
+                        <span>Jewish: Kosher</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='muslim'/>
+                        <span>Muslim: Halal</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container">
+                <h3>Substance</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='alcohol-free'/>
+                        <span>Alcohol Free</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='caffine-free'/>
+                        <span>Caffeine Free</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container">
+                <h3>Weight Management</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='atkins'/>
+                        <span>Atkins</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='keto'/>
+                        <span>Keto</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='low-carb'/>
+                        <span>Low Carb</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='low-fat'/>
+                        <span>Low Fat</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='paleo'/>
+                        <span>Paleo</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container">
+                <h3>Other</h3>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='pescetarian'/>
+                        <span>Pescetarian</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='vegan'/>
+                        <span>Vegan</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name='vegitarian'/>
+                        <span>Vegetarian</span>
+                    </label>
+                    </p>
+                </div>
+        
+                <div class="container center-align">
+                <button
+                    class="btn waves-effect waves-light btn-large green"
+                    type="submit"
+                >
+                    Update Profile
+                    <i class="material-icons right">save</i>
+                </button>
+                </div>
+            </form>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+    </body>
+>>>>>>> fe9b198ee94c99895d35f8e925648c4db0fce0cc
 </html>

@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // middleware
 app.use(express.urlencoded({ extended: true}));
 
+<<<<<<< HEAD
 // listen for requests
 // app.listen(3000);
 // console.log('listening on PORT 3000')
@@ -85,3 +86,47 @@ sequelize.sync({ force: false }).then(() => {
 // app.use((req, res) => {
 //     res.status(404).render('404', { title: '404'});
 // });
+=======
+// GET routes
+app.get('/', (req, res) => {
+    res.render('login', { title: 'Login' });
+});
+
+app.get('/login.html', (req, res) => {
+    res.render('login', { title: 'Login'});
+});
+
+app.get('/profile.html', (req, res) => {
+    res.render('profile', { title: 'Profile'});
+});
+
+app.get('/reports.html', (req, res) => {
+    res.render('reports', { title: 'Reports'});
+});
+
+app.get('/signup.html', (req, res) => {
+    res.render('signup', { title: 'Sign Up'});
+});
+
+// POST routes
+app.post('/users', (req, res) => {
+    console.log(req.body);
+    const user = new User(req.body);
+    user.save().then((result) => {
+        res.redirect('profile');
+    });
+});
+
+app.post('/restriction', (req, res) => {
+    console.log(req.body);
+    const user = new Restriction(req.body);
+    user.save().then((result) => {
+        res.redirect('reports');
+    });
+});
+
+// 404
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404'});
+});
+>>>>>>> fe9b198ee94c99895d35f8e925648c4db0fce0cc

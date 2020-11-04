@@ -3,6 +3,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+<<<<<<< HEAD
 
 // express app
 const app = express();
@@ -13,6 +14,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // use session
+=======
+>>>>>>> fe9b198ee94c99895d35f8e925648c4db0fce0cc
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sess = {
@@ -24,6 +27,9 @@ const sess = {
     db: sequelize,
   }),
 };
+
+// register view engine
+app.set('view engine', 'ejs');
 
 app.use(session(sess));
 
