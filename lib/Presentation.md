@@ -14,7 +14,17 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 ## 2- Walk thru UI
 
-## 3- Front End Technologies Used
+## 3- Contributors
+
+This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
+
+| Name             | Role               | Technical Responsibilities        | GitHub Account                  |
+| ---------------- | ------------------ | --------------------------------- | ------------------------------- |
+| Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer | APIs, Routes, EJS & tests         | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
+
+## 4- Front End Technologies Used
 
 1. HTML5
 1. CSS3
@@ -22,17 +32,17 @@ It has an interface for users to enter their dietary choices, and another for ev
 1. Materialize
 1. Responsive Design
 
-## 4- Back End Technologies Used
+## 5- Back End Technologies Used
 
 1. Database
 1. Routes
 1. Handlebars.js / EJS
 
-## 5- Deployment:
+## 6- Deployment:
 
 1. Heroku
 
-## 6- Challenges:
+## 7- Challenges:
 
 1. GitHub:
    1. `.env`
@@ -40,7 +50,7 @@ It has an interface for users to enter their dietary choices, and another for ev
    1. Group members behind on commits
    1. Data collection from EJS
 
-## 7- Future Upgrades:
+## 8- Future Upgrades:
 
 1. Food favorites
 1. Food preferences, such as:
