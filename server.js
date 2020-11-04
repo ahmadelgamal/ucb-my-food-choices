@@ -25,8 +25,6 @@ const sess = {
   }),
 };
 
-// register view engine
-app.set('view engine', 'ejs');
 
 app.use(session(sess));
 
