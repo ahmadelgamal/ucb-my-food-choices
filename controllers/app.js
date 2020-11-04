@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 
 // login render
 router.get("/", (req, res) => {
-  console.log("=====GET=app=======");
+  console.log("=====GET=login=app=====");
   if (req.session.loggedIn) {
     res.redirect("/profile");
     return;
@@ -14,20 +14,23 @@ router.get("/", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
-router.get("/", (req, res) => {
-  res.render("login", { title: "Login" });
+// router.get("/", (req, res) => {
+//   console.log("=====login=app======="); 
+//   res.render("login", { title: "Login" });
+// });
+
+router.get("/signup", (req, res) => {
+  res.render("signup", { title: "Sign Up" });
 });
 
 router.get("/profile", (req, res) => {
+  console.log("=====GET=profile=app======="); 
   res.render("profile", { title: "Profile" });
 });
 
-router.get("/reports.html", (req, res) => {
-  res.render("reports", { title: "Reports" });
-});
-
-router.get("/signup.html", (req, res) => {
-  res.render("signup", { title: "Sign Up" });
+router.get("/profile", (req, res) => {
+  console.log("=====GET=profile=app======="); 
+  res.render("profile", { title: "Profile" });
 });
 
 // // POST routes
