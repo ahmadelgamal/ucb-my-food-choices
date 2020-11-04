@@ -1,6 +1,8 @@
 async function profileFormHandler(event) {
     event.preventDefault();
 
+    const restrictions = doc.body;
+    console.log(doc.body);
 
 
 }
