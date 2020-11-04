@@ -3,7 +3,7 @@ const { User } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
-console.log("=========GET========="); 
+  console.log("=========GET=USERS========");
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -16,7 +16,7 @@ console.log("=========GET=========");
 
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
-  console.log("=========GET=ID========");
+  console.log("=========GET=USER=ID========");
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
@@ -38,7 +38,7 @@ router.get("/:id", (req, res) => {
 
 // POST create new user /api/users
 router.post("/", (req, res) => {
-  console.log("========POST========"); 
+  console.log("========CREATE=USER========");
   // expects {first_name: 'User', last_name: Smith, email: 'user@email.com', password: '1234'}
   User.create({
     first_name: req.body.first_name,
@@ -63,6 +63,7 @@ router.post("/", (req, res) => {
 
 // PUT update a user /api/users/1
 router.put("/:id", (req, res) => {
+  console.log("=========UPDATE=USER=ID========");
   // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
   User.update(req.body, {
     individualHooks: true,
@@ -85,6 +86,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE delete a user /api/users/1
 router.delete("/:id", (req, res) => {
+  console.log("=========DELETE=USER========");
   User.destroy({
     where: {
       id: req.params.id,
@@ -105,6 +107,7 @@ router.delete("/:id", (req, res) => {
 
 // login as a user /api/login
 router.post("/login", (req, res) => {
+  console.log("=========LOGIN=route========");
   User.findOne({
     where: {
       email: req.body.email,
@@ -126,7 +129,7 @@ router.post("/login", (req, res) => {
       // declare session variables
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
-      req.session.loggedIn = true; 
+      req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
@@ -134,6 +137,7 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
+  console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();

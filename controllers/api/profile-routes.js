@@ -39,17 +39,17 @@ router.get("/:id", (req, res) => {
     attributes: ["id", "user_id", "restriction_id"],
 
     include: [
-    //   {
-    //     model: Restriction,
-    //     attributes: ["restriction_name"],
-    //     include: {
-    //       model: User,
-    //       attributes: ["first_name"],
-    //     },
-    //   },
+      {
+        model: Restriction,
+        attributes: ["restriction_name"],
+        include: {
+          model: User,
+          attributes: ["first_name"],
+        },
+      },
       {
         model: User,
-        attributes: ["last_rname"],
+        attributes: ["last_name"],
       },
     ],
   })
@@ -83,7 +83,7 @@ router.post("/", (req, res) => {
 
 // PUT update a restriction by id /api/profile/1
 router.put("/:id", (req, res) => {
-  console.log("=====PUT==profile=====");
+  console.log("=====UPDATE==profile=====");
   Profile.update(
     {
       user_id: req.body.user_id,
