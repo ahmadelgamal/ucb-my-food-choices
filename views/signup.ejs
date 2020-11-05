@@ -5,10 +5,8 @@
     <%- include('./partials/header.ejs') %>
     <main>
       <div class="container">
+        <h1>Sign Up</h1>
         <div class="row">
-          <h1>Sign Up</h1>
-          <!-- <form class="col s12">
-            <div class="row"> -->
           <form class="signup-form col s12" action="/" method="POST">
             <div class="row">
               <div class="input-field col s6 hoverable">
@@ -50,21 +48,26 @@
                 <label for="password">Password</label>
               </div>
             </div>
-            <button
-              id="signup-btn"
-              class="btn btn-large waves-effect waves-light green hoverable"
-              type="submit"
-              value="accept"
-            >
-              Sign Up<i class="material-icons right">send</i>
-            </button>
-            <!-- </form>
-            </div> -->
-            <p class="center-align">Already a member? <a href="/">Login</a></p>
+            <div class="row">
+              <button
+                id="signup-btn"
+                class="btn btn-large waves-effect waves-light green hoverable"
+                type="submit"
+                value="accept"
+              >
+                Sign Up<i class="material-icons right">send</i>
+              </button>
+            </div>
+            <div class="row">
+              <p class="center-align">
+                Already a member? <a href="/">Login</a>
+              </p>
+            </div>
           </form>
         </div>
       </div>
     </main>
+
     <script src="./js/signup.js"></script>
     <%- include('./partials/footer.ejs') %>
   </body>
