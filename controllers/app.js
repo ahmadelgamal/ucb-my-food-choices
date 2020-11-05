@@ -14,34 +14,25 @@ router.get("/", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
-// router.get("/", (req, res) => {
-//   console.log("=====login=app======="); 
-//   res.render("login", { title: "Login" });
-// });
-
 router.get("/signup", (req, res) => {
-  console.log("=====GET=signup=app======="); 
+  console.log("=====GET=signup=app=======");
   res.render("signup", { title: "Sign Up" });
 });
 
-router.get("/profile", (req, res) => {
-  console.log("=====GET=profile=app======="); 
+router.get("/profile", withAuth, (req, res) => {
+  console.log("=====GET=profile=app=======");
+  console.log(req.session.user_id)
+  if (req.session.user_id === 3) {
+    res.redirect("/reports");
+    return;
+  }
   res.render("profile", { title: "Profile" });
 });
 
-// router.get("/profile", (req, res) => {
-//   console.log("=====GET=profile=app======="); 
-//   res.render("profile", { title: "Profile" });
-// });
-
-// // POST routes
-// app.post('/user', (req, res) => {
-//     console.log(req.body);
-//     // const user = new User(req.body);
-//     // user.save().then((result) => {
-//     //     res.redirect('profile');
-//     // });
-// });
+router.get("/reports", withAuth, (req, res) => {
+  console.log("=====GET=report=app=======");
+  res.render("reports", { title: "Reports" });
+});
 
 // router.post('/Restriction', (req, res) => {
 //     console.log(req.body);
