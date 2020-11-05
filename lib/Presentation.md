@@ -12,7 +12,7 @@ Well, the solution is **My Food Choices!**
 
 It has an interface for users to enter their dietary choices, and another for admin (event organizers/food servers) to view the needs of the entire list of guests.
 
-## 2- Walk thru UI
+## 2- App Demo
 
 1. Simple, sleek, intuitive UI
 1. Reponsive design
