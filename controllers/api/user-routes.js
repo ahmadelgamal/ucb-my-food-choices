@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Restriction, Profile } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
@@ -22,6 +22,16 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
+    include: [
+      {
+        model: Profile,
+        attributes: ["id", "user_id", "restriction_id"],
+        include: {
+          model: Restriction,
+          attributes: ["restriction_name"],
+        },
+      }
+    ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
