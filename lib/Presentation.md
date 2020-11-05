@@ -27,17 +27,17 @@ It has an interface for users to enter their dietary choices, and another for ad
 1. JavaScript
 1. Materialize CSS
 
-## 5- Back End Technologies Used
+## 4- Back End Technologies Used
 
 1. Database
 1. Routes
 1. EJS
 
-## 6- Deployment:
+## 5- Deployment:
 
 1. Heroku
 
-## 7- Challenges:
+## 6- Challenges:
 
 1. GitHub:
    1. `.env`
@@ -46,7 +46,7 @@ It has an interface for users to enter their dietary choices, and another for ad
 1. Data collection from EJS
 1. `POST`ing from profile (checkbox form)
 
-## 8- Future Upgrades:
+## 7- Future Upgrades:
 
 1. Food favorites
 1. Food preferences, such as:
