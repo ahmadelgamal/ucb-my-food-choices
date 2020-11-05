@@ -43,7 +43,8 @@ It has an interface for users to enter their dietary choices, and another for ad
    1. `.env`
    1. Lost changes
    1. Group members behind on commits
-   1. Data collection from EJS
+1. Data collection from EJS
+1. `POST`ing from profile (checkbox form)
 
 ## 7- Future Upgrades:
 
