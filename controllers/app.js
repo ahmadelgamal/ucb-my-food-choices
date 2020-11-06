@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
-const { Profile, User, Restriction } = require("../models");
-const withAuth = require("../utils/auth");
+// const sequelize = require("../config/connection");
+// const { Profile, User, Restriction } = require("../models");
+// const withAuth = require("../utils/auth");
 
 // login render
 router.get("/", (req, res) => {
@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
     return;
   }
 
-  res.render("login", { title: "Login" });
+  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
 });
 
 router.get("/signup", (req, res) => {
@@ -43,6 +43,5 @@ router.get("/reports", withAuth, (req, res) => {
 //     res.redirect('reports');
 // });
 // });
-
 
 module.exports = router;

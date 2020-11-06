@@ -12,7 +12,7 @@ Well, the solution is **My Food Choices!**
 
 It has an interface for users to enter their dietary choices, and another for admin (event organizers/food servers) to view the needs of the entire list of guests.
 
-## 2- Walk thru UI
+## 2- App Demo
 
 1. Simple, sleek, intuitive UI
 1. Reponsive design
@@ -20,33 +20,43 @@ It has an interface for users to enter their dietary choices, and another for ad
 1. Users can sign up, login, update profile and logout
 1. Admin can login from same login page, view reports and logout
 
-## 3- Front End Technologies Used
+## 3- Contributors
+
+This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
+
+| Name             | Role               | Technical Responsibilities        | GitHub Account                  |
+| ---------------- | ------------------ | --------------------------------- | ------------------------------- |
+| Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer | APIs, Routes, EJS & tests         | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
+
+## 4- Front End Technologies Used
 
 1. HTML5
 1. CSS3
 1. JavaScript
 1. Materialize CSS
 
-## 4- Back End Technologies Used
+## 5- Back End Technologies Used
 
 1. Database
 1. Routes
 1. EJS
 
-## 5- Deployment:
+## 6- Deployment:
 
 1. Heroku
 
-## 6- Challenges:
+## 7- Challenges:
 
 1. GitHub:
    1. `.env`
    1. Lost changes
-   1. Group members behind on commits
+   1. Group members worried about committing and losing their code
 1. Data collection from EJS
 1. `POST`ing from profile (checkbox form)
 
-## 7- Future Upgrades:
+## 8- Future Upgrades:
 
 1. Food favorites
 1. Food preferences, such as:
@@ -57,3 +67,5 @@ It has an interface for users to enter their dietary choices, and another for ad
 1. Multiple profiles per user account
 1. Admin (Organizers) will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
 1. Admin will be able to delete users (if an employee leaves a company, for example).
+
+## 9- Q&A
