@@ -11,22 +11,27 @@ router.get("/", (req, res) => {
     return;
   }
 
-  res.render("login", { title: "Login" });
+  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
 });
 
 // router.get("/", (req, res) => {
-//   console.log("=====login=app======="); 
-//   res.render("login", { title: "Login" });
+//   console.log("=====login=app=======");
+//   res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
 // });
 
 router.get("/signup", (req, res) => {
-  console.log("=====GET=signup=app======="); 
-  res.render("signup", { title: "Sign Up" });
+  console.log("=====GET=signup=app=======");
+  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "login" });
 });
 
 router.get("/profile", (req, res) => {
-  console.log("=====GET=profile=app======="); 
-  res.render("profile", { title: "Profile" });
+  console.log("=====GET=profile=app=======");
+  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout" });
+});
+
+router.get("/reports", (req, res) => {
+  console.log("=====GET=profile=app=======");
+  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
 });
 
 // router.get("/profile", (req, res) => {

@@ -1,19 +1,22 @@
 <header>
-    <nav class="green">
-        <div class="container nav-wrapper">
-            <a href="/" class="brand-logo hide-on-med-and-down">
-                <i class="material-icons">local_dining</i>My Food Choices</a>
-            <a href="login.html" class="brand-logo hide-on-large-only">
-                <i class="material-icons">local_dining</i>MFC</a>
-            <a href="login.html" data-target="mobile-nav" class="sidenav-trigger">
-                <i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/signup">Sign Up</a></li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="green">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo hide-on-med-and-down">
+        <i class="material-icons">local_dining</i>My Food Choices</a
+      >
+      <a href="login.html" class="brand-logo hide-on-large-only">
+        <i class="material-icons">local_dining</i>MFC</a
+      >
+      <a href="login.html" data-target="mobile-nav" class="sidenav-trigger">
+        <i class="material-icons">menu</i></a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li><a href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <ul class="sidenav" id="mobile-nav">
-      <li><a href="/signup">Sign Up</a></li>
-    </ul>
+  <ul class="sidenav" id="mobile-nav">
+    <li><a href='/<%= navLinkRoute %>'><%= navLinkText %></a></li>
+  </ul>
 </header>
