@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "login" });
+  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "" });
 });
 
 router.get("/profile", (req, res) => {
@@ -30,14 +30,9 @@ router.get("/profile", (req, res) => {
 });
 
 router.get("/reports", (req, res) => {
-  console.log("=====GET=profile=app=======");
+  console.log("=====GET=reports=app=======");
   res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
 });
-
-// router.get("/profile", (req, res) => {
-//   console.log("=====GET=profile=app======="); 
-//   res.render("profile", { title: "Profile" });
-// });
 
 // // POST routes
 // app.post('/user', (req, res) => {
