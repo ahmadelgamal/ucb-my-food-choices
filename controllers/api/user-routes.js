@@ -6,6 +6,22 @@ router.get("/", (req, res) => {
   console.log("=========GET=USERS========");
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Profile,
+        attributes: [
+          // "id",
+          // "user_id",
+          "restriction_id",
+          [
+            sequelize.literal(
+              "(SELECT restriction_name FROM restriction WHERE id = restriction_id)"
+            ),
+            "restriction_name",
+          ],
+        ],
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {

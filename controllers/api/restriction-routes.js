@@ -11,15 +11,15 @@ router.get("/", (req, res) => {
       {
         model: Profile,
         attributes: ["restriction_id" , "user_id"],
-        // include: {
-        //   model: User,
-        //   attributes: ["first_name"],
-        // },
+        include: {
+          model: User,
+          attributes: ["first_name"],
+        },
       },
-      // {
-      //   model: User,
-      //   attributes: ["last_name"],
-      // },
+      {
+        model: User,
+        attributes: ["last_name"],
+      },
     ],
   })
     .then((dbRestrictData) => res.json(dbRestrictData))

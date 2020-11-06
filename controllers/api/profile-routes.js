@@ -5,20 +5,22 @@ const { User, Restriction, Profile } = require("../../models");
 router.get("/", (req, res) => {
   console.log("====GET=profile====");
   Profile.findAll({
-    attributes: ["id", "user_id", "restriction_id"],
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
 
     include: [
       {
-        model: Restriction,
-        attributes: ["restriction_name"],
-        include: {
-          model: User,
-          attributes: ["first_name"],
-        },
-      },
-      {
         model: User,
-        attributes: ["last_name"],
+        attributes: ["first_name", "last_name"],
       },
     ],
   })
@@ -36,7 +38,11 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "user_id", "restriction_id"],
+    attributes: ["id", "user_id", "restriction_id",  [sequelize.literal(
+      "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+    ),
+    "restriction_name",
+  ],],
 
     include: [
       {

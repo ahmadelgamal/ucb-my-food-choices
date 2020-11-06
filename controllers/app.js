@@ -22,7 +22,9 @@ router.get("/signup", (req, res) => {
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
   console.log(req.session.user_id)
-  if (req.session.user_id === 3) {
+ // [sequelize.literal('(SELECT email FROM user WHERE user.id = ${req.session.user_id};)')]
+  
+  if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
   }
@@ -42,9 +44,5 @@ router.get("/reports", withAuth, (req, res) => {
 // });
 // });
 
-// 404
-// router.use((req, res) => {
-//     res.status(404).render('404', { title: '404'});
-// });
 
 module.exports = router;
