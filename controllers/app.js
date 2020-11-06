@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
-const { Profile, User, Restriction } = require("../models");
-const withAuth = require("../utils/auth");
+// const sequelize = require("../config/connection");
+// const { Profile, User, Restriction } = require("../models");
+// const withAuth = require("../utils/auth");
 
 // login render
 router.get("/", (req, res) => {
@@ -13,11 +13,6 @@ router.get("/", (req, res) => {
 
   res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
 });
-
-// router.get("/", (req, res) => {
-//   console.log("=====login=app=======");
-//   res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
-// });
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
@@ -34,26 +29,12 @@ router.get("/reports", (req, res) => {
   res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
 });
 
-// // POST routes
-// app.post('/user', (req, res) => {
-//     console.log(req.body);
-//     // const user = new User(req.body);
-//     // user.save().then((result) => {
-//     //     res.redirect('profile');
-//     // });
-// });
-
 // router.post('/Restriction', (req, res) => {
 //     console.log(req.body);
 // const user = new Restriction(req.body);
 // user.save().then((result) => {
 //     res.redirect('reports');
 // });
-// });
-
-// 404
-// router.use((req, res) => {
-//     res.status(404).render('404', { title: '404'});
 // });
 
 module.exports = router;
