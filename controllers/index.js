@@ -4,6 +4,8 @@ const appRoutes = require('./app.js');
 
 router.use('/api', apiRoutes);
 router.use('/', appRoutes);
+router.use('/signup', appRoutes);
+router.use('/reports', appRoutes);
 
 router.use((req, res) => {
   res.status(404).end();

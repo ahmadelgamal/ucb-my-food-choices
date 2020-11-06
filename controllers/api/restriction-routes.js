@@ -1,16 +1,17 @@
 const router = require("express").Router();
+const sequelize = require("../../config/connection");
 const { User, Restriction, Profile } = require("../../models");
 
 // GET all restrictions /api/restrictions
 router.get("/", (req, res) => {
   console.log("=========GET=RESTRICTION========");
   Restriction.findAll({
-    attributes: ["id", "restriction_name", "category", "created_at", "updated_at"],
+    attributes: ["id", "restriction_name", "category"],
 
     include: [
       {
         model: Profile,
-        attributes: ["id"],
+        attributes: ["restriction_id" , "user_id"],
         include: {
           model: User,
           attributes: ["first_name"],

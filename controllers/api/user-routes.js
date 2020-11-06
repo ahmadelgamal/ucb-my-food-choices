@@ -1,11 +1,28 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const sequelize = require("../../config/connection");
+const { User, Restriction, Profile } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
   console.log("=========GET=USERS========");
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Profile,
+        attributes: [
+          // "id",
+          // "user_id",
+          "restriction_id",
+          [
+            sequelize.literal(
+              "(SELECT restriction_name FROM restriction WHERE id = restriction_id)"
+            ),
+            "restriction_name",
+          ],
+        ],
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -22,6 +39,16 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
+    include: [
+      {
+        model: Profile,
+        attributes: ["id", "user_id", "restriction_id"],
+        include: {
+          model: Restriction,
+          attributes: ["restriction_name"],
+        },
+      }
+    ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {

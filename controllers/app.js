@@ -1,7 +1,7 @@
 const router = require("express").Router();
-// const sequelize = require("../config/connection");
-// const { Profile, User, Restriction } = require("../models");
-// const withAuth = require("../utils/auth");
+const sequelize = require("../config/connection");
+const { Profile, User, Restriction } = require("../models");
+const withAuth = require("../utils/auth");
 
 // login render
 router.get("/", (req, res) => {
@@ -16,17 +16,24 @@ router.get("/", (req, res) => {
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "" });
+  res.render("signup", { title: "Sign Up" });
 });
 
-router.get("/profile", (req, res) => {
+router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
-  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout" });
+  console.log(req.session.user_id)
+ // [sequelize.literal('(SELECT email FROM user WHERE user.id = ${req.session.user_id};)')]
+  
+  if (req.session.user_id === 1) {
+    res.redirect("/reports");
+    return;
+  }
+  res.render("profile", { title: "Profile" });
 });
 
-router.get("/reports", (req, res) => {
-  console.log("=====GET=reports=app=======");
-  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
+router.get("/reports", withAuth, (req, res) => {
+  console.log("=====GET=report=app=======");
+  res.render("reports", { title: "Reports" });
 });
 
 // router.post('/Restriction', (req, res) => {
