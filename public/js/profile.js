@@ -43,33 +43,87 @@ async function profileFormHandler(event) {
 
   // checkbox values are stored in an array
   const restrictionsArray = [
-    eggsAllergy,
-    fishAllergy,
-    glutenAllergy,
-    peanutAllergy,
-    shellfishAllergy,
-    soyAllergy,
-    treenutAllergy,
-    wheatAllergy,
-    celiac,
-    sugarFree,
-    gout,
-    hypertension,
-    lactoseIntolerant,
-    buddhist,
-    hindu,
-    jewish,
-    muslim,
-    alcoholFree,
-    caffeineFree,
-    atkins,
-    keto,
-    lowCarb,
-    lowFat,
-    paleo,
-    pescetarian,
-    vegan,
-    vegetarian,
+    {
+      "eggsAllergy": eggsAllergy
+    },
+    {
+      "fishAllergy": fishAllergy
+    },
+    {
+      "glutenAllergy": glutenAllergy
+    },
+    {
+      "peanutAllergy": peanutAllergy
+    },
+    {
+      "shellfishAllergy": shellfishAllergy
+    },
+    {
+      "soyAllergy": soyAllergy
+    },
+    {
+      "treenutAllergy": treenutAllergy
+    },
+    {
+      "wheatAllergy": wheatAllergy
+    },
+    {
+      "celiac": celiac
+    },
+    {
+      "sugarFree": sugarFree
+    },
+    {
+      "gout": gout
+    },
+    {
+      "hypertension": hypertension
+    },
+    {
+      "lactoseIntolerant": lactoseIntolerant
+    },
+    {
+      "buddhist": buddhist
+    },
+    {
+      "hindu": hindu
+    },
+    {
+      "jewish": jewish
+    },
+    {
+      "muslim": muslim
+    },
+    {
+      "alcoholFree": alcoholFree
+    },
+    {
+      "caffeineFree": caffeineFree
+    },
+    {
+      "atkins": atkins
+    },
+    {
+      "keto": keto
+    },
+    {
+      "lowCarb": lowCarb
+    },
+    {
+      "lowFat": lowFat
+    },
+    {
+      "paleo": paleo
+    },
+    {
+      "pescetarian": pescetarian
+    },
+    {
+      "vegan": vegan
+    },
+    {
+      "vegetarian": vegetarian
+    }
   ];
 
   // for each element (checkbox)...
