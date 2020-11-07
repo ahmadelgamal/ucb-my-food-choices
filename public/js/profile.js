@@ -33,7 +33,6 @@ async function checkPostData(item) {
     alert(response.statusText);
   }
 }
-}
 
 
 // event listener
