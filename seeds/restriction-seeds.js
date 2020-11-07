@@ -2,6 +2,7 @@ const { Restriction } = require("../models");
 
 const restrictiondata = [
   {
+    id_restriction: 1,
     restriction_name: "Eggs",
     category: "Allergies"
   },
