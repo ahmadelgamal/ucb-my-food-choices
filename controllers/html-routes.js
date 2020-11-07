@@ -16,24 +16,24 @@ router.get("/", (req, res) => {
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up" });
+  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "" });
 });
 
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
   console.log(req.session.user_id)
- // [sequelize.literal('(SELECT email FROM user WHERE user.id = ${req.session.user_id};)')]
-  
+  // [sequelize.literal('(SELECT email FROM user WHERE user.id = ${req.session.user_id};)')]
+
   if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", { title: "Profile" });
+  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout" });
 });
 
 router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
-  res.render("reports", { title: "Reports" });
+  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
 });
 
 // router.post('/Restriction', (req, res) => {
