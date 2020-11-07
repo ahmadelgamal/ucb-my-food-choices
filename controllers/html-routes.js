@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
     return;
   }
 
-  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup" });
+  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup" });
 });
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "" });
+  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "", navLinkId: "login" });
 });
 
 router.get("/profile", withAuth, (req, res) => {
@@ -28,12 +28,12 @@ router.get("/profile", withAuth, (req, res) => {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout" });
+  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout" });
 });
 
 router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
-  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout" });
+  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout" });
 });
 
 // router.post('/Restriction', (req, res) => {
