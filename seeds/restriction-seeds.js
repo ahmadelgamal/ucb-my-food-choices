@@ -2,7 +2,6 @@ const { Restriction } = require("../models");
 
 const restrictiondata = [
   {
-    id_restriction: 1,
     restriction_name: "Eggs",
     category: "Allergies"
   },
@@ -67,6 +66,10 @@ const restrictiondata = [
     category: "Religious"
   },
   {
+    restriction_name: "Muslim: Halal",
+    category: "Religious"
+  },
+  {
     restriction_name: "Alcohol Free",
     category: "Substance"
   },
@@ -80,6 +83,10 @@ const restrictiondata = [
   },
   {
     restriction_name: "Keto",
+    category: "Weight Management"
+  },
+  {
+    restriction_name: "Low Carb",
     category: "Weight Management"
   },
   {

@@ -22,7 +22,6 @@ router.get("/signup", (req, res) => {
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
   console.log(req.session.user_id)
-  // [sequelize.literal('(SELECT email FROM user WHERE user.id = ${req.session.user_id};)')]
 
   if (req.session.user_id === 1) {
     res.redirect("/reports");
@@ -35,13 +34,5 @@ router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
   res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
-
-// router.post('/Restriction', (req, res) => {
-//     console.log(req.body);
-// const user = new Restriction(req.body);
-// user.save().then((result) => {
-//     res.redirect('reports');
-// });
-// });
 
 module.exports = router;

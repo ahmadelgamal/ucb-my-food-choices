@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { User, Restriction, Profile } = require("../../models");
 
-// GET all restrictions /api/profile
+// GET all restrictions /api/profiles
 router.get("/", (req, res) => {
   console.log("====GET=profile====");
   Profile.findAll({
@@ -32,7 +32,40 @@ router.get("/", (req, res) => {
     });
 });
 
-// GET a restriction by id /api/profile/1
+// GET all restrictions /api/profiles
+router.get("/user/:id", (req, res) => {
+  console.log("====GET=profile=BY=USER====");
+  Profile.findAll({
+    where: {
+      user_id: req.params.id,
+    },
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
+
+    include: [
+      {
+        model: User,
+        attributes: ["first_name", "last_name"],
+      },
+    ],
+  })
+    .then((dbRestrictData) => res.json(dbRestrictData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET a restriction by id /api/profiles/1
 router.get("/:id", (req, res) => {
   console.log("====GET=ID=profile====");
   Profile.findOne({
@@ -47,16 +80,8 @@ router.get("/:id", (req, res) => {
 
     include: [
       {
-        model: Restriction,
-        attributes: ["restriction_name"],
-        include: {
-          model: User,
-          attributes: ["first_name"],
-        },
-      },
-      {
         model: User,
-        attributes: ["last_name"],
+        attributes: ["first_name", "last_name"],
       },
     ],
   })
@@ -73,12 +98,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// POST create a restriction /api/profile
+// POST create a restriction /api/profiles
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
   // expects {"user_id": 1 ,"restriction_id": 8}
   Profile.create({
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
     restriction_id: req.body.restriction_id,
   })
     .then((dbProfileData) => res.json(dbProfileData))
@@ -88,12 +113,12 @@ router.post("/", (req, res) => {
     });
 });
 
-// PUT update a restriction by id /api/profile/1
+// PUT update a restriction by id /api/profiles/1
 router.put("/:id", (req, res) => {
   console.log("=====UPDATE==profile=====");
   Profile.update(
     {
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       restriction_id: req.body.restriction_id,
     },
     {
@@ -115,7 +140,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-// DELETE a restriction by id /api/profile/1
+// DELETE a restriction by id /api/profiles/1
 router.delete("/:id", (req, res) => {
   console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
