@@ -11,4 +11,5 @@ async function logoutFormHandler() {
   }
 }
 
-document.getElementsByClassName('.logout').addEventListener('click', logoutFormHandler);
+document.querySelector('#navLinkId').addEventListener("click", logoutFormHandler);
+document.querySelector('#burgerNavLinkId').addEventListener("click", logoutFormHandler);
