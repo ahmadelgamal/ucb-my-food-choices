@@ -1,9 +1,9 @@
-async function repotFormHandler(event) {
+async function reportFormHandler(event) {
     event.preventDefault();
 
 
 
 }
-document
-.querySelector(".report-form")
-.addEventListener("submit", repotFormHandler);
+// document
+//     .getElementsByClassName(".report-form")
+//     .addEventListener("submit", reportFormHandler);
