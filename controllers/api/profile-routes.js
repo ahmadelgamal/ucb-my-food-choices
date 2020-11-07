@@ -39,11 +39,11 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "user_id", "restriction_id",  [sequelize.literal(
+    attributes: ["id", "user_id", "restriction_id", [sequelize.literal(
       "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
     ),
-    "restriction_name",
-  ],],
+      "restriction_name",
+    ],],
 
     include: [
       {
@@ -76,7 +76,7 @@ router.get("/:id", (req, res) => {
 // POST create a restriction /api/profile
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
-  // expects {"user_id": 1 ,"restriecton_id": 8}
+  // expects {"user_id": 1 ,"restriction_id": 8}
   Profile.create({
     user_id: req.body.user_id,
     restriction_id: req.body.restriction_id,
