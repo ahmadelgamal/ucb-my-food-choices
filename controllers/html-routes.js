@@ -28,12 +28,12 @@ router.get("/profile", withAuth, (req, res) => {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "logout" });
+  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
-  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "logout" });
+  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 // router.post('/Restriction', (req, res) => {
