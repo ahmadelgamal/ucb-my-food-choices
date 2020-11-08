@@ -35,4 +35,9 @@ router.get("/reports", withAuth, (req, res) => {
   res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
+// 404
+router.use((req, res) => {
+  res.status(404).render("404", { title: "404", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
+});
+
 module.exports = router;
