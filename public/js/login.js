@@ -3,25 +3,26 @@ async function loginFormHandler(event) {
 
   const email = document.querySelector("#email").value.trim();
   const password = document.querySelector("#password").value.trim();
+  const loginBtn = document.querySelector('#login-btn');
 
   if (email && password) {
-      const response = await fetch("/api/users/login", {
-        method: "post",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+    const response = await fetch("/api/users/login", {
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      if (response.ok) {
-        document.location.replace("/profile");
-      } else {
-        alert(response.statusText);
-      }
+    if (response.ok) {
+      document.location.replace("/profile");
+    } else {
+      M.toast({ html: 'Incorrect email and/or password.' });
+    }
   }
 
-  }
+}
 
 document
   .querySelector(".login-form")

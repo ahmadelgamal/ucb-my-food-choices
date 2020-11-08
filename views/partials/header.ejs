@@ -1,7 +1,7 @@
 <header>
   <nav class="green">
     <div class="container nav-wrapper">
-      <a href="/" class="brand-logo hide-on-med-and-down">
+      <a href="#" class="brand-logo hide-on-med-and-down">
         <i class="material-icons">local_dining</i>My Food Choices</a
       >
       <a href="#" class="brand-logo hide-on-large-only">
@@ -11,12 +11,18 @@
         <i class="material-icons">menu</i></a
       >
       <ul class="right hide-on-med-and-down">
+        <% if (title === "Profile" || title === "Reports") { %>
+          <li>Welcome firstName</li>
+          <% } %>
         <li><a id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-nav">
+    <% if (title === "Profile" || title === "Reports") { %>
+      <li><a>Welcome firstName</a></li>
+      <% } %>
     <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
 </header>
