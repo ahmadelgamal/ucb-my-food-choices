@@ -31,6 +31,34 @@ router.get("/", (req, res) => {
     });
 });
 
+// GET all restrictions /api/restrictions
+router.get("/restriction", (req, res) => {
+  console.log("=========GET=RESTRICTION========");
+  Restriction.findAll({
+    attributes: ["id", "restriction_name", "category"],
+
+    include: [
+      {
+        model: Profile,
+        attributes: ["restriction_id" , "user_id"],
+        include: {
+          model: User,
+          attributes: ["first_name"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["last_name"],
+      },
+    ],
+  })
+    .then((dbRestrictData) => res.json(dbRestrictData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
   console.log("=========GET=USER=ID========");
@@ -168,8 +196,9 @@ router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy();
     res.clearCookie('connect.sid', { path: '/' }).status(200).send('Ok.').end();
-  } else {
-    res.status(404).end();
+  }
+  else {
+    document.location.replace('/');
   }
 });
 

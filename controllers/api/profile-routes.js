@@ -33,11 +33,44 @@ router.get("/users", (req, res) => {
 });
 
 // GET all restrictions /api/profiles
-router.get("/user/:id", (req, res) => {
-  console.log("====GET=profile=BY=USER====");
+router.get(`/user/:id`, (req, res) => {
+  console.log("====GET=profile=BY=user====");
   Profile.findAll({
     where: {
-      user_id: req.params.id,
+      user_id: req.session.user_id,
+    },
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
+
+    include: [
+      {
+        model: User,
+        attributes: ["first_name", "last_name"],
+      },
+    ],
+  })
+    .then((dbRestrictData) => res.json(dbRestrictData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET all restrictions /api/profiles
+router.get("/restriction/:id", (req, res) => {
+  console.log("====GET=profile=BY=restriction====");
+  Profile.findAll({
+    where: {
+      restriction_id: req.params.id,
     },
     attributes: [
       "id",
