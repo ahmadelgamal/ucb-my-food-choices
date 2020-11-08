@@ -33,36 +33,17 @@ router.get("/signup", (req, res) => {
 
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
-  console.log(req.session.user_id);
-  (user_name = sequelize.literal(
-    `(SELECT user_name FROM user WHERE id =` + req.session.user_id
-  )),
-    console.log(user_name);
 
   if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", {
-    title: "Profile",
-    navLinkText: "Logout",
-    navLinkRoute: "logout",
-    navLinkId: "logout",
-
-    burgerNavLinkId: "burger-logout",
-    firstName: user_name,
-  });
+  res.render("profile", { title: "Profile", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
-  res.render("reports", {
-    title: "Reports",
-    navLinkText: "Logout",
-    navLinkRoute: "logout",
-    navLinkId: "logout",
-    burgerNavLinkId: "burger-logout",
-  });
+  res.render("reports", { title: "Reports", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 // 404
