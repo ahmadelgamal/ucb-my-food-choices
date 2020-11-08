@@ -13,15 +13,25 @@ async function profileFormHandler(event) {
   restrictionsArray.forEach(checkPostData);
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch("/api/profiles", {
-      method: "post",
-      body: JSON.stringify({ restriction_id: item }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(`api/profiles/restriction/`+item,
+      {
+        method: "get",
+
+        //headers: { "Content-Type": "application/json" },
+      }
+    );
     if (response.ok) {
       console.log(item);
-    } else {
-      alert(response.statusText);
+
+      // } else {
+      //   const response = await fetch("/api/profiles", {
+      //     method: "post",
+      //     body: JSON.stringify({ restriction_id: item }),
+      //     headers: { "Content-Type": "application/json" },
+      //   });
+
+      } else {
+        console.log(response.statusText);
     }
   }
 }
