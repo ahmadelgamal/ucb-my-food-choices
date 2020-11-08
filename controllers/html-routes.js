@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
     return;
   }
 
-  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup", burgerNavLinkId: "signup" });
+  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup", burgerNavLinkId: "burger-signup" });
 });
 
 router.get("/signup", (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "", navLinkId: "login", burgerNavLinkId: "login" });
+  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "", navLinkId: "login", burgerNavLinkId: "burger-login" });
 });
 
 router.get("/profile", withAuth, (req, res) => {
@@ -37,7 +37,7 @@ router.get("/reports", withAuth, (req, res) => {
 
 // 404
 router.use((req, res) => {
-  res.status(404).render("404", { title: "404", navLinkText: "Login", navLinkRoute: "", navLinkId: "login", burgerNavLinkId: "login" });
+  res.status(404).render("404", { title: "404", navLinkText: "Login", navLinkRoute: "", navLinkId: "login", burgerNavLinkId: "burger-login" });
 });
 
 module.exports = router;
