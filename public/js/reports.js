@@ -19,7 +19,6 @@ const filterBySelection = function (event) {
     const weightDivEl = document.querySelector('#weight');
     const otherDivEl = document.querySelector('#other');
 
-    console.log(event.target.id);
     switch (event.target.id) {
         case "filter-allergies":
             allergiesDivEl.style.display = "";
