@@ -21,18 +21,17 @@ router.get("/signup", (req, res) => {
 
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
-  console.log(req.session.user_id)
 
   if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", { title: "Profile", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
+  res.render("profile", { title: "Profile", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 router.get("/reports", withAuth, (req, res) => {
   console.log("=====GET=report=app=======");
-  res.render("reports", { title: "Reports", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
+  res.render("reports", { title: "Reports", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
 // 404
