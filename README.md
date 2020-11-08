@@ -32,6 +32,8 @@ https://github.com/ahmadelgamal/ucb-my-food-choices
 
 ## Usage
 
+![](./lib/my-food-choices.gif)
+
 1. Restaurants
 1. Travel: airlines, cruise ships, hotels, etc.
 1. Education: universities, colleges, schools, daycares, and nurseries.
