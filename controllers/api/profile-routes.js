@@ -3,7 +3,7 @@ const sequelize = require("../../config/connection");
 const { User, Restriction, Profile } = require("../../models");
 
 // GET all restrictions /api/profiles
-router.get("/", (req, res) => {
+router.get("/users", (req, res) => {
   console.log("====GET=profile====");
   Profile.findAll({
     attributes: [
