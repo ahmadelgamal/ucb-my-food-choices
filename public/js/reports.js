@@ -1,12 +1,20 @@
 async function reportFormHandler(event) {
     event.preventDefault();
+    const response = await fetch("/profiles/user/:id", {
+        method: "get",
+        body: JSON.stringify({ restriction_id: item }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.ok) {
+        console.log(item);
+      } else {
+        alert(response.statusText);
+      }
+    }
 
+ document.body  
+     .addEventListener("load", reportFormHandler);
 
-
-}
-// document
-//     .getElementsByClassName(".report-form")
-//     .addEventListener("submit", reportFormHandler);
 
 //report filter dropdown
 const filterBySelection = function (event) {
