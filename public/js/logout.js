@@ -7,7 +7,7 @@ async function logoutFormHandler() {
   if (response.ok) {
     document.location.replace('/');
   } else {
-    alert(response.statusText);
+    M.toast({ html: '404 error. Please click on login' });
   }
 }
 

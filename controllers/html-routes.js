@@ -37,7 +37,7 @@ router.get("/reports", withAuth, (req, res) => {
 
 // 404
 router.use((req, res) => {
-  res.status(404).render("404", { title: "404", navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
+  res.status(404).render("404", { title: "404", navLinkText: "Login", navLinkRoute: "", navLinkId: "login", burgerNavLinkId: "login" });
 });
 
 module.exports = router;

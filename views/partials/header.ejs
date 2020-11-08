@@ -12,7 +12,7 @@
       >
       <ul class="right hide-on-med-and-down">
         <% if (title === "Profile" || title === "Reports") { %>
-          <li>Welcome firstName</li>
+          <li>Welcome <%= first_name =></li>
           <% } %>
         <li><a id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
       </ul>
@@ -21,7 +21,7 @@
 
   <ul class="sidenav" id="mobile-nav">
     <% if (title === "Profile" || title === "Reports") { %>
-      <li><a>Welcome firstName</a></li>
+      <li><a>Welcome <%= first_name =></a></li>
       <% } %>
     <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
