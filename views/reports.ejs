@@ -13,6 +13,28 @@
           following:
         </p>
 
+        <!-- Dropdown Trigger -->
+        <a
+          class="btn dropdown-trigger green darken-2"
+          href="#!"
+          data-target="report-filter-dropdown"
+          >Filter By<i class="material-icons right">arrow_drop_down</i></a
+        >
+        <!-- Dropdown Structure -->
+        <ul id="report-filter-dropdown" class="dropdown-content">
+          <li><a id="filter-all" class="green-text text-darken-3" href="#!">All</a></li>
+          <li class="divider"></li>
+          <li><a id="filter-allergies" class="green-text text-darken-3" href="#!">Allergies</a></li>
+          <li><a id="filter-medical" class="green-text text-darken-3" href="#!">Medical</a></li>
+          <li><a id="filter-religious" class="green-text text-darken-3" href="#!">Religious</a></li>
+          <li><a id="filter-substance" class="green-text text-darken-3" href="#!">Substance</a></li>
+          <li>
+            <a id="filter-weight" class="green-text text-darken-3" href="#!">Weight Management</a>
+          </li>
+          <li><a id="filter-other" class="green-text text-darken-3" href="#!">Other</a></li>
+        </ul>
+
+        <div class="row" id="allergies">
         <h3>Allergies</h3>
         <table class="striped">
           <thead>
@@ -57,7 +79,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="row" id="medical">
         <h3>Medical</h3>
         <table class="striped">
           <thead>
@@ -90,7 +114,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="row" id="religious">
         <h3>Religious</h3>
         <table class="striped">
           <thead>
@@ -125,7 +151,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="row" id="substance">
         <h3>Substance</h3>
         <table class="striped">
           <thead>
@@ -146,7 +174,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="row" id="weight">
         <h3>Weight Management</h3>
         <table>
           <thead>
@@ -179,7 +209,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
 
+      <div class="row" id="other">
         <h3>Other</h3>
         <table class="striped">
           <thead>
@@ -204,6 +236,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
       </div>
     </main>
 
