@@ -91,16 +91,23 @@ router.get("/restriction/:id", (req, res) => {
       },
     ],
   })
-    .then((dbRestrictData) => res.json(dbRestrictData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then((dbRestrictData) => {
+    if (!dbRestrictData) {
+      res.status(404).json({ message: "No restricton found with this id" });
+      return;
+    }
+    res.json(dbRestrictData);
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+
 });
 
 // GET a restriction by id /api/profiles/1
 router.get("/:id", (req, res) => {
-  console.log("====GET=ID=profile====");
+  console.log("====GET=profile=BY=id====");
   Profile.findOne({
     where: {
       id: req.params.id,
@@ -120,7 +127,7 @@ router.get("/:id", (req, res) => {
   })
     .then((dbProfileData) => {
       if (!dbProfileData) {
-        res.status(404).json({ message: "No restricton found with this id" });
+        res.status(404).json({ message: "No profile found with this id" });
         return;
       }
       res.json(dbProfileData);

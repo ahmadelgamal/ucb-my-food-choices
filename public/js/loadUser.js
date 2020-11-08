@@ -1,12 +1,12 @@
 
-async function checkPostData(item) {
+async function getUserById(user_id) {
     const response = await fetch("/profiles/user/:id", {
       method: "get",
-      body: JSON.stringify({ restriction_id: item }),
+     
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      console.log(item);
+      console.log(user_id);
     } else {
       alert(response.statusText);
     }
