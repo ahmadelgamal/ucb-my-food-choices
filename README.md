@@ -75,14 +75,19 @@ _Coming soon, God willing_
 
 ## Features
 
-1. Guests will receive an email from the organizer with a link (url) to the page where they sign up then enter their food preferences.
-1. Dietary restrictions, such as:
-   1. Religious
-   1. Medical
-   1. Allergies
-   1. Weight Management
-   1. Other
-1. Organizer will get a report with how many guests filled out their profiles and the total number of guests in each dietary restriction category. This will help the organizer plan the food that better fits the guests needs.
+This first version is setup so that a company with an office kitchen can query its employees for their dietary needs and restrictions in order to prepare food that fits their needs.
+
+1. Employees will receive an email from the company admin with a link (url) to the app homepage.
+1. Once they visit the homepage, they can:
+   1. Sign up.
+   1. Login.
+   1. Check boxes that correspond to their dietary restrictions.
+   1. Save their profile.
+   1. Update their profile.
+1. Organizer will get a report with:
+   1. The number of employees that signed up.
+   1. The total number of employees in each dietary restriction category.
+   1. This will help the organizer plan the food that better fits the employees' needs.
 
 ## Future Upgrades
 
@@ -103,8 +108,8 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 | Name             | Role               | Technical Responsibilities        | GitHub Account                  |
 | ---------------- | ------------------ | --------------------------------- | ------------------------------- |
 | Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer | APIs, Routes, EJS & tests         | https://github.com/brianslopez  |
-| Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
+| Brian Lopez      | Back-end Developer | APIs, Routes & EJS         | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | Front-end, EJS & Heroku                | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 
