@@ -1,5 +1,6 @@
 async function profileFormHandler(event) {
   event.preventDefault();
+  M.toast({ html: 'Profile Updated Successfully!' });
 
   const restrictionsArray = [];
   const restrict = document.forms[0];
@@ -13,7 +14,7 @@ async function profileFormHandler(event) {
   restrictionsArray.forEach(checkPostData);
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/profiles/restriction/`+item,
+    const response = await fetch(`api/profiles/restriction/` + item,
       {
         method: "get",
 
@@ -30,8 +31,9 @@ async function profileFormHandler(event) {
       //     headers: { "Content-Type": "application/json" },
       //   });
 
-      } else {
-        console.log(response.statusText);
+
+    } else {
+      console.log(response.statusText);
     }
   }
 }
