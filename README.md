@@ -93,15 +93,36 @@ Are the bride and groom impressed? You betcha!
 
 ## Future Upgrades
 
-1. Food favorites
-1. Food preferences, such as:
-   1. pasta or rice
-   1. french fries or mashed potatoes
-   1. shakes or ice cream
-1. Food dislikes
-1. Multiple profiles per user account
-1. Admin (Organizers) will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
-1. Admin will be able to delete users (if an employee leaves a company, for example).
+The list of upgrades can be endless, but the following are the top 10 upgrades for admin and users to make this a world-class app.
+
+### For Admin/Organizers
+Give Admin the option to:
+1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Delete users (For example, if an employee leaves a company).
+1. Sign Up
+1. Recover the password
+1. Change the password
+1. Change the username
+1. Delete account
+1. Group users
+1. Add company logo
+1. Add events with invitations
+
+### For Users
+Give users the option to:
+   1. Select food favorites
+   1. Select food preferences, such as:
+      1. pasta vs. rice
+      1. french fries vs. mashed potatoes
+      1. shakes vs. ice cream
+   1. Select food dislikes
+   1. Add custom foods
+   1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
+   1. Recover the password
+   1. Change the password
+   1. Change the username
+   1. Delete account
+   1. Add picture
 
 ## Contributors
 
