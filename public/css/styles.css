@@ -9,3 +9,7 @@
 footer {
   margin-top: 20px;
 }
+
+.page-footer {
+  padding-top: 0;
+}
