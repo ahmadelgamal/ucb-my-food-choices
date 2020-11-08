@@ -14,9 +14,10 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 - [Deployment URL](#Deployment-URL)
 - [GitHub Repo URL](#GitHub-Repo-URL)
-- [Usage](#Usage)
-- [Screenshots](#Screenshots)
+- [Demo](#Demo)
 - [Features](#Features)
+- [Usage](#Usage)
+- [Future Upgrades](#Future-Upgrades)
 - [Contributors](#Contributors)
 - [Technologies Used](#Technologies-Used)
 - [License](#License)
@@ -30,9 +31,28 @@ https://my-food-choices.herokuapp.com/
 
 https://github.com/ahmadelgamal/ucb-my-food-choices
 
-## Usage
+## Demo
 
-![](./lib/my-food-choices.gif)
+![Gif Video](./lib/my-food-choices.gif)
+
+
+## Features
+
+This first version is setup so that a company with an office kitchen can query its employees for their dietary needs and restrictions in order to prepare food that fits their needs.
+
+1. Employees will receive an email from the company admin with a link (url) to the app homepage.
+1. Once they visit the homepage, they can:
+   1. Sign up.
+   1. Login.
+   1. Check boxes that correspond to their dietary restrictions.
+   1. Save their profile.
+   1. Update their profile.
+1. Organizer will get a report with:
+   1. The number of employees that signed up.
+   1. The total number of employees in each dietary restriction category.
+   1. This will help the organizer plan the food that better fits the employees' needs.
+
+## Usage
 
 1. Restaurants
 1. Travel: airlines, cruise ships, hotels, etc.
@@ -70,26 +90,6 @@ You are a wedding planner and there are 150 guests invited to the wedding. You w
 You simply send a link with the wedding invitation to each guest. Users can opt to fill out their dietary needs and preferences for the wedding event only, or they can create an account and save their choices to share for any future event with the click of a button.
 
 Are the bride and groom impressed? You betcha!
-
-## Screenshots
-
-_Coming soon, God willing_
-
-## Features
-
-This first version is setup so that a company with an office kitchen can query its employees for their dietary needs and restrictions in order to prepare food that fits their needs.
-
-1. Employees will receive an email from the company admin with a link (url) to the app homepage.
-1. Once they visit the homepage, they can:
-   1. Sign up.
-   1. Login.
-   1. Check boxes that correspond to their dietary restrictions.
-   1. Save their profile.
-   1. Update their profile.
-1. Organizer will get a report with:
-   1. The number of employees that signed up.
-   1. The total number of employees in each dietary restriction category.
-   1. This will help the organizer plan the food that better fits the employees' needs.
 
 ## Future Upgrades
 
