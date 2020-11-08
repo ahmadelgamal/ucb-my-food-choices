@@ -32,12 +32,17 @@ router.get("/users", (req, res) => {
     });
 });
 
+router.get("/user/user", (req, res) => {
+  console.log("==== try GET=user====");
+  console.log(req.session.user_id);
+});
+
 // GET all restrictions /api/profiles
 router.get(`/user/:id`, (req, res) => {
   console.log("====GET=profile=BY=user====");
   Profile.findAll({
     where: {
-      user_id: req.session.user_id,
+      user_id: req.params.id,
     },
     attributes: [
       "id",
@@ -58,7 +63,13 @@ router.get(`/user/:id`, (req, res) => {
       },
     ],
   })
-    .then((dbRestrictData) => res.json(dbRestrictData))
+    .then((dbProfileData) => {
+      if (!dbProfileData) {
+        res.status(404).json({ message: "No profile found with this id" });
+        return;
+      }
+      res.json(dbProfileData);
+    })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -91,18 +102,17 @@ router.get("/restriction/:id", (req, res) => {
       },
     ],
   })
-  .then((dbRestrictData) => {
-    if (!dbRestrictData) {
-      res.status(404).json({ message: "No restricton found with this id" });
-      return;
-    }
-    res.json(dbRestrictData);
-  })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-
+    .then((dbProfileData) => {
+      if (!dbProfileData) {
+        res.status(404).json({ message: "No profile found with this id" });
+        return;
+      }
+      res.json(dbProfileData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // GET a restriction by id /api/profiles/1
@@ -112,11 +122,17 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "user_id", "restriction_id", [sequelize.literal(
-      "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
-    ),
-      "restriction_name",
-    ],],
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
 
     include: [
       {
