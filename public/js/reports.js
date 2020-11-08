@@ -1,9 +1,16 @@
 async function reportFormHandler(event) {
     event.preventDefault();
+    const response = await fetch("/profiles/user/:id", {
+        method: "get",
+        body: JSON.stringify({ restriction_id: item }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (response.ok) {
+        console.log(item);
+      } else {
+        alert(response.statusText);
+      }
+    }
 
-
-
-}
-// document
-//     .getElementsByClassName(".report-form")
-//     .addEventListener("submit", reportFormHandler);
+ document.body  
+     .addEventListener("load", reportFormHandler);
