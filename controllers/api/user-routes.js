@@ -168,8 +168,9 @@ router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy();
     res.clearCookie('connect.sid', { path: '/' }).status(200).send('Ok.').end();
-  } else {
-    res.status(404).end();
+  }
+  else {
+    document.location.replace('/');
   }
 });
 
