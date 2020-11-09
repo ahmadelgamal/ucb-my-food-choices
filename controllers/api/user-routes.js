@@ -40,7 +40,7 @@ router.get("/restriction", (req, res) => {
     include: [
       {
         model: Profile,
-        attributes: ["restriction_id" , "user_id"],
+        attributes: ["restriction_id", "user_id"],
         include: {
           model: User,
           attributes: ["first_name"],
@@ -197,7 +197,7 @@ router.post("/logout", (req, res) => {
   console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
     req.session.destroy();
-    res.clearCookie('connect.sid', { path: '/' }).status(200).send('Ok.').end();
+    res.clearCookie('connect.sid', { path: '/' }).status(200).send('OK').end();
   }
   else {
     document.location.replace('/');
