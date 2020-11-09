@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+      <div class="container">
+        <h1>Reports</h1>
+
+        <h3>Bootcamp Inc.</h3>
+        <p>
+          As of, <%= new Date().toLocaleDateString(); %>, 175 employees, replied with the
+          following:
+        </p>
+
+        <!-- Dropdown Trigger -->
+        <a
+          class="btn dropdown-trigger green darken-2"
+          href="#!"
+          data-target="report-filter-dropdown"
+          >Filter By<i class="material-icons right">arrow_drop_down</i></a
+        >
+        <!-- Dropdown Structure -->
+        <ul id="report-filter-dropdown" class="dropdown-content">
+          <li><a id="filter-all" class="green-text text-darken-3" href="#!">All</a></li>
+          <li class="divider"></li>
+          <li><a id="filter-allergies" class="green-text text-darken-3" href="#!">Allergies</a></li>
+          <li><a id="filter-medical" class="green-text text-darken-3" href="#!">Medical</a></li>
+          <li><a id="filter-religious" class="green-text text-darken-3" href="#!">Religious</a></li>
+          <li><a id="filter-substance" class="green-text text-darken-3" href="#!">Substance</a></li>
+          <li>
+            <a id="filter-weight" class="green-text text-darken-3" href="#!">Weight Management</a>
+          </li>
+          <li><a id="filter-other" class="green-text text-darken-3" href="#!">Other</a></li>
+        </ul>
+
+        <div class="row" id="allergies">
+        <h3>Allergies</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Allergy</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Eggs</td>
+              <td><%= restrictionsReport.eggsCount %></td>
+            </tr>
+            <tr>
+              <td>Fish</td>
+              <td><%= restrictionsReport.fishCount %></td>
+            </tr>
+            <tr>
+              <td>Gluten</td>
+              <td><%= restrictionsReport.glutenCount %></td>
+            </tr>
+            <tr>
+              <td>Peanuts</td>
+              <td><%= restrictionsReport.peanutsCount %></td>
+            </tr>
+            <tr>
+              <td>Shellfish</td>
+              <td><%= restrictionsReport.shellfishCount %></td>
+            </tr>
+            <tr>
+              <td>Soy</td>
+              <td><%= restrictionsReport.soyCount %></td>
+            </tr>
+            <tr>
+              <td>Tree Nuts</td>
+              <td><%= restrictionsReport.treenutsCount %></td>
+            </tr>
+            <tr>
+              <td>Wheat</td>
+              <td><%= restrictionsReport.wheatCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" id="medical">
+        <h3>Medical</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Medical Restriction</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Celiac Disease: Gluten Free</td>
+              <td><%= restrictionsReport.celiacCount %></td>
+            </tr>
+            <tr>
+              <td>Diabetes: Sugar Free</td>
+              <td><%= restrictionsReport.diabetesCount %></td>
+            </tr>
+            <tr>
+              <td>Gout: High Vegetables & Low Meat</td>
+              <td><%= restrictionsReport.goutCount %></td>
+            </tr>
+            <tr>
+              <td>Hypertension: Low Salt</td>
+              <td><%= restrictionsReport.hypertensionCount %></td>
+            </tr>
+            <tr>
+              <td>Lactose Intolerance: Dairy Free</td>
+              <td><%= restrictionsReport.lactoseCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" id="religious">
+        <h3>Religious</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Religion</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Buddhist: No Meat, Garlic &amp; Onions</td>
+              <td><%= restrictionsReport.buddhistCount %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Hindu: No Meat, Garlic &amp; Onions</td>
+              <td><%= restrictionsReport.hinduCount %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Jewish: Kosher</td>
+              <td><%= restrictionsReport.jewishCount %></td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td>Muslim: Halal</td>
+              <td><%= restrictionsReport.muslimCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" id="substance">
+        <h3>Substance</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Substance</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Alcohol Free</td>
+              <td><%= restrictionsReport.alcoholCount %></td>
+            </tr>
+            <tr>
+              <td>Caffeine Free</td>
+              <td><%= restrictionsReport.caffeineCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" id="weight">
+        <h3>Weight Management</h3>
+        <table>
+          <thead>
+            <tr>
+              <th class="col1">Diet</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Atkins</td>
+              <td><%= restrictionsReport.atkinsCount %></td>
+            </tr>
+            <tr>
+              <td>Keto</td>
+              <td><%= restrictionsReport.ketoCount %></td>
+            </tr>
+            <tr>
+              <td>Low Carb</td>
+              <td><%= restrictionsReport.lowcardCount %></td>
+            </tr>
+            <tr>
+              <td>Low Fat</td>
+              <td><%= restrictionsReport.lowfatCount %></td>
+            </tr>
+            <tr>
+              <td>Paleo</td>
+              <td><%= restrictionsReport.paleoCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" id="other">
+        <h3>Other</h3>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="col1">Restriction</th>
+              <th class="col2">No. of Employees</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Pescetarian</td>
+              <td><%= restrictionsReport.pescetarianCount %></td>
+            </tr>
+            <tr>
+              <td>Vegan</td>
+              <td><%= restrictionsReport.veganCount %></td>
+            </tr>
+            <tr>
+              <td>Vegetarian</td>
+              <td><%= restrictionsReport.vegetarianCount %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+    <script src="./js/reports.js"></script>
+    <script src="./js/logout.js"></script>
+  </body>
+</html>

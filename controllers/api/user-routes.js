@@ -1,10 +1,28 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const sequelize = require("../../config/connection");
+const { User, Restriction, Profile } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
+  console.log("=========GET=USERS========");
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Profile,
+        attributes: [
+          // "id",
+          // "user_id",
+          "restriction_id",
+          [
+            sequelize.literal(
+              "(SELECT restriction_name FROM restriction WHERE id = restriction_id)"
+            ),
+            "restriction_name",
+          ],
+        ],
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -13,13 +31,52 @@ router.get("/", (req, res) => {
     });
 });
 
+// GET all restrictions /api/restrictions
+router.get("/restriction", (req, res) => {
+  console.log("=========GET=RESTRICTION========");
+  Restriction.findAll({
+    attributes: ["id", "restriction_name", "category"],
+
+    include: [
+      {
+        model: Profile,
+        attributes: ["restriction_id", "user_id"],
+        include: {
+          model: User,
+          attributes: ["first_name"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["last_name"],
+      },
+    ],
+  })
+    .then((dbRestrictData) => res.json(dbRestrictData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
+  console.log("=========GET=USER=ID========");
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
       id: req.params.id,
     },
+    include: [
+      {
+        model: Profile,
+        attributes: ["id", "user_id", "restriction_id"],
+        include: {
+          model: Restriction,
+          attributes: ["restriction_name"],
+        },
+      }
+    ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -36,9 +93,11 @@ router.get("/:id", (req, res) => {
 
 // POST create new user /api/users
 router.post("/", (req, res) => {
-  // expects {username: 'User', email: 'user@email.com', password: '1234'}
+  console.log("========CREATE=USER========");
+  // expects {first_name: 'User', last_name: Smith, email: 'user@email.com', password: '1234'}
   User.create({
-    username: req.body.username,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
   })
@@ -46,6 +105,7 @@ router.post("/", (req, res) => {
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
+        req.session.first_name = dbUserData.first_name;
         req.session.loggedIn = true;
 
         res.json(dbUserData);
@@ -59,7 +119,8 @@ router.post("/", (req, res) => {
 
 // PUT update a user /api/users/1
 router.put("/:id", (req, res) => {
-  // expects {username: 'User, email: 'user@email.com', password: '1234'}
+  console.log("=========UPDATE=USER=ID========");
+  // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -81,6 +142,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE delete a user /api/users/1
 router.delete("/:id", (req, res) => {
+  console.log("=========DELETE=USER========");
   User.destroy({
     where: {
       id: req.params.id,
@@ -101,6 +163,7 @@ router.delete("/:id", (req, res) => {
 
 // login as a user /api/login
 router.post("/login", (req, res) => {
+  console.log("=========LOGIN=route========");
   User.findOne({
     where: {
       email: req.body.email,
@@ -122,7 +185,8 @@ router.post("/login", (req, res) => {
       // declare session variables
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
-      req.session.loggedIn = true; 
+      req.session.first_name = dbUserData.first_name;
+      req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
@@ -130,12 +194,13 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
+  console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+    req.session.destroy();
+    res.clearCookie('connect.sid', { path: '/' }).status(200).send('OK').end();
+  }
+  else {
+    document.location.replace('/');
   }
 });
 

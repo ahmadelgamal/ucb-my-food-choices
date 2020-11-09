@@ -2,7 +2,7 @@
 
 ## Description
 
-Ever been to an event where food was served, and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
+Have you ever been to an event where food was served, and you, or someone you know, had a hard time finding food that they like or that fits their dietary needs?
 
 Well, the solution is **My Food Choices!**
 
@@ -14,9 +14,10 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 - [Deployment URL](#Deployment-URL)
 - [GitHub Repo URL](#GitHub-Repo-URL)
-- [Usage](#Usage)
-- [Screenshots](#Screenshots)
+- [Demo](#Demo)
 - [Features](#Features)
+- [Usage](#Usage)
+- [Future Upgrades](#Future-Upgrades)
 - [Contributors](#Contributors)
 - [Technologies Used](#Technologies-Used)
 - [License](#License)
@@ -24,11 +25,38 @@ It has an interface for users to enter their dietary choices, and another for ev
 
 ## Deployment URL
 
-https://ahmadelgamal.github.io/ucb-my-food-choices/
+https://my-food-choices.herokuapp.com/
 
 ## GitHub Repo URL
 
 https://github.com/ahmadelgamal/ucb-my-food-choices
+
+## Demo
+
+### Admin Report
+
+![Admin Gif Video](./lib/admin-my-food-choices.gif)
+
+### User Profile
+
+![User Gif Video](./lib/user-my-food-choices.gif)
+
+
+## Features
+
+This first version is setup so that a company with an office kitchen can query its employees for their dietary needs and restrictions in order to prepare food that fits their needs.
+
+1. Employees will receive an email from the company admin with a link (url) to the app homepage.
+1. Once they visit the homepage, they can:
+   1. Sign up.
+   1. Login.
+   1. Check boxes that correspond to their dietary restrictions.
+   1. Save their profile.
+   1. Update their profile.
+1. Organizer will get a report with:
+   1. The number of employees that signed up.
+   1. The total number of employees in each dietary restriction category.
+   1. This will help the organizer plan the food that better fits the employees' needs.
 
 ## Usage
 
@@ -69,31 +97,38 @@ You simply send a link with the wedding invitation to each guest. Users can opt 
 
 Are the bride and groom impressed? You betcha!
 
-## Screenshots
-
-_Coming soon, God willing_
-
-## Features
-
-1. Guests will receive an email from the organizer with a link (url) to the page where they sign up then enter their food preferences.
-1. Dietary restrictions, such as:
-   1. Religious
-   1. Medical
-   1. Allergies
-   1. Weight Management
-   1. Other
-1. Organizer will get a report with how many guests filled out their profiles and the total number of guests in each dietary restriction category. This will help the organizer plan the food that better fits the guests needs.
-
 ## Future Upgrades
 
-1. Food favorites
-1. Food preferences, such as:
-   1. pasta or rice
-   1. french fries or mashed potatoes
-   1. shakes or ice cream
-1. Food dislikes
-1. Multiple profiles per user account
-1. Organizers will have the option to run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+The list of upgrades can be endless, but the following are the top 10 upgrades for admin and users to make this a world-class app.
+
+### For Admin/Organizers
+Give Admin the option to:
+1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Delete users (For example, if an employee leaves a company).
+1. Sign Up
+1. Recover the password
+1. Change the password
+1. Change the username
+1. Delete account
+1. Group users
+1. Add company logo
+1. Add events with invitations
+
+### For Users
+Give users the option to:
+   1. Select food favorites
+   1. Select food preferences, such as:
+      1. pasta vs. rice
+      1. french fries vs. mashed potatoes
+      1. shakes vs. ice cream
+   1. Select food dislikes
+   1. Add custom foods
+   1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
+   1. Recover the password
+   1. Change the password
+   1. Change the username
+   1. Delete account
+   1. Add picture
 
 ## Contributors
 
@@ -102,8 +137,8 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 | Name             | Role               | Technical Responsibilities        | GitHub Account                  |
 | ---------------- | ------------------ | --------------------------------- | ------------------------------- |
 | Ann-Marie Orozco | Database Manager   | Database, Server & Authentication | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer | APIs, Routes, EJS & tests         | https://github.com/brianslopez  |
-| Ahmad El Gamal   | Project Manager    | Front-end & Heroku                | https://github.com/ahmadelgamal |
+| Brian Lopez      | Back-end Developer | APIs, Routes & EJS         | https://github.com/brianslopez  |
+| Ahmad El Gamal   | Project Manager    | Front-end, EJS & Heroku                | https://github.com/ahmadelgamal |
 
 ## Technologies Used
 

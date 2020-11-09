@@ -51,41 +51,61 @@
             <div class="row">
               <div class="input-field col s6 hoverable">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="first_name" type="text" class="validate" />
+                <input
+                  id="first_name"
+                  type="text"
+                  name="first_name"
+                  class="validate"
+                />
                 <label for="first_name">First Name</label>
               </div>
               <div class="input-field col s6 hoverable">
-                <input id="last_name" type="text" class="validate" />
+                <input
+                  id="last_name"
+                  type="text"
+                  name="last_name"
+                  class="validate"
+                />
                 <label for="last_name">Last Name</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12 hoverable">
                 <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate" />
+                <input id="email" type="email" name="email" class="validate" />
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12 hoverable">
                 <i class="material-icons prefix">security</i>
-                <input id="password" type="password" class="validate" />
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  class="validate"
+                />
                 <label for="password">Password</label>
               </div>
             </div>
+            <div class="row">
+              <button
+                id="signup-btn"
+                class="btn btn-large waves-effect waves-light green hoverable"
+                type="submit"
+                value="accept"
+              >
+                Sign Up
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+            <div class="row">
+              <p class="center-align">
+                Already a member? <a href="login.html">Login</a>
+              </p>
+            </div>
           </form>
         </div>
-        <button
-          class="btn btn-large waves-effect waves-light green hoverable"
-          type="submit"
-          name="action"
-        >
-          Sign Up
-          <i class="material-icons right">send</i>
-        </button>
-        <p class="center-align">
-          Already a member? <a href="login.html">Login</a>
-        </p>
       </div>
     </main>
 

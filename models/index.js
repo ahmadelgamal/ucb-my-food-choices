@@ -1,22 +1,26 @@
 // import all models
+const Profile = require("./Profile");
 const User = require("./User");
-const Event = require("./Event");
 const Restriction = require("./Restriction");
 
-User.hasMany(Restriction, {
+User.hasMany(Profile, {
   foreignKey: "user_id",
 });
 
-User.hasMany(Event, {
-  foreignKey: "user_id",
-});
-
-Event.belongsTo(User, {
+Profile.belongsTo(User, {
   foreignKey: "user_id",
 });
 
 Restriction.belongsTo(User, {
-  foreignKey: "user_id",
+  foreignKey: "restriction_id",
 });
 
-module.exports = { User, Event, Restriction };
+Restriction.belongsTo(Profile, {
+  foreignKey: "restriction_id",
+});
+
+Profile.hasMany(Restriction, {
+  foreignKey: "restriction_id",
+});
+
+module.exports = { User, Profile, Restriction };
