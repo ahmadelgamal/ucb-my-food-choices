@@ -33,7 +33,13 @@ https://github.com/ahmadelgamal/ucb-my-food-choices
 
 ## Demo
 
-![Gif Video](./lib/my-food-choices.gif)
+### Admin Report
+
+![Admin Gif Video](./lib/admin-my-food-choices.gif)
+
+### User Profile
+
+![User Gif Video](./lib/user-my-food-choices.gif)
 
 
 ## Features
