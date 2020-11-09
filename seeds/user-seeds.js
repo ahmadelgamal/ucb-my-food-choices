@@ -3,15 +3,21 @@ const { User, Post } = require('../models');
 
 const userdata = [
   {
-    first_name: 'Admin',
-    last_name: 'Admin',
+    first_name: 'Everett',
+    last_name: 'Griffiths',
     email: 'admin@email.com',
     password: '1234'
   },
   {
-    first_name: 'Jane',
-    last_name: 'Doe',
-    email: 'user@email.com',
+    first_name: 'Ahmad',
+    last_name: 'El Gamal',
+    email: 'ahmad@email.com',
+    password: '1234'
+  },
+  {
+    first_name: 'Brian',
+    last_name: 'Lopez',
+    email: 'brian@email.com',
     password: '1234'
   },
   {
@@ -19,15 +25,9 @@ const userdata = [
     last_name: 'AreYouOK',
     email: 'annie@email.com',
     password: '1234'
-  },
-  {
-    first_name: 'Indiana',
-    last_name: 'Jones',
-    email: 'jones@email.com',
-    password: '1234'
   }
 ];
 
-const seedUsers = () => User.bulkCreate(userdata, {individualHooks: true});
+const seedUsers = () => User.bulkCreate(userdata, { individualHooks: true });
 
 module.exports = seedUsers;

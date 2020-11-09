@@ -22,7 +22,6 @@ async function profileFormHandler(event) {
       }
     );
     if (response.ok) {
-      // console.log(item);
 
       // } else {
       //   const response = await fetch("/api/profiles", {
@@ -32,8 +31,6 @@ async function profileFormHandler(event) {
       //   });
 
 
-    } else {
-      console.log(response.statusText);
     }
   }
 }
