@@ -30,6 +30,7 @@ router.get("/profile", withAuth, (req, res) => {
 });
 
 router.get("/reports", withAuth, (req, res) => {
+  
   console.log("=====GET=report=app=======");
   res.render("reports", { title: "Reports", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
