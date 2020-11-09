@@ -22,7 +22,7 @@ async function profileFormHandler(event) {
       }
     );
     if (response.ok) {
-      console.log(item);
+      // console.log(item);
 
       // } else {
       //   const response = await fetch("/api/profiles", {
