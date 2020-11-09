@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
     res.redirect("/profile");
     return;
   }
-
   res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup", burgerNavLinkId: "burger-signup" });
 });
 
@@ -21,7 +20,6 @@ router.get("/signup", (req, res) => {
 
 router.get("/profile", withAuth, (req, res) => {
   console.log("=====GET=profile=app=======");
-
   if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
@@ -29,14 +27,9 @@ router.get("/profile", withAuth, (req, res) => {
   res.render("profile", { title: "Profile", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
 });
 
-
-
-
-// GET all restrictions /api/profiles
+// GET profiles & build restrictionsReport object
 router.get("/reports", withAuth, (req, res) => {
-  
   console.log("====GET=REPORT====");
-  
   Profile.findAll({
     attributes: [
       "id",
@@ -161,23 +154,18 @@ router.get("/reports", withAuth, (req, res) => {
       }
     }
 
-    res.render("reports", { title: "Reports", restrictionsReport: restrictionsReport, first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
-   //res.json(restrictionsReport);
+    res.render("reports", { 
+      title: "Reports", 
+      restrictionsReport: restrictionsReport,
+      first_name: req.session.first_name,
+      navLinkText: "Logout",
+      navLinkRoute: "logout",
+      navLinkId: "logout",
+      burgerNavLinkId: "burger-logout" 
+    });
 
   });
 });
-
-
-
-
-
-
-
-// router.get("/reports", withAuth, (req, res) => {
-  
-//   console.log("=====GET=report=app=======");
-//   res.render("reports", { title: "Reports", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
-// });
 
 // 404
 router.use((req, res) => {
