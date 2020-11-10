@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { Profile, User, Restriction } = require("../models");
 const withAuth = require("../utils/auth");
+const { Profile, User, Restriction } = require("../models");
 
 // redirects homepage to login
 router.get("/", (req, res) => {
