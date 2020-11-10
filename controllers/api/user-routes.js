@@ -170,7 +170,7 @@ router.post("/login", (req, res) => {
     },
   }).then((dbUserData) => {
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
+      res.status(400).json({ message: "No user found with that email address!" });
       return;
     }
 
@@ -193,14 +193,16 @@ router.post("/login", (req, res) => {
   });
 });
 
+// logout as a user /api/logout
 router.post("/logout", (req, res) => {
   console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
     req.session.destroy();
-    res.clearCookie('connect.sid', { path: '/' }).status(200).send('OK').end();
+    res.clearCookie('connect.sid', { path: '/' }).status(200).send('OK');
+    res.session.loggedIn = false;
   }
   else {
-    document.location.replace('/');
+    document.location.replace('/testLogout');
   }
 });
 

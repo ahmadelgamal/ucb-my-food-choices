@@ -9,14 +9,17 @@ const app = express();
 
 // register view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
+// turn on connection to db and server
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
+});
 
-// use session
+// use express-session cookie for user authentication
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sess = {
-  secret: "Super secret secret",
+  secret: "encryption on (dummy text)",
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -24,7 +27,6 @@ const sess = {
     db: sequelize,
   }),
 };
-
 
 app.use(session(sess));
 
@@ -34,9 +36,3 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // turn on routes
 app.use(routes);
-
-// turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening on port ${PORT}`));
-});
-
