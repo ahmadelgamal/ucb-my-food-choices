@@ -173,11 +173,12 @@ router.get("/reports", withAuth, (req, res) => {
   });
 });
 
-// logout redirect
-router.get("/logout", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
-})
+// // logout redirect
+// router.get("/logout", (req, res) => {
+//   if (!req.session.loggedIn) {
+//     res.redirect("/");
+//     return;
+//   }
+// })
+
 module.exports = router;

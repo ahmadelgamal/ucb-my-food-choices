@@ -31,8 +31,8 @@ const sess = {
 app.use(session(sess));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 // turn on routes
 app.use(routes);
