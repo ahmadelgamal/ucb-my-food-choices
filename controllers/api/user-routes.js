@@ -200,6 +200,7 @@ router.post("/logout", (req, res) => {
     req.session.destroy();
     res.clearCookie('connect.sid', { path: '/' }).status(200).send('OK');
     res.session.loggedIn = false;
+    return;
   }
   else {
     document.location.replace('/testLogout');
