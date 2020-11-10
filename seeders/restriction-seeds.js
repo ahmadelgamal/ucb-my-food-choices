@@ -1,6 +1,6 @@
 const { Restriction } = require("../models");
 
-const restrictiondata = [
+const restrictionData = [
   {
     restriction_name: "Eggs",
     category: "Allergies"
@@ -111,6 +111,6 @@ const restrictiondata = [
   }
 ];
 
-const seedRestrictions = () => Restriction.bulkCreate(restrictiondata);
+const seedRestrictions = () => Restriction.bulkCreate(restrictionData);
 
 module.exports = seedRestrictions;
