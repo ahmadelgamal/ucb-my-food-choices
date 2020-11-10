@@ -1,5 +1,5 @@
 const seedUsers = require('./user-seeds');
-const seedRestrictions = require('./restriction-seeds');;
+const seedRestrictions = require('./restriction-seeds');
 const seedProfiles = require('./profile-seeds');
 
 const sequelize = require('../config/connection');
