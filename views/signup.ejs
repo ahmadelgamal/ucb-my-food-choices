@@ -34,7 +34,13 @@
             <div class="row">
               <div class="input-field col s12 hoverable">
                 <i class="material-icons prefix">email</i>
-                <input id="email" type="email" name="email" class="validate" autocomplete="email" />
+                <input
+                id="email"
+                type="email"
+                name="email"
+                class="validate"
+                autocomplete="email"
+                />
                 <label for="email">Email</label>
               </div>
             </div>
@@ -52,6 +58,17 @@
               </div>
             </div>
             <div class="row">
+              <div class="col s12">
+                <div class="row">
+                  <div class="col s4">
+                <label>Account type</label>
+                <select class="browser-default">
+                  <option value="" disabled selected>Choose account type</option>
+                  <option value="1">Guest</option>
+                  <option value="2">Host</option>
+                </select>
+              </div>
+              <div class="col s4">
               <button
                 id="signup-btn"
                 class="btn btn-large waves-effect waves-light green hoverable"
@@ -61,6 +78,9 @@
                 Sign Up<i class="material-icons right">send</i>
               </button>
             </div>
+            </div>
+          </div>
+          </div>
             <div class="row">
               <p class="center-align">
                 Already a member? <a href="/">Login</a>
