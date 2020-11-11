@@ -13,4 +13,4 @@ async function logoutFormHandler() {
 }
 
 document.querySelector('#logout').addEventListener("click", logoutFormHandler);
-document.querySelector('#burger-logout').addEventListener("touchstart", logoutFormHandler);
+document.querySelector('#burger-logout').addEventListener("click", logoutFormHandler);
