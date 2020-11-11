@@ -236,8 +236,8 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-    .then((dbProfileData) => {
-      if (!dbProfileData) {
+  .then((dbProfileData) => {
+    if (dbProfileData.length>0) {
         res.status(404).json({ message: "No profile found with this id" });
         return;
       }
