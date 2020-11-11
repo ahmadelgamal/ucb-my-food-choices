@@ -196,7 +196,7 @@ router.post("/login", (req, res) => {
 // logout as a user /api/users/logout
 router.post('/logout', (req, res) => {
   console.log("=========LOGOUT=========");
-  if (req.session.loggedIn) {
+  if (req.session.guestLoggedIn) {
     res.clearCookie('connect.sid').status(200).send('OK');
     req.session.destroy(() => {
       res.status(204).end();

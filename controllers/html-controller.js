@@ -45,7 +45,7 @@ const html_profile = (req, res) => {
     title: "Profile",
     first_name: req.session.first_name,
     navLinkText: "Logout",
-    navLinkRoute: "logout",
+    navLinkRoute: "",
     navLinkId: "logout",
     burgerNavLinkId: "burger-logout"
   });
