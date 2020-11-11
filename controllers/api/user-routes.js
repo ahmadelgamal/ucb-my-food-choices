@@ -199,13 +199,13 @@ router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy();
     res.clearCookie('connect.sid').status(200).send('OK');
-    res.redirect('/');
+    // res.redirect('/');
     return;
   }
-  else {
-    res.redirect('/');
-    return;
-  }
+  // else {
+  //   res.redirect('/');
+  //   return;
+  // }
 });
 
 module.exports = router;
