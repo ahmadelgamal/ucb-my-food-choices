@@ -59,6 +59,52 @@ router.get("/restriction", (req, res) => {
     });
 });
 
+// login as a user /api/users/login
+router.post("/admin-login", (req, res) => {
+  console.log("=========LOGIN=route========");
+  Admin.findOne({
+    where: {
+      email: req.body.email,
+    },
+  }).then((dbAdminData) => {
+    if (!dbAdminData) {
+      res.status(400).json({ message: "No user found with that email address!" });
+      return;
+    }
+
+    const validPassword = dbAdminData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: "Incorrect password!" });
+      return;
+    }
+
+    req.session.save(() => {
+      // declare session variables
+      req.session.user_id = dbAdminData.id;
+      req.session.username = dbAdminData.username;
+      req.session.first_name = dbAdminData.first_name;
+      req.session.hostLoggedIn = true;
+
+      res.json({ user: dbAdminData, message: "You are now logged in!" });
+    });
+  });
+});
+
+// logout as a user /api/users/logout
+router.post('/admin-logout', (req, res) => {
+  console.log("=========LOGOUT=========");
+  if (req.session.hostLoggedIn) {
+    res.clearCookie('connect.sid').status(200).send('OK');
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
 /*
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
@@ -162,51 +208,5 @@ router.delete("/:id", (req, res) => {
     });
 });
 */
-
-// login as a user /api/users/login
-router.post("/admin-login", (req, res) => {
-  console.log("=========LOGIN=route========");
-  Admin.findOne({
-    where: {
-      email: req.body.email,
-    },
-  }).then((dbAdminData) => {
-    if (!dbAdminData) {
-      res.status(400).json({ message: "No user found with that email address!" });
-      return;
-    }
-
-    const validPassword = dbAdminData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
-      return;
-    }
-
-    req.session.save(() => {
-      // declare session variables
-      req.session.user_id = dbAdminData.id;
-      req.session.username = dbAdminData.username;
-      req.session.first_name = dbAdminData.first_name;
-      req.session.hostLoggedIn = true;
-
-      res.json({ user: dbAdminData, message: "You are now logged in!" });
-    });
-  });
-});
-
-// logout as a user /api/users/logout
-router.post('/admin-logout', (req, res) => {
-  console.log("=========LOGOUT=========");
-  if (req.session.hostLoggedIn) {
-    res.clearCookie('connect.sid').status(200).send('OK');
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  }
-  else {
-    res.status(404).end();
-  }
-});
 
 module.exports = router;

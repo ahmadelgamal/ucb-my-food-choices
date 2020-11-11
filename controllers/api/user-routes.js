@@ -117,50 +117,6 @@ router.post("/", (req, res) => {
     });
 });
 
-// PUT update a user /api/users/1
-router.put("/:id", (req, res) => {
-  console.log("=========UPDATE=USER=ID========");
-  // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
-  User.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((dbUserData) => {
-      if (!dbUserData[0]) {
-        res.status(404).json({ message: "No user found with this id" });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// DELETE delete a user /api/users/1
-router.delete("/:id", (req, res) => {
-  console.log("=========DELETE=USER========");
-  User.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((dbUserData) => {
-      if (!dbUserData) {
-        res.status(404).json({ message: "No user found with this id" });
-        return;
-      }
-      res.json(dbUserData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 // login as a user /api/users/login
 router.post("/login", (req, res) => {
   console.log("=========LOGIN=route========");
@@ -205,6 +161,50 @@ router.post('/logout', (req, res) => {
   else {
     res.status(404).end();
   }
+});
+
+// PUT update a user /api/users/1
+router.put("/:id", (req, res) => {
+  console.log("=========UPDATE=USER=ID========");
+  // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
+  User.update(req.body, {
+    individualHooks: true,
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData[0]) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// DELETE delete a user /api/users/1
+router.delete("/:id", (req, res) => {
+  console.log("=========DELETE=USER========");
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
