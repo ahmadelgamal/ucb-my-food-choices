@@ -10,12 +10,24 @@ const html_login = (req, res) => {
     res.redirect("/profile");
     return;
   }
-  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup", burgerNavLinkId: "burger-signup" });
+  res.render("login", {
+    title: "Login",
+    navLinkText: "Sign Up",
+    navLinkRoute: "signup",
+    navLinkId: "signup",
+    burgerNavLinkId: "burger-signup"
+  });
 };
 
 const html_signup = (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "login", navLinkId: "login", burgerNavLinkId: "burger-login" });
+  res.render("signup", {
+    title: "Sign Up",
+    navLinkText: "Login",
+    navLinkRoute: "login",
+    navLinkId: "login",
+    burgerNavLinkId: "burger-login"
+  });
 };
 
 const html_profile = (req, res) => {

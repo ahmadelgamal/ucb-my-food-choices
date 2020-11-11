@@ -161,7 +161,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-// login as a user /api/login
+// login as a user /api/users/login
 router.post("/login", (req, res) => {
   console.log("=========LOGIN=route========");
   User.findOne({
@@ -193,19 +193,31 @@ router.post("/login", (req, res) => {
   });
 });
 
-// logout as a user /api/logout
-router.post("/logout", (req, res) => {
+// logout as a user /api/users/logout
+router.post('/logout', (req, res) => {
   console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
-    req.session.destroy();
-    res.clearCookie('connect.sid').status(200).send('OK');
-    // res.redirect('/');
-    return;
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
   }
-  // else {
-  //   res.redirect('/');
-  //   return;
-  // }
+  else {
+    res.status(404).end();
+  }
 });
+
+
+// router.post("/logout", (req, res) => {
+//   if (req.session.loggedIn) {
+//     // res.clearCookie('connect.sid').status(200).send('OK');
+//     req.session.destroy();
+//     res.redirect('/');
+//     return;
+//   }
+//   else {
+//     res.redirect('/');
+//     return;
+//   }
+// });
 
 module.exports = router;
