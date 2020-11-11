@@ -2,6 +2,7 @@
 const Profile = require("./Profile");
 const User = require("./User");
 const Restriction = require("./Restriction");
+const Admin = require("./Admin");
 
 User.hasMany(Profile, {
   foreignKey: "user_id",
@@ -23,4 +24,8 @@ Profile.hasMany(Restriction, {
   foreignKey: "restriction_id",
 });
 
-module.exports = { User, Profile, Restriction };
+Admin.hasMany(Profile, {
+  foreignKey: "profile_id",
+});
+
+module.exports = { User, Profile, Restriction, Admin };
