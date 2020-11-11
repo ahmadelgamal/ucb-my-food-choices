@@ -8,12 +8,4 @@ router.get("/signup", htmlController.html_signup);
 router.get("/profile", withAuth, htmlController.html_profile);
 router.get("/reports", withAuth, htmlController.html_reports);
 
-// // logout redirect
-// router.get("/logout", (req, res) => {
-//   if (!req.session.loggedIn) {
-//     res.redirect("/");
-//     return;
-//   }
-// })
-
 module.exports = router;
