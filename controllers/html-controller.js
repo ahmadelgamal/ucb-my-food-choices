@@ -10,7 +10,7 @@ const html_login = (req, res) => {
     res.redirect("/profile");
     return;
   }
-  if (req.session.hostLoggedIn){
+  if (req.session.hostLoggedIn) {
     res.redirect("/reports");
     return;
   }
@@ -36,11 +36,6 @@ const html_signup = (req, res) => {
 
 const html_profile = (req, res) => {
   console.log("=====GET=profile=app=======");
-  // admin login (id = 1) redirect to reports
-  /*if (req.session.user_id === 1) {
-    res.redirect("/reports");
-    return;
-  }*/
   res.render("profile", {
     title: "Profile",
     first_name: req.session.first_name,

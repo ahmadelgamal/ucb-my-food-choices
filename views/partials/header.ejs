@@ -1,5 +1,9 @@
 <header>
-  <nav class="green">
+  <% if (title === "Reports") { %>
+    <nav class="blue">
+  <% } else { %>
+    <nav class="green">
+  <% } %>
     <div class="container nav-wrapper">
       <a href="/" class="brand-logo hide-on-med-and-down">
         <i class="material-icons">local_dining</i>My Food Choices</a
@@ -22,7 +26,10 @@
   <ul class="sidenav" id="mobile-nav">
     <% if (title === "Profile" || title === "Reports") { %>
       <li><a>Welcome, <%= first_name %></a></li>
+      <li><a href=""></a>Change Email</li>
+      <li><a href=""></a>Change Password</li>
+      <li><a href=""></a>Delete Account</li>
       <% } %>
-    <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
+      <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
 </header>
