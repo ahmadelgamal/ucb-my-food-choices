@@ -1,4 +1,4 @@
-const { Profile, User, Restriction } = require("../models");
+const { Profile, User, Restriction, Admin } = require("../models");
 
 const html_index = (req, res) => {
   res.redirect("/login");
@@ -6,30 +6,41 @@ const html_index = (req, res) => {
 
 const html_login = (req, res) => {
   console.log("=====GET=login=app=====");
-  if (req.session.loggedIn) {
+  if (req.session.guestLoggedIn) {
     res.redirect("/profile");
     return;
   }
-  res.render("login", { title: "Login", navLinkText: "Sign Up", navLinkRoute: "signup", navLinkId: "signup", burgerNavLinkId: "burger-signup" });
+  if (req.session.hostLoggedIn) {
+    res.redirect("/reports");
+    return;
+  }
+  res.render("login", {
+    title: "Login",
+    navLinkText: "Sign Up",
+    navLinkRoute: "signup",
+    navLinkId: "signup",
+    burgerNavLinkId: "burger-signup"
+  });
 };
 
 const html_signup = (req, res) => {
   console.log("=====GET=signup=app=======");
-  res.render("signup", { title: "Sign Up", navLinkText: "Login", navLinkRoute: "login", navLinkId: "login", burgerNavLinkId: "burger-login" });
+  res.render("signup", {
+    title: "Sign Up",
+    navLinkText: "Login",
+    navLinkRoute: "login",
+    navLinkId: "login",
+    burgerNavLinkId: "burger-login"
+  });
 };
 
 const html_profile = (req, res) => {
   console.log("=====GET=profile=app=======");
-  // admin login (id = 1) redirect to reports
-  if (req.session.user_id === 1) {
-    res.redirect("/reports");
-    return;
-  }
   res.render("profile", {
     title: "Profile",
     first_name: req.session.first_name,
     navLinkText: "Logout",
-    navLinkRoute: "logout",
+    navLinkRoute: "",
     navLinkId: "logout",
     burgerNavLinkId: "burger-logout"
   });
