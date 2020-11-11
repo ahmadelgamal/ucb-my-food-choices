@@ -207,18 +207,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-
-// router.post("/logout", (req, res) => {
-//   if (req.session.loggedIn) {
-//     // res.clearCookie('connect.sid').status(200).send('OK');
-//     req.session.destroy();
-//     res.redirect('/');
-//     return;
-//   }
-//   else {
-//     res.redirect('/');
-//     return;
-//   }
-// });
-
 module.exports = router;
