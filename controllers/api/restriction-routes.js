@@ -11,7 +11,7 @@ router.get("/restriction", (req, res) => {
     include: [
       {
         model: Profile,
-        attributes: ["restriction_id" , "user_id"],
+        attributes: ["restriction_id", "user_id"],
         include: {
           model: User,
           attributes: ["first_name"],
@@ -111,7 +111,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE a restriction by id /api/restrictions/1
 router.delete("/:id", (req, res) => {
-  console.log("=========DELETE=RESTRICTION========="); 
+  console.log("=========DELETE=RESTRICTION=========");
   console.log("id", req.params.id);
   Restriction.destroy({
     where: {
@@ -124,6 +124,46 @@ router.delete("/:id", (req, res) => {
         return;
       }
       res.json(dbRestrictData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET all restrictions /api / profiles
+router.get("/restriction/:id", (req, res) => {
+  console.log("====GET=profile=BY=restriction====");
+  console.log(req.session.user_id);
+  Profile.findAll({
+    where: {
+      restriction_id: req.params.id,
+      user_id: req.session.user_id,
+    },
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["first_name", "last_name"],
+      },
+    ],
+  })
+    .then((dbProfileData) => {
+      if (dbProfileData.length > 0) {
+        res.status(404).json({ message: "No profile found with this id" });
+        return;
+      }
+      res.json(dbProfileData);
     })
     .catch((err) => {
       console.log(err);

@@ -5,9 +5,10 @@ async function logoutFormHandler() {
   });
 
   if (response.ok) {
+    M.toast({ html: "Logged out successfully" });
     document.location.replace('/');
   } else {
-    M.toast({ html: '404 error. Please click on login' });
+    M.toast({ html: "Error logging out" });
   }
 }
 
