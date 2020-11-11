@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const apiRoutes = require("./api");
 const htmlRoutes = require('./html-routes.js');
+const apiRoutes = require("./api");
 
 // main routes
-router.use('/api', apiRoutes);
 router.use('/', htmlRoutes);
+router.use('/api', apiRoutes);
 
 // html error 404 route
 router.use((req, res) => {
