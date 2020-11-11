@@ -6,7 +6,7 @@ async function loginFormHandler(event) {
   const loginBtn = document.querySelector('#login-btn');
 
   if (email && password) {
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/admin/admin-login", {
       method: "post",
       body: JSON.stringify({
         email,
@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
 
     if (response.ok) {
       M.toast({ html: 'Login successful.' });
-      document.location.replace("/profile");
+      document.location.replace("/reports");
     } else {
       M.toast({ html: 'Incorrect email and/or password.' });
     }
