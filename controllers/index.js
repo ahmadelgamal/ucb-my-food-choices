@@ -11,7 +11,7 @@ router.use((req, res) => {
   res.status(404).render("404", {
     title: "404",
     navLinkText: "Login",
-    navLinkRoute: "",
+    navLinkRoute: "login",
     navLinkId: "login",
     burgerNavLinkId: "burger-login"
   });
