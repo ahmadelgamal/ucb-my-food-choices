@@ -16,6 +16,7 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
+      M.toast({ html: 'Login successful.' });
       document.location.replace("/profile");
     } else {
       M.toast({ html: 'Incorrect email and/or password.' });
