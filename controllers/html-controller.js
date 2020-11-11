@@ -25,7 +25,14 @@ const html_profile = (req, res) => {
     res.redirect("/reports");
     return;
   }
-  res.render("profile", { title: "Profile", first_name: req.session.first_name, navLinkText: "Logout", navLinkRoute: "logout", navLinkId: "logout", burgerNavLinkId: "burger-logout" });
+  res.render("profile", {
+    title: "Profile",
+    first_name: req.session.first_name,
+    navLinkText: "Logout",
+    navLinkRoute: "logout",
+    navLinkId: "logout",
+    burgerNavLinkId: "burger-logout"
+  });
 };
 
 const html_reports = (req, res) => {

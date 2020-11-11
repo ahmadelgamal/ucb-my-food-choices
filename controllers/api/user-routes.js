@@ -202,7 +202,9 @@ router.post("/logout", (req, res) => {
     return;
   }
   else {
-    document.location.replace('/');
+    res.redirect('/');
+    // document.location.replace('/');
+    return;
   }
 });
 
