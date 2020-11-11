@@ -197,6 +197,7 @@ router.post("/login", (req, res) => {
 router.post('/logout', (req, res) => {
   console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
+    res.clearCookie('connect.sid').status(200).send('OK');
     req.session.destroy(() => {
       res.status(204).end();
     });
