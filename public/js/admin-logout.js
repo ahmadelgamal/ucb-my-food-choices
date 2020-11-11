@@ -1,13 +1,9 @@
 async function logoutFormHandler() {
-  const response = await fetch('/api/users/logout', {
+  const response = await fetch('/api/admin/admin-logout', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' }
   });
-<<<<<<< HEAD
-
-=======
   
->>>>>>> develop
   if (response.ok) {
     M.toast({ html: "Logged out successfully" });
     document.location.replace('/');

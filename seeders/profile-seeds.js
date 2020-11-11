@@ -20,12 +20,7 @@ const profiledata = [
   {
     user_id: 3,
     restriction_id: 5
-  },
-  {
-    user_id: 4,
-    restriction_id: 4
-  },
- 
+  } 
 ];
 
 const seedProfiles = () => Profile.bulkCreate(profiledata);
