@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Restriction, Profile } = require("../../models");
+const { User, Restriction, Profile, Admin } = require("../../models");
 
 // GET all users /api/users
 router.get("/", (req, res) => {
@@ -59,6 +59,7 @@ router.get("/restriction", (req, res) => {
     });
 });
 
+/*
 // GET one user /api/users/1
 router.get("/:id", (req, res) => {
   console.log("=========GET=USER=ID========");
@@ -160,21 +161,22 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+*/
 
 // login as a user /api/users/login
-router.post("/login", (req, res) => {
+router.post("/admin-login", (req, res) => {
   console.log("=========LOGIN=route========");
-  User.findOne({
+  Admin.findOne({
     where: {
       email: req.body.email,
     },
-  }).then((dbUserData) => {
-    if (!dbUserData) {
+  }).then((dbAdminData) => {
+    if (!dbAdminData) {
       res.status(400).json({ message: "No user found with that email address!" });
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    const validPassword = dbAdminData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
@@ -183,18 +185,18 @@ router.post("/login", (req, res) => {
 
     req.session.save(() => {
       // declare session variables
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.first_name = dbUserData.first_name;
-      req.session.guestLoggedIn = true;
+      req.session.user_id = dbAdminData.id;
+      req.session.username = dbAdminData.username;
+      req.session.first_name = dbAdminData.first_name;
+      req.session.hostLoggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      res.json({ user: dbAdminData, message: "You are now logged in!" });
     });
   });
 });
 
 // logout as a user /api/users/logout
-router.post('/logout', (req, res) => {
+router.post('/admin-logout', (req, res) => {
   console.log("=========LOGOUT=========");
   if (req.session.loggedIn) {
     res.clearCookie('connect.sid').status(200).send('OK');

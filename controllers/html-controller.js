@@ -1,4 +1,4 @@
-const { Profile, User, Restriction } = require("../models");
+const { Profile, User, Restriction, Admin } = require("../models");
 
 const html_index = (req, res) => {
   res.redirect("/login");
@@ -6,8 +6,12 @@ const html_index = (req, res) => {
 
 const html_login = (req, res) => {
   console.log("=====GET=login=app=====");
-  if (req.session.loggedIn) {
+  if (req.session.guestLoggedIn) {
     res.redirect("/profile");
+    return;
+  }
+  if (req.session.hostLoggedIn){
+    res.redirect("/reports");
     return;
   }
   res.render("login", {
@@ -33,10 +37,10 @@ const html_signup = (req, res) => {
 const html_profile = (req, res) => {
   console.log("=====GET=profile=app=======");
   // admin login (id = 1) redirect to reports
-  if (req.session.user_id === 1) {
+  /*if (req.session.user_id === 1) {
     res.redirect("/reports");
     return;
-  }
+  }*/
   res.render("profile", {
     title: "Profile",
     first_name: req.session.first_name,
