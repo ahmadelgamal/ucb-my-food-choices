@@ -3,11 +3,7 @@ async function logoutFormHandler() {
     method: 'post',
     headers: { 'Content-Type': 'application/json' }
   });
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> develop
   if (response.ok) {
     M.toast({ html: "Logged out successfully" });
     document.location.replace('/');
