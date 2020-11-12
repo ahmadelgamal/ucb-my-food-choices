@@ -2,6 +2,8 @@ const seedUsers = require('./user-seeds');
 const seedRestrictions = require('./restriction-seeds');
 const seedProfiles = require('./profile-seeds');
 const seedAdmin = require('./admin-seeds');
+const seedFavFood = require('./favorite-seeds');
+const seedUserFav = require('./userfav-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -19,6 +21,12 @@ const seedAll = async () => {
   console.log('--------------');
 
   await seedAdmin();
+  console.log('--------------');
+
+  await seedFavFood();
+  console.log('--------------');
+
+  await seedUserFav();
   console.log('--------------');
 
   process.exit(0);
