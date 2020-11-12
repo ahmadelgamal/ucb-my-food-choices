@@ -16,7 +16,7 @@ async function profileFormHandler(event) {
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/profiles/restriction/`+ item,
+    const response = await fetch(`api/profiles/restriction/` + item,
       {
         method: "get",
         headers: { "Content-Type": "application/json" }

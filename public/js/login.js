@@ -5,7 +5,7 @@ async function loginFormHandler(event) {
   const password = document.querySelector("#password").value.trim();
   const loginBtn = document.querySelector('#login-btn');
   const selectLoginEl = document.querySelector('.browser-default');
-  
+
   //select guest or host login 
   if (selectLoginEl.value === '1'){
     if (email && password) {
@@ -26,6 +26,10 @@ async function loginFormHandler(event) {
         M.toast({ html: 'Incorrect email and/or password.' });
       }
     }
+    else{
+      
+      M.toast({ html: 'Email or Password is missing.' });
+    }
   }
   else{
     if (email && password) {
@@ -45,6 +49,9 @@ async function loginFormHandler(event) {
       } else {
         M.toast({ html: 'Incorrect email and/or password.' });
       }
+    }
+    else{
+        M.toast({ html: 'Email or Password is missing.' });
     }
   }
   
