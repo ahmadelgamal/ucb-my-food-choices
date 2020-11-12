@@ -78,17 +78,17 @@ router.get(`/user/:id`, (req, res) => {
 
 // GET all restrictions /api/profiles
 router.get("/", (req, res) => {
-  
+
   console.log("====GET=profile=BY=restriction====");
-  
+
   Profile.findAll({
     attributes: [
       "id",
       "user_id",
       "restriction_id",
     ]
-}).then((dbRestrictData) => {
-      
+  }).then((dbRestrictData) => {
+
     const restrictionsReport = {
       "eggsCount": 0,
       "fishCount": 0,
@@ -118,96 +118,135 @@ router.get("/", (req, res) => {
       "veganCount": 0,
       "vegetarianCount": 0
     };
-    
+
     for (i = 0; i < dbRestrictData.length; i++) {
-      switch (dbRestrictData[i].restriction_id) 
-      {
-        case 1: restrictionsReport.eggsCount ++;
-        break;
+      switch (dbRestrictData[i].restriction_id) {
+        case 1: restrictionsReport.eggsCount++;
+          break;
 
-        case 2: restrictionsReport.fishCount ++;
-        break;
+        case 2: restrictionsReport.fishCount++;
+          break;
 
-        case 3: restrictionsReport.glutenCount ++;
-        break;
+        case 3: restrictionsReport.glutenCount++;
+          break;
 
-        case 4: restrictionsReport.peanutsCount ++;
-        break;
+        case 4: restrictionsReport.peanutsCount++;
+          break;
 
-        case 5: restrictionsReport.shellfishCount ++;
-        break;
+        case 5: restrictionsReport.shellfishCount++;
+          break;
 
-        case 6: restrictionsReport.soyCount ++;
-        break;
+        case 6: restrictionsReport.soyCount++;
+          break;
 
-        case 7: restrictionsReport.treenutCount ++;
-        break;
+        case 7: restrictionsReport.treenutCount++;
+          break;
 
-        case 8: restrictionsReport.wheatCount ++;
-        break;
+        case 8: restrictionsReport.wheatCount++;
+          break;
 
-        case 9: restrictionsReport.celiacCount ++;
-        break;
+        case 9: restrictionsReport.celiacCount++;
+          break;
 
-        case 10: restrictionsReport.diabetesCount ++;
-        break;
+        case 10: restrictionsReport.diabetesCount++;
+          break;
 
-        case 11: restrictionsReport.goutCount ++;
-        break;
+        case 11: restrictionsReport.goutCount++;
+          break;
 
-        case 12: restrictionsReport.hypertensionCount ++;
-        break;
+        case 12: restrictionsReport.hypertensionCount++;
+          break;
 
-        case 13: restrictionsReport.lactoseCount ++;
-        break;
+        case 13: restrictionsReport.lactoseCount++;
+          break;
 
-        case 14: restrictionsReport.buddhistCount ++;
-        break;
+        case 14: restrictionsReport.buddhistCount++;
+          break;
 
-        case 15: restrictionsReport.hinduCount ++;
-        break;
+        case 15: restrictionsReport.hinduCount++;
+          break;
 
-        case 16: restrictionsReport.jewishCount ++;
-        break;
+        case 16: restrictionsReport.jewishCount++;
+          break;
 
-        case 17: restrictionsReport.muslimCount ++;
-        break;
+        case 17: restrictionsReport.muslimCount++;
+          break;
 
-        case 18: restrictionsReport.alcoholCount ++;
-        break;
+        case 18: restrictionsReport.alcoholCount++;
+          break;
 
-        case 19: restrictionsReport.caffeineCount ++;
-        break;
+        case 19: restrictionsReport.caffeineCount++;
+          break;
 
-        case 20: restrictionsReport.atkinsCount ++;
-        break;
+        case 20: restrictionsReport.atkinsCount++;
+          break;
 
-        case 21: restrictionsReport.ketoCount ++;
-        break;
+        case 21: restrictionsReport.ketoCount++;
+          break;
 
-        case 22: restrictionsReport.lowcarbCount ++;
-        break;
+        case 22: restrictionsReport.lowcarbCount++;
+          break;
 
-        case 23: restrictionsReport.lowfatCount ++;
-        break;
+        case 23: restrictionsReport.lowfatCount++;
+          break;
 
-        case 24: restrictionsReport.paleoCount ++;
-        break;
+        case 24: restrictionsReport.paleoCount++;
+          break;
 
-        case 25: restrictionsReport.pescetarianCount ++;
-        break;
+        case 25: restrictionsReport.pescetarianCount++;
+          break;
 
-        case 26: restrictionsReport.veganCount ++;
-        break;
+        case 26: restrictionsReport.veganCount++;
+          break;
 
-        case 27: restrictionsReport.vegetarianCount ++;
-        break;
+        case 27: restrictionsReport.vegetarianCount++;
+          break;
       }
     }
 
     res.json(restrictionsReport);
 
   });
+});
+
+// GET all restrictions from profile table /api/restrictions
+router.get("/restriction/:id", (req, res) => {
+  console.log("====GET=profile=BY=restriction====");
+  console.log(req.session.user_id);
+  Profile.findAll({
+    where: {
+      restriction_id: req.params.id,
+      user_id: req.session.user_id,
+    },
+    attributes: [
+      "id",
+      "user_id",
+      "restriction_id",
+      [
+        sequelize.literal(
+          "(SELECT restriction_name FROM restriction WHERE restriction.id = profile.restriction_id)"
+        ),
+        "restriction_name",
+      ],
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["first_name", "last_name"],
+      },
+    ],
+  })
+    .then((dbProfileData) => {
+      if (dbProfileData.length < 0) {
+        res.status(404).json({ message: "No profile found with this id" });
+        return;
+      }
+      res.json(dbProfileData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // GET a restriction by id /api/profiles/1
@@ -236,8 +275,8 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
-  .then((dbProfileData) => {
-    if (dbProfileData.length>0) {
+    .then((dbProfileData) => {
+      if (dbProfileData.length > 0) {
         res.status(404).json({ message: "No profile found with this id" });
         return;
       }
