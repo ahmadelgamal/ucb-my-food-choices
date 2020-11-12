@@ -32,7 +32,7 @@
                   <ul class="right hide-on-med-and-down">
                     <% if (title === "Profile" || title === "Reports") { %>
                       <li>Welcome, <%= first_name %></li>
-                      <li><a class="dropdown-trigger" href="#!" data-target="account-dropdown"><i class="material-icons right">person</i></a></li>
+                      <li><a id="profile-dropdown" class="dropdown-trigger" href="#!" data-target="account-dropdown"><i class="material-icons right">person</i></a></li>
                       <% } else { %>
                         <li><a id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
           <% } %>

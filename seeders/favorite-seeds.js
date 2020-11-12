@@ -10,10 +10,6 @@ const favoriteData = [
     food_category: "Entree"
   },
   {
-    food_name: "Pepporoni Pizza",
-    food_category: "Entree"
-  },
-  {
     food_name: "Cheese Burger",
     food_category: "Entree"
   },
@@ -139,10 +135,6 @@ const favoriteData = [
   },
   {
     food_name: "orange Juice",
-    food_category: "Beverage"
-  },
-  {
-    food_name: "Wine",
     food_category: "Beverage"
   }
 ];

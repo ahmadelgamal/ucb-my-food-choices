@@ -108,7 +108,7 @@ Are the bride and groom impressed? You betcha!
 
 The list of upgrades can be endless, but the following are the top 7 upgrades for Host and Guests to make this a world-class app.
 
-### For Host/Organizers
+### For Host (admin)
 Give Host the option to:
 1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
 1. Delete Guests (For example, if an employee leaves a company).
@@ -118,7 +118,7 @@ Give Host the option to:
 1. Add company logo
 1. Add events with invitations
 
-### For Guests
+### For Guests (users)
 Give Guests the option to:
    1. Select food preferences, such as:
       1. pasta vs. rice
@@ -136,18 +136,17 @@ Give Guests the option to:
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
 | Name             | Role                 | Technical Responsibilities                | GitHub Account                  |
-| ---------------- | -------------------- | ----------------------------------------- | ------------------------------- |
-| Aaditi Pai       | Full-Stack Developer | Host/Guest Login/Sign Up & Food Favorites | https://github.com/aadi1988     |
-| Ahmad El Gamal   | Project Manager      | Front-end, EJS, jQuery & Heroku           | https://github.com/ahmadelgamal |
-| Ann-Marie Orozco | Database Manager     | Database, Server & Authentication         | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer   | APIs, Routes & EJS                        | https://github.com/brianslopez  |
+| ---------------- | -------------------- | --------------------------------- | ------------------------------- |
+| Aaditi Pai       | Full-Stack Developer | Host/Guest Login/Sign Up, Account Services & Food Favorites | https://github.com/aadi1988     |
+| Ahmad El Gamal   | Project Manager      | Front-end, EJS & Heroku           | https://github.com/ahmadelgamal |
+| Ann-Marie Orozco | Database Manager     | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer   | APIs, Routes & EJS                | https://github.com/brianslopez  |
 
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
-- jQuery
 - Node.js
 - Express.js
 - EJS
