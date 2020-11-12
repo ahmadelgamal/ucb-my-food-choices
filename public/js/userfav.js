@@ -1,22 +1,22 @@
-async function profileFormHandler(event) {
+async function userfavFormHandler(event) {
   event.preventDefault();
-  M.toast({ html: 'Profile Updated Successfully!' });
+  M.toast({ html: 'Favorite foods Updated Successfully!' });
 
-  const restrictionsArray = [];
-  const restrict = document.forms[0];
+  const userfavArray = [];
+  const userfav = document.forms[0];
 
-  for (var i = 0; i < restrict.length; i++) {
-    if (restrict[i].checked) {
-      restrictionsArray.push(restrict[i].value);
+  for (var i = 0; i < userfav.length; i++) {
+    if (userfav[i].checked) {
+      userfavArray.push(userfav[i].value);
     }
   }
 
   // for each element (checkbox)...
-  restrictionsArray.forEach(checkPostData);
+  userfavArray.forEach(checkPostData);
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/profiles/restriction/` + item,
+    const response = await fetch(`api/userfav` + item,
       {
         method: "get",
         headers: { "Content-Type": "application/json" }
@@ -24,9 +24,9 @@ async function profileFormHandler(event) {
     );
     if (response.ok) {
     } else {
-      const response = await fetch("/api/profiles", {
+      const response = await fetch("/api/userfav", {
         method: "post",
-        body: JSON.stringify({ restriction_id: item }),
+        body: JSON.stringify({ favorite_id: item }),
         headers: { "Content-Type": "application/json" },
       });
     }
@@ -35,5 +35,5 @@ async function profileFormHandler(event) {
 
 // event listener
 document
-  .querySelector(".profile-form")
+  .querySelector(".userfav-form")
   .addEventListener("submit", profileFormHandler);
