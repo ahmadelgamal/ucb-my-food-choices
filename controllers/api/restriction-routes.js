@@ -3,7 +3,7 @@ const sequelize = require("../../config/connection");
 const { User, Restriction, Profile } = require("../../models");
 
 // GET all restrictions /api/restrictions
-router.get("/restriction", (req, res) => {
+router.get("/", (req, res) => {
   console.log("=========GET=RESTRICTION========");
   Restriction.findAll({
     attributes: ["id", "restriction_name", "category"],
@@ -159,7 +159,7 @@ router.get("/restriction/:id", (req, res) => {
     ],
   })
     .then((dbProfileData) => {
-      if (dbProfileData.length > 0) {
+      if (dbProfileData.length < 0) {
         res.status(404).json({ message: "No profile found with this id" });
         return;
       }
