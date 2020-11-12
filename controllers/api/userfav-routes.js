@@ -2,8 +2,6 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { User, Favorite, UserFav } = require("../../models");
 
-
-
 // GET all  /api/userfav
 router.get("/users", (req, res) => {
   console.log("====GET=userfav====");
@@ -67,13 +65,12 @@ router.get(`/user/:id`, (req, res) => {
     });
 });
 
-
 // GET all favorites /api/profiles
 
 router.get("/", (req, res) => {
-  
+
   console.log("====GET=userfav=BY=favorite====");
-  
+
   UserFav.findAll({
     attributes: [
       "id",
