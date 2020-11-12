@@ -7,8 +7,8 @@
     "test": "jest",
     "start": "node server.js",
     "devStart": "nodemon server.js",
-    "seeds": "node seeds/index.js",
-    "devSeeds": "nodemon seeds/index.js"
+    "seeds": "node seeders/index.js",
+    "devSeeds": "nodemon seeders/index.js"
   },
   "repository": {
     "type": "git",

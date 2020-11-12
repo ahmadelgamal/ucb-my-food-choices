@@ -21,7 +21,7 @@ async function signupHandler(event) {
     // check the response status
     if (response.ok) {
       M.toast({ html: 'You have successfully signed up' });
-      setTimeout(document.location.replace("/"), 30000);
+      document.location.replace("/");
     } else {
       M.toast({ html: 'User already exists.' });
     }

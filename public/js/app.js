@@ -1,12 +1,26 @@
-// For side navbar. As per materialize docs
-document.addEventListener('DOMContentLoaded', function () {
-  // init side navbar, as per materialize docs
-  const sideNavEls = document.querySelectorAll('.sidenav');
-  const sideNavInstances = M.Sidenav.init(sideNavEls, {});
+$(document).ready(function () {
+  // init sidenav
+  $('.sidenav').sidenav();
 
-  // init dropdown buttons, as per materialize docs
-  const dropDownEls = document.querySelectorAll('.dropdown-trigger');
-  const dropDownInstances = M.Dropdown.init(dropDownEls, {});
+  // init navbar dropdown
+  $('.dropdown-trigger').dropdown({
+    constrainWidth: false, // Does not change width of dropdown to that of the activator
+    hover: true, // Activate on hover
+    coverTrigger: false // Displays dropdown below the button
+  });
+  // init dropdown button
+  // $('.dropdown-trigger').dropdown();
 });
 
+// document.addEventListener('DOMContentLoaded', function () {
+//   const elems = document.querySelectorAll('.dropdown-trigger');
+//   var instances = M.Dropdown.init(elems, {
+//     constrainWidth: false, // Does not change width of dropdown to that of the activator
+//     hover: true, // Activate on hover
+//     coverTrigger: false // Displays dropdown below the button
+//   });
+// });
+
+
+// init materialize components
 M.AutoInit();

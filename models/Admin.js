@@ -2,16 +2,16 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcrypt = require("bcrypt");
 
-// create our User model
-class User extends Model {
+// create our Admin model
+class Admin extends Model {
   // set up method to run on instance data (per user) to check password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-// create fields/columns for User model
-User.init(
+// create fields/columns for Admin model
+Admin.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -46,25 +46,25 @@ User.init(
   {
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+      async beforeCreate(newAdminData) {
+        newAdminData.password = await bcrypt.hash(newAdminData.password, 10);
+        return newAdminData;
       },
 
-      async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
+      async beforeUpdate(updatedAdminData) {
+        updatedAdminData.password = await bcrypt.hash(
+          updatedAdminData.password,
           10
         );
-        return updatedUserData;
+        return updatedAdminData;
       },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: "admin",
   }
 );
 
-module.exports = User;
+module.exports = Admin;

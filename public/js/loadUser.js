@@ -1,3 +1,4 @@
+//const session = require("express-session");
 
 async function checkPostData(item) {
   const response = await fetch("/profiles/user/:id", {
