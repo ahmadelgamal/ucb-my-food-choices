@@ -65,7 +65,7 @@ router.get(`/user/:id`, (req, res) => {
   })
     .then((dbProfileData) => {
       if (!dbProfileData) {
-        res.status(404).json({ message: "No profile found with this id" });
+        res.status(303).json({ message: "No profile found with this id" });
         return;
       }
       res.json(dbProfileData);

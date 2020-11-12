@@ -36,4 +36,4 @@ async function userfavFormHandler(event) {
 // event listener
 document
   .querySelector(".userfav-form")
-  .addEventListener("submit", profileFormHandler);
+  .addEventListener("submit", userfavFormHandler);
