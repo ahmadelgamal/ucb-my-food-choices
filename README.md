@@ -25,7 +25,7 @@ It has an interface for Guests to enter their dietary choices, and another for e
 
 ## Deployment URL
 
-https://my-food-choices.herokuapp.com/
+https://myfoodchoices.herokuapp.com/
 
 ## GitHub Repo URL
 
