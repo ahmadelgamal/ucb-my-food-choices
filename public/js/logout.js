@@ -1,8 +1,15 @@
 async function logoutFormHandler() {
-  const response = await fetch('/api/users/logout', {
-    method: 'post',
-    headers: { 'Content-Type': 'application/json' }
-  });
+  if (document.title === 'Reports - My Food Choices') {
+    const response = await fetch('/api/admin/admin-logout', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } else {
+    const response = await fetch('/api/users/logout', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
   if (response.ok) {
     M.toast({ html: "Logged out successfully" });
