@@ -31,19 +31,19 @@ Favorite.belongsTo(User, {
 });
 
 UserFav.belongsTo(User, {
-   foreignKey: "user_id",
+  foreignKey: "user_id",
 });
 
 UserFav.hasMany(Favorite, {
-   foreignKey: "favorite_id",
+  foreignKey: "favorite_id",
 });
 
 Favorite.belongsTo(UserFav, {
-   foreignKey: "favorite_id",
+  foreignKey: "favorite_id",
 });
 
 User.hasMany(UserFav, {
-   foreignKey: "user_id",
+  foreignKey: "user_id",
 })
 
 module.exports = { User, Profile, Restriction, Admin, UserFav, Favorite };
