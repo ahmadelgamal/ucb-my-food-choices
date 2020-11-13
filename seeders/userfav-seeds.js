@@ -1,4 +1,4 @@
-const { UserFav } = require("../models");
+const { UserFavorites } = require("../models");
 
 const profiledata = [
   {
@@ -20,9 +20,9 @@ const profiledata = [
   {
     user_id: 2,
     favorite_id: 34
-  } 
+  }
 ];
 
-const seedUserFav = () => UserFav.bulkCreate(profiledata);
+const seedUserFav = () => UserFavorites.bulkCreate(profiledata);
 
 module.exports = seedUserFav;
