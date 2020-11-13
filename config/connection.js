@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const JAWSDB_URL = 'mysql://kxwwh7g6qfhcktq1:p0cfbvmx177lxwcr@d9c88q3e09w6fdb2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/g6c3ic7bu5hejjye';
 
 require('dotenv').config();
 
