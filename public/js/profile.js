@@ -1,3 +1,9 @@
+const delAcc = document.querySelector("#deleteAcc");
+const elems = document.querySelectorAll('.modal');
+const instances = M.Modal.init(elems);
+const closeModal = document.querySelector('#close');
+const deleteAccount = document.querySelector('#delete');
+console.log(delAcc);
 async function profileFormHandler(event) {
   event.preventDefault();
   M.toast({ html: 'Profile Updated Successfully!' });
@@ -33,7 +39,32 @@ async function profileFormHandler(event) {
   }
 }
 
+function openModalHandler(event){
+     event.preventDefault();
+     instances[0].open();
+}
+
+function closeModalHandler(event){
+     event.preventDefault();
+     instances[0].close();
+}
+
+async function deleteAccountHandler(event){
+     event.preventDefault();
+     const id = delAcc.dataset.account;
+     console.log(id);
+     response = await fetch(`/api/users/${id}`, {
+      method: "delete",
+      headers: { "Content-Type": "application/json" },
+    });
+}
+
+
 // event listener
 document
   .querySelector(".profile-form")
   .addEventListener("submit", profileFormHandler);
+
+delAcc.addEventListener('click',openModalHandler);
+closeModal.addEventListener('click',closeModalHandler);
+deleteAccount.addEventListener('click',deleteAccountHandler);
