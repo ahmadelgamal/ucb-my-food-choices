@@ -17,6 +17,7 @@ const html_login = (req, res) => {
   }
   res.render("login", {
     title: "Login",
+    user_id: req.session.user_id,
     navLinkText: "Sign Up",
     navLinkRoute: "signup",
     navLinkId: "signup",
@@ -28,6 +29,7 @@ const html_signup = (req, res) => {
   console.log("=====GET=signup=app=======");
   res.render("signup", {
     title: "Sign Up",
+    user_id: req.session.user_id,
     navLinkText: "Login",
     navLinkRoute: "login",
     navLinkId: "login",
@@ -59,6 +61,7 @@ const html_favorites = (req, res) => {
       title: "Favorites",
       favorite_data: dbFavoriteData,
       first_name: req.session.first_name,
+      user_id: req.session.user_id,
       navLinkText: "Logout",
       navLinkRoute: "",
       navLinkId: "logout",
@@ -196,6 +199,7 @@ const html_reports = (req, res) => {
       title: "Reports",
       restrictionsReport: restrictionsReport,
       first_name: req.session.first_name,
+      user_id: req.session.user_id,
       navLinkText: "Logout",
       navLinkRoute: "",
       navLinkId: "logout",
