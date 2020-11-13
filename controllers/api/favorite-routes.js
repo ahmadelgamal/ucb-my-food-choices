@@ -11,7 +11,7 @@ router.get("/favorite", (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -48,7 +48,7 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -63,7 +63,7 @@ router.post("/", (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -90,7 +90,7 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -112,7 +112,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -152,7 +152,7 @@ router.get("/favorite/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 

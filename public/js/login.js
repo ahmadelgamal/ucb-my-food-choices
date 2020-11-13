@@ -5,57 +5,46 @@ async function loginFormHandler(event) {
   const password = document.querySelector("#password").value.trim();
   const guestLoginEl = document.querySelector('#guest-login');
   const hostLoginEl = document.querySelector('#host-login');
+  let response = [];
 
-  //select guest or host login 
-  if (guestLoginEl.checked) {
-    if (email && password) {
-
-      const response = await fetch("/api/users/login", {
-        method: "post",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (response.ok) {
-        M.toast({ html: 'Login successful.' });
-        document.location.replace("/profile");
-      } else {
-        M.toast({ html: 'Incorrect email and/or password.' });
-      }
-    }
-    else {
-
-      M.toast({ html: 'Email or Password is missing.' });
-    }
+  // check for email and password input
+  if (!email) {
+    M.toast({ html: 'Please write your email' });
+  } else if (!password) {
+    M.toast({ html: 'Please write your password' });
   }
-  else if (hostLoginEl.checked) {
-    if (email && password) {
 
-      const response = await fetch("/api/admin/admin-login", {
-        method: "post",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+  if (guestLoginEl.checked) {
+    response = await fetch("/api/users/login", {
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      if (response.ok) {
-        M.toast({ html: 'Login successful.' });
-        document.location.replace("/reports");
-      } else {
-        M.toast({ html: 'Incorrect email and/or password.' });
-      }
+  } else if (hostLoginEl.checked) {
+    response = await fetch("/api/admin/admin-login", {
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  if (response.ok) {
+    M.toast({ html: 'Login successful.' });
+    if (guestLoginEl.checked) {
+      document.location.replace("/profile");
+    } else if (hostLoginEl.checked) {
+      document.location.replace("/reports");
     }
-    else {
-      M.toast({ html: 'Email or Password is missing.' });
-    }
+  } else {
+    M.toast({ html: 'Incorrect email and/or password' });
   }
 }
 
-document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
+document.querySelector(".login-form").addEventListener("submit", loginFormHandler);
