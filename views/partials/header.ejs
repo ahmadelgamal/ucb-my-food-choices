@@ -1,6 +1,8 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
     <% if (title === "Reports") { %>
+    <li><a href="#" class="blue-text">Reports</a></li>
+    <li class="divider"></li>
     <li><a href="#" class="blue-text">Change Email</a></li>
     <li><a href="#" data-constrainwidth="false" class="blue-text">Change Password</a></li>
     <li><a href="#" class="blue-text">Delete Account</a></li>
@@ -8,6 +10,8 @@
     <li><a class="blue-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
     
     <% } else { %>
+      <li><a href="/profile" class="green-text">Profile</a></li>
+      <li class="divider"></li>
       <li><a href="/change-email" class="green-text">Change Email</a></li>
       <li><a href="/change-pw" class="green-text">Change Password</a></li>
       <li><a href="#" class="green-text">Delete Account</a></li>
@@ -44,14 +48,27 @@
   </nav>
   
   <ul class="sidenav" id="mobile-nav">
-    <% if (title === "Profile" || title === "Reports" || title === "Favorites") { %>
-    <li><a>Welcome, <%= first_name %></a></li>
-    <li class="divider"></li>
-    <li><a href="">Change Email</a></li>
-    <li><a href="">Change Password</a></li>
-    <li><a href="">Delete Account</a></li>
-    <li class="divider"></li>
+    <% if (title !== "Sign Up" && title !== "Login") { %>
+      <li><a>Welcome, <%= first_name %></a></li>
+      <li class="divider"></li>
     <% } %>
-    <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
+      
+    <% if (title === "Profile" || title === "Favorites") { %>
+      <li><a href="/profile">Profile</a></li>
+      <li class="divider"></li>
+      <li><a href="/change-email">Change Email</a></li>
+      <li><a href="/change-pw">Change Password</a></li>
+      <li><a href="">Delete Account</a></li>
+    <% } %>
+
+    <% if (title === "Reports") { %>
+      <li><a href="/reports">Reports</a></li>
+      <li class="divider"></li>
+      <li><a href="">Change Email</a></li>
+      <li><a href="">Change Password</a></li>
+      <li><a href="">Delete Account</a></li>
+    <% } %>
+      <li class="divider"></li>
+      <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
 </header>

@@ -6,6 +6,10 @@
   margin-top: 10px;
 }
 
+#account-dropdown {
+  top: -40px;
+}
+
 .col1 {
   width: 70%;
 }
