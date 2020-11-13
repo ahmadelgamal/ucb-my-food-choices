@@ -49,7 +49,7 @@ const html_profile = (req, res) => {
 
 const html_favorites = (req, res) => {
   console.log("=====GET=favorites=app=======");
-  
+
   Favorite.findAll({
     attributes: ["id", "food_name", "food_category"]
   }).then((dbFavoriteData) => {
@@ -63,7 +63,8 @@ const html_favorites = (req, res) => {
       navLinkId: "logout",
       burgerNavLinkId: "burger-logout"
     });
-})};
+  })
+};
 
 const html_reports = (req, res) => {
   console.log("====GET=REPORT====");
@@ -195,7 +196,7 @@ const html_reports = (req, res) => {
       restrictionsReport: restrictionsReport,
       first_name: req.session.first_name,
       navLinkText: "Logout",
-      navLinkRoute: "logout",
+      navLinkRoute: "",
       navLinkId: "logout",
       burgerNavLinkId: "burger-logout"
     });
