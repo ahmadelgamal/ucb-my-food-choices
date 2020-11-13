@@ -3,7 +3,6 @@ async function loginFormHandler(event) {
 
   const email = document.querySelector("#email").value.trim();
   const password = document.querySelector("#password").value.trim();
-  const loginBtn = document.querySelector('#login-btn');
   const guestLoginEl = document.querySelector('#guest-login');
   const hostLoginEl = document.querySelector('#host-login');
 
