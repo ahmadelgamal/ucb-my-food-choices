@@ -6,21 +6,26 @@
   margin-top: 10px;
 }
 
-/* Begins custom code to make radio selector color green */
+#account-dropdown {
+  top: -40px;
+}
+
+/* Begins custom code to make radio selector color green darken-3 */
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:before,
 [type="radio"].with-gap:checked + span:after {
-  border: 2px solid #4caf50;
+  border: 2px solid #2e7d32;
 }
  
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:after {
-  background-color: #4caf50;
+  background-color: #2e7d32;
 }
-/* Ends custom code to make radio selector color green */
+/* Ends custom code to make radio selector color green darken-3 */
 
+/* Custom code to make material icons color green darken-3 */
 .material-icons.active {
-  color: #4caf50;
+  color: #2e7d32 !important;
 }
 
 .col1 {

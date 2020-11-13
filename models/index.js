@@ -3,7 +3,7 @@ const Profile = require("./Profile");
 const User = require("./User");
 const Restriction = require("./Restriction");
 const Admin = require("./Admin");
-const UserFav = require("./UserFav");
+// const UserFav = require("./UserFav");
 const Favorite = require("./Favorite");
 
 User.hasMany(Profile, {
@@ -46,5 +46,6 @@ User.hasMany(UserFav, {
   foreignKey: "user_id",
 });
 
-module.exports = { User, Profile, Restriction, Admin, UserFav, Favorite };
+// module.exports = { User, Profile, Restriction, Admin, UserFav, Favorite };
+module.exports = { User, Profile, Restriction, Admin, Favorite };
 
