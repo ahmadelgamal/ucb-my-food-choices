@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Favorite, UserFav } = require("../../models");
+const { User, Favorite, UserFavorites } = require("../../models");
 
 // GET all  /api/userfav
 router.get("/users", (req, res) => {
   console.log("====GET=userfav====");
-  UserFav.findAll({
+  UserFavorites.findAll({
     attributes: [
       "id",
       "user_id",
@@ -35,7 +35,7 @@ router.get("/users", (req, res) => {
 // GET all favorites /api/userfav
 router.get(`/user/:id`, (req, res) => {
   console.log("====GET=favorites=BY=user====");
-  UserFav.findAll({
+  UserFavorites.findAll({
     where: {
       user_id: req.session.user_id,
     },
@@ -70,7 +70,7 @@ router.get("/", (req, res) => {
 
   console.log("====GET=userfav=BY=favorite====");
 
-  UserFav.findAll({
+  UserFavorites.findAll({
     attributes: [
       "id",
       "user_id",
@@ -88,7 +88,7 @@ router.get("/", (req, res) => {
 // GET a favorite by id /api/userfav/1
 router.get("/:id", (req, res) => {
   console.log("====GET=ID=userfav====");
-  UserFav.findOne({
+  UserFavorites.findOne({
     where: {
       id: req.params.id,
     },
@@ -122,7 +122,7 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
   // expects {"user_id": 1 ,"restriction_id": 8}
-  UserFav.create({
+  UserFavorites.create({
     user_id: req.session.user_id,
     favorite_id: req.body.favorite_id,
   })
@@ -136,7 +136,7 @@ router.post("/", (req, res) => {
 // PUT update a favorite by id /api/userfav/1
 router.put("/:id", (req, res) => {
   console.log("=====UPDATE==userfav=====");
-  UserFav.update(
+  UserFavorites.update(
     {
       user_id: req.session.user_id,
       favorite_id: req.body.favorite_id,

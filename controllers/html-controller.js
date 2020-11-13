@@ -1,4 +1,4 @@
-const { Profile, User, Restriction, Admin, Favorite, UserFav } = require("../models");
+const { Profile, User, Restriction, Admin, Favorite, UserFavorites } = require("../models");
 const sequelize = require('../config/connection');
 
 const html_index = (req, res) => {

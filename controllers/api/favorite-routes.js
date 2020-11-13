@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Favorite, UserFav } = require("../../models");
+const { User, Favorite, UserFavorites } = require("../../models");
 
 // GET all favorite /api/favorite
 router.get("/favorite", (req, res) => {
@@ -120,7 +120,7 @@ router.delete("/:id", (req, res) => {
 router.get("/favorite/:id", (req, res) => {
   console.log("====GET=profile=BY=favorite====");
   console.log(req.session.user_id);
-  UserFav.findAll({
+  UserFavorites.findAll({
     where: {
       favorite_id: req.params.id,
       user_id: req.session.user_id,
