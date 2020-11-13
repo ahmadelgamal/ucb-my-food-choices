@@ -224,6 +224,26 @@ const html_change_email = (req,res) => {
     })  
 }
 
+const html_change_pw = (req,res) => {
+    
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.session.user_id,
+    }
+  }).then((userData) => {
+    console.log(userData);
+    res.render("changePassword", {
+      title: "Change Password",
+      userData: userData.id,
+      navLinkText: "Logout",
+      navLinkRoute: "",
+      navLinkId: "logout",
+      burgerNavLinkId: "burger-logout"
+    })
+  })  
+}
+
 module.exports = {
   html_index,
   html_login,
@@ -231,5 +251,6 @@ module.exports = {
   html_profile,
   html_reports,
   html_favorites,
-  html_change_email
+  html_change_email,
+  html_change_pw
 }
