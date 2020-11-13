@@ -4,18 +4,23 @@ async function logoutFormHandler() {
       method: 'post',
       headers: { 'Content-Type': 'application/json' }
     });
+    if (response.ok) {
+      M.toast({ html: "Logged out successfully" });
+      document.location.replace('/');
+    } else {
+      M.toast({ html: "Error logging out" });
+    }
   } else {
-    const response = await fetch('/api/users/logout', {
+    response = await fetch('/api/users/logout', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' }
     });
-  }
-
-  if (response.ok) {
-    M.toast({ html: "Logged out successfully" });
-    document.location.replace('/');
-  } else {
-    M.toast({ html: "Error logging out" });
+    if (response.ok) {
+      M.toast({ html: "Logged out successfully" });
+      document.location.replace('/');
+    } else {
+      M.toast({ html: "Error logging out" });
+    }
   }
 }
 
