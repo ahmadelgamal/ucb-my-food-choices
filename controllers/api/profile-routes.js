@@ -319,7 +319,7 @@ router.put("/:id", (req, res) => {
   )
     .then((dbProfileData) => {
       if (!dbProfileData) {
-        res.status(404).json({ message: "No restriction found with this id" });
+        res.status(303).json({ message: "No restriction found with this id" });
         return;
       }
       res.json(dbProfileData);
@@ -331,16 +331,18 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE a restriction by id /api/profiles/1
-router.delete("/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
   Profile.destroy({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
+      restriction_id: req.params.id,
+
     },
   })
     .then((dbProfileData) => {
-      if (!dbProfileData) {
+      if (dbProfileData.length === 0){
         res.status(404).json({ message: "No restriction found with this id" });
         return;
       }
