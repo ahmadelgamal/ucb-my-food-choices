@@ -33,7 +33,7 @@
       </a>
         
       <ul class="right hide-on-med-and-down">
-      <% if (title === "Profile" || title === "Reports" || title === "Favorites") { %>
+      <% if (title !== "Sign Up" || title !== "Login") { %>
         <li>Welcome, <%= first_name %></li>
         <li><a id="profile-dropdown" class="dropdown-trigger" href="#!" data-target="account-dropdown"><i class="material-icons right">person</i></a></li>
       <% } else { %>
