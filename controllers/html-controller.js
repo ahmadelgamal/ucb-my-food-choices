@@ -56,8 +56,8 @@ const html_favorites = (req, res) => {
     console.log(dbFavoriteData);
     res.render("userfav", {
       title: "Favorites",
-      first_name: req.session.first_name,
       favorite_data: dbFavoriteData,
+      first_name: req.session.first_name,
       navLinkText: "Logout",
       navLinkRoute: "",
       navLinkId: "logout",
