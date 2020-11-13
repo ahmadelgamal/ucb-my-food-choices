@@ -49,21 +49,22 @@ const html_profile = (req, res) => {
 
 const html_favorites = (req, res) => {
   console.log("=====GET=favorites=app=======");
-  
+
   Favorite.findAll({
     attributes: ["id", "food_name", "food_category"]
   }).then((dbFavoriteData) => {
     console.log(dbFavoriteData);
     res.render("userfav", {
       title: "Favorites",
-      first_name: req.session.first_name,
       favorite_data: dbFavoriteData,
+      first_name: req.session.first_name,
       navLinkText: "Logout",
       navLinkRoute: "",
       navLinkId: "logout",
       burgerNavLinkId: "burger-logout"
     });
-})};
+  })
+};
 
 const html_reports = (req, res) => {
   console.log("====GET=REPORT====");

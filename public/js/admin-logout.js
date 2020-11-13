@@ -3,7 +3,7 @@ async function logoutFormHandler() {
     method: 'post',
     headers: { 'Content-Type': 'application/json' }
   });
-  
+
   if (response.ok) {
     M.toast({ html: "Logged out successfully" });
     document.location.replace('/');
@@ -13,4 +13,4 @@ async function logoutFormHandler() {
 }
 
 document.querySelector('#logout').addEventListener("click", logoutFormHandler);
-document.querySelector('#burger-logout').addEventListener("touchstart", logoutFormHandler);
+document.querySelector('#burger-logout').addEventListener("click", logoutFormHandler);

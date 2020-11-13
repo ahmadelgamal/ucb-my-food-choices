@@ -3,13 +3,13 @@ async function loginFormHandler(event) {
 
   const email = document.querySelector("#email").value.trim();
   const password = document.querySelector("#password").value.trim();
-  const loginBtn = document.querySelector('#login-btn');
-  const selectLoginEl = document.querySelector('.browser-default');
+  const guestLoginEl = document.querySelector('#guest-login');
+  const hostLoginEl = document.querySelector('#host-login');
 
   //select guest or host login 
-  if (selectLoginEl.value === '1'){
+  if (guestLoginEl.checked) {
     if (email && password) {
-     
+
       const response = await fetch("/api/users/login", {
         method: "post",
         body: JSON.stringify({
@@ -18,7 +18,7 @@ async function loginFormHandler(event) {
         }),
         headers: { "Content-Type": "application/json" },
       });
-  
+
       if (response.ok) {
         M.toast({ html: 'Login successful.' });
         document.location.replace("/profile");
@@ -26,14 +26,14 @@ async function loginFormHandler(event) {
         M.toast({ html: 'Incorrect email and/or password.' });
       }
     }
-    else{
-      
+    else {
+
       M.toast({ html: 'Email or Password is missing.' });
     }
   }
-  else{
+  else if (hostLoginEl.checked) {
     if (email && password) {
-     
+
       const response = await fetch("/api/admin/admin-login", {
         method: "post",
         body: JSON.stringify({
@@ -42,7 +42,7 @@ async function loginFormHandler(event) {
         }),
         headers: { "Content-Type": "application/json" },
       });
-  
+
       if (response.ok) {
         M.toast({ html: 'Login successful.' });
         document.location.replace("/reports");
@@ -50,15 +50,12 @@ async function loginFormHandler(event) {
         M.toast({ html: 'Incorrect email and/or password.' });
       }
     }
-    else{
-        M.toast({ html: 'Email or Password is missing.' });
+    else {
+      M.toast({ html: 'Email or Password is missing.' });
     }
   }
-  
-
 }
 
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
-
