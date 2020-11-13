@@ -195,7 +195,7 @@ const html_reports = (req, res) => {
       restrictionsReport: restrictionsReport,
       first_name: req.session.first_name,
       navLinkText: "Logout",
-      navLinkRoute: "logout",
+      navLinkRoute: "",
       navLinkId: "logout",
       burgerNavLinkId: "burger-logout"
     });
@@ -203,11 +203,32 @@ const html_reports = (req, res) => {
   });
 };
 
+const html_change_email = (req,res) => {
+    
+    User.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((userData) => {
+      console.log(userData);
+      res.render("changeEmail", {
+        title: "Change Email",
+        userData: userData.id,
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      })
+    })  
+}
+
 module.exports = {
   html_index,
   html_login,
   html_signup,
   html_profile,
   html_reports,
-  html_favorites
+  html_favorites,
+  html_change_email
 }
