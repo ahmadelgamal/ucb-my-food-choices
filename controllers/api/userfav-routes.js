@@ -66,7 +66,6 @@ router.get(`/user/:id`, (req, res) => {
 });
 
 // GET all favorites /api/profiles
-
 router.get("/", (req, res) => {
 
   console.log("====GET=userfav=BY=favorite====");

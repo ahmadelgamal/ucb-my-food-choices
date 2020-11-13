@@ -5,6 +5,17 @@ const html_index = (req, res) => {
   res.redirect("/login");
 };
 
+const html_signup = (req, res) => {
+  console.log("=====GET=signup=app=======");
+  res.render("signup", {
+    title: "Sign Up",
+    navLinkText: "Login",
+    navLinkRoute: "login",
+    navLinkId: "login",
+    burgerNavLinkId: "burger-login"
+  });
+};
+
 const html_login = (req, res) => {
   console.log("=====GET=login=app=====");
   if (req.session.guestLoggedIn) {
@@ -21,17 +32,6 @@ const html_login = (req, res) => {
     navLinkRoute: "signup",
     navLinkId: "signup",
     burgerNavLinkId: "burger-signup"
-  });
-};
-
-const html_signup = (req, res) => {
-  console.log("=====GET=signup=app=======");
-  res.render("signup", {
-    title: "Sign Up",
-    navLinkText: "Login",
-    navLinkRoute: "login",
-    navLinkId: "login",
-    burgerNavLinkId: "burger-login"
   });
 };
 
@@ -204,32 +204,32 @@ const html_reports = (req, res) => {
   });
 };
 
-const html_change_email = (req,res) => {
-    
-    User.findOne({
-      attributes: { exclude: ["password"] },
-      where: {
-        id: req.session.user_id,
-      }
-    }).then((userData) => {
-      console.log(userData);
-      res.render("changeEmail", {
-        title: "Change Email",
-        userData: userData.id,
-        navLinkText: "Logout",
-        navLinkRoute: "",
-        navLinkId: "logout",
-        burgerNavLinkId: "burger-logout"
-      })
-    })  
+const html_change_email = (req, res) => {
+
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.session.user_id,
+    }
+  }).then((userData) => {
+    console.log(userData);
+    res.render("changeEmail", {
+      title: "Change Email",
+      userData: userData.id,
+      navLinkText: "Logout",
+      navLinkRoute: "",
+      navLinkId: "logout",
+      burgerNavLinkId: "burger-logout"
+    })
+  })
 }
 
 module.exports = {
   html_index,
-  html_login,
   html_signup,
+  html_login,
   html_profile,
-  html_reports,
   html_favorites,
+  html_reports,
   html_change_email
 }

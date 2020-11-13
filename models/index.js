@@ -44,7 +44,7 @@ Favorite.belongsTo(UserFav, {
 
 User.hasMany(UserFav, {
   foreignKey: "user_id",
-})
+});
 
 module.exports = { User, Profile, Restriction, Admin, UserFav, Favorite };
 
