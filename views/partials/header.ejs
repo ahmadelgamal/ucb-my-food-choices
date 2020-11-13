@@ -3,9 +3,9 @@
     <% if (title === "Reports") { %>
     <li><a href="#" class="blue-text">Reports</a></li>
     <li class="divider"></li>
-    <li><a href="#" class="blue-text">Change Email</a></li>
-    <li><a href="#" data-constrainwidth="false" class="blue-text">Change Password</a></li>
-    <li><a href="#" class="blue-text">Delete Account</a></li>
+    <li><a href="/change-admin-email" class="blue-text">Change Email</a></li>
+    <li><a href="/change-admin-pw" data-constrainwidth="false" class="blue-text">Change Password</a></li>
+    <li><a href="#" class="blue-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <li class="divider"></li>
     <li><a class="blue-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
     
@@ -14,7 +14,7 @@
       <li class="divider"></li>
       <li><a href="/change-email" class="green-text">Change Email</a></li>
       <li><a href="/change-pw" class="green-text">Change Password</a></li>
-      <li><a href="#" class="green-text">Delete Account</a></li>
+      <li><a href="#" class="green-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
       <li class="divider"></li>
       <li><a class="green-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
       <% } %>
@@ -71,4 +71,17 @@
       <li class="divider"></li>
       <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
+  
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Confirm Delete</h4>
+      <p>Are You sure you want to delete your account?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="close">Cancel</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="delete">Ok</a>
+    </div>
+  </div>
 </header>

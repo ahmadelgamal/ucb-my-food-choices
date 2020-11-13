@@ -40,6 +40,7 @@ const html_profile = (req, res) => {
   res.render("profile", {
     title: "Profile",
     first_name: req.session.first_name,
+    user_id: req.session.user_id,
     navLinkText: "Logout",
     navLinkRoute: "",
     navLinkId: "logout",
