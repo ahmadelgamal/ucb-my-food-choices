@@ -8,6 +8,7 @@ const Favorite = require("./Favorite");
 
 User.hasMany(Profile, {
   foreignKey: "user_id",
+  onDelete: "cascade"
 });
 
 Profile.belongsTo(User, {
@@ -44,6 +45,7 @@ Favorite.belongsTo(UserFavorites, {
 
 User.hasMany(UserFavorites, {
   foreignKey: "user_id",
+  onDelete: "cascade"
 });
 
 module.exports = { User, Profile, Restriction, Admin, UserFavorites, Favorite };

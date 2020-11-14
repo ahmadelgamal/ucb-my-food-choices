@@ -19,22 +19,32 @@ const html_signup = (req, res) => {
 
 const html_login = (req, res) => {
   console.log("=====GET=login=app=====");
-  if (req.session.guestLoggedIn) {
-    res.redirect("/profile");
-    return;
-  }
-  if (req.session.hostLoggedIn) {
-    res.redirect("/reports");
-    return;
-  }
-  res.render("login", {
-    title: "Login",
-    user_id: req.session.user_id,
-    navLinkText: "Sign Up",
-    navLinkRoute: "signup",
-    navLinkId: "signup",
-    burgerNavLinkId: "burger-signup"
-  });
+  User.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.session.user_id,
+    }
+  }).then((dbUserData) => {
+    if (req.session.guestLoggedIn) {
+      res.redirect("/profile");
+      return;
+    }
+    if (req.session.hostLoggedIn) {
+      res.redirect("/reports");
+      return;
+    }
+    });
+    console.log(res);
+    res.render("login", {
+      title: "Login",
+      user_id: req.session.user_id,
+      navLinkText: "Sign Up",
+      navLinkRoute: "signup",
+      navLinkId: "signup",
+      burgerNavLinkId: "burger-signup"
+    });
+  
+  
 };
 
 const html_profile = (req, res) => {

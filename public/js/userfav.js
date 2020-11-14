@@ -4,13 +4,13 @@ async function userfavFormHandler(event) {
 
   const userfavArray = [];
   const userfav = document.forms[0];
-
+  
   for (var i = 0; i < userfav.length; i++) {
     if (userfav[i].checked) {
-      userfavArray.push(userfav[i].value);
+      userfavArray.push(parseInt(userfav[i].value));
     }
   }
-
+  console.log(userfavArray);
   // for each element (checkbox)...
   userfavArray.forEach(checkPostData);
 
@@ -32,6 +32,10 @@ async function userfavFormHandler(event) {
     }
   }
 }
+
+document
+  .querySelector(".userfav-form")
+  .addEventListener("submit", userfavPageHandler);
 
 // event listener
 document

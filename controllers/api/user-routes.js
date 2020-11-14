@@ -189,9 +189,10 @@ router.put("/:id", (req, res) => {
 // DELETE delete a user /api/users/1
 router.delete("/:id", (req, res) => {
   console.log("=========DELETE=USER========");
+  console.log(typeof(req.params.id));
   User.destroy({
     where: {
-      id: req.params.id,
+      id: parseInt(req.params.id),
     },
   })
     .then((dbUserData) => {

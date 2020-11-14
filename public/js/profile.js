@@ -71,12 +71,16 @@ function closeModalHandler(event) {
 
 async function deleteAccountHandler(event) {
   event.preventDefault();
-  const id = delAcc.dataset.account;
-
-  response = await fetch(`/api/users/${id}`, {
+  const id = parseInt(delAcc.dataset.account);
+  const response = await fetch(`/api/users/${id}`, {
     method: "delete",
-    headers: { "Content-Type": "application/json" },
   });
+  console.log(response.body);
+  if (response.ok){
+    M.toast({ html: "Account Deleted Successfully!" });
+    document.location.replace('/');
+  }
+  
 }
 
 document

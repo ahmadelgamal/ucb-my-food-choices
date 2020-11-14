@@ -110,7 +110,7 @@ router.get("/:id", (req, res) => {
         res.status(303).json({ message: "No favorite found with this id" });
         return;
       }
-      res.json(dbFavoriteData);
+      res.json(dbUserFavData);
     })
     .catch((err) => {
       console.log(err);
