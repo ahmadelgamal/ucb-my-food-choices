@@ -44,15 +44,20 @@ const html_login = (req, res) => {
 const html_profile = (req, res) => {
   console.log("=====GET=profile=app=======");
   if (req.session.guestLoggedIn) {
-    res.render("profile", {
-      title: "Profile",
-      first_name: req.session.first_name,
-      user_id: req.session.user_id,
-      navLinkText: "Logout",
-      navLinkRoute: "",
-      navLinkId: "logout",
-      burgerNavLinkId: "burger-logout"
-    });
+    Restriction.findAll({
+      attributes: ["id", "restriction_name", "category"]
+    }).then((dbRestrictionData) => {
+      res.render("profile", {
+        title: "Profile",
+        first_name: req.session.first_name,
+        user_id: req.session.user_id,
+        restriction_data: dbRestrictionData,
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      });
+    })
   }
 };
 
@@ -323,9 +328,9 @@ const html_foodfav_reports = (req, res) => {
         navLinkRoute: "",
         navLinkId: "logout",
         burgerNavLinkId: "burger-logout"
+      })
     })
-  })
- }
+  }
 }
 
 module.exports = {

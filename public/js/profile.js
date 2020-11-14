@@ -45,7 +45,7 @@ async function profileFormHandler() {
 
   // check if item is associated to profile table
   async function checkPostData(item) {
-    const response = await fetch(`api/profiles/restriction/` + item, {
+    const response = await fetch(`api/profiles/restriction/` + parseInt(item), {
       method: "get",
       headers: { "Content-Type": "application/json" },
     });
