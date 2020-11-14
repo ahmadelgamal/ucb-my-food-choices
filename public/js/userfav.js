@@ -16,12 +16,14 @@ async function userfavFormHandler(event) {
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/userfav/` + item,
+   
+    const response = await fetch(`/api/userfav/` + item,
       {
         method: "get",
         headers: { "Content-Type": "application/json" }
       }
     );
+    
     if (response.ok) {
     } else {
       const response = await fetch("/api/userfav/", {
@@ -32,10 +34,6 @@ async function userfavFormHandler(event) {
     }
   }
 }
-
-document
-  .querySelector(".userfav-form")
-  .addEventListener("submit", userfavPageHandler);
 
 // event listener
 document

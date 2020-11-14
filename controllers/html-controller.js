@@ -19,12 +19,7 @@ const html_signup = (req, res) => {
 
 const html_login = (req, res) => {
   console.log("=====GET=login=app=====");
-  User.findOne({
-    attributes: { exclude: ["password"] },
-    where: {
-      id: req.session.user_id,
-    }
-  }).then((dbUserData) => {
+  
     if (req.session.guestLoggedIn) {
       res.redirect("/profile");
       return;
@@ -33,8 +28,7 @@ const html_login = (req, res) => {
       res.redirect("/reports");
       return;
     }
-    });
-    console.log(res);
+    
     res.render("login", {
       title: "Login",
       user_id: req.session.user_id,
@@ -66,7 +60,7 @@ const html_favorites = (req, res) => {
   Favorite.findAll({
     attributes: ["id", "food_name", "food_category"]
   }).then((dbFavoriteData) => {
-    console.log(dbFavoriteData);
+    
     res.render("userfav", {
       title: "Favorites",
       favorite_data: dbFavoriteData,
@@ -227,7 +221,7 @@ const html_change_email = (req, res) => {
       id: req.session.user_id,
     }
   }).then((userData) => {
-    console.log(userData);
+    
     res.render("changeEmail", {
       title: "Change Email",
       first_name: req.session.first_name,
@@ -248,7 +242,7 @@ const html_change_pw = (req, res) => {
       id: req.session.user_id,
     }
   }).then((userData) => {
-    console.log(userData);
+    
     res.render("changePassword", {
       title: "Change Password",
       first_name: req.session.first_name,

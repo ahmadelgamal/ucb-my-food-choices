@@ -3,6 +3,7 @@ const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
 const deleteAccount = document.querySelector('#delete');
+
 async function profilePageHandler(event) {
   event.preventDefault();
 
@@ -23,10 +24,11 @@ async function profilePageHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
   }
+  profileFormHandler();
 };
 
-async function profileFormHandler(event) {
-  event.preventDefault();
+async function profileFormHandler() {
+  
   M.toast({ html: "Profile Updated Successfully!" });
 
   const restrictionsArray = [];
@@ -77,8 +79,10 @@ async function deleteAccountHandler(event) {
   });
   console.log(response.body);
   if (response.ok){
+
     M.toast({ html: "Account Deleted Successfully!" });
-    document.location.replace('/');
+    logoutFormHandler();
+    
   }
   
 }
@@ -86,10 +90,6 @@ async function deleteAccountHandler(event) {
 document
   .querySelector(".profile-form")
   .addEventListener("submit", profilePageHandler);
-
-document
-  .querySelector(".profile-form")
-  .addEventListener("submit", profileFormHandler);
 
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
