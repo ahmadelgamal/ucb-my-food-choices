@@ -26,7 +26,7 @@ function createTableElem(food_name, id, newDict, table) {
 
 async function reportHandler() {
 
-  console.log('in this function');
+  
   const response = await fetch(`/api/favorite/favorite`, {
     method: "get",
     headers: { "Content-Type": "application/json" }
@@ -37,18 +37,16 @@ async function reportHandler() {
   })
   if (response.ok && responseCount.ok) {
     const finalDict = await response.json();
-    console.log(finalDict);
-    const finalCountDict = await responseCount.json();
-
-    console.log(finalCountDict);
+    const finalCountDict = await responseCount.json(); 
     const newDict = {};
+
     let guestCount = 0;
     for (j = 0; j < finalCountDict.length; j++) {
       newDict[finalCountDict[j].favorite_id] = finalCountDict[j].count;
       guestCount+=finalCountDict[j].count;
     }
     guestCountEl.textContent = guestCount;
-    console.log(newDict);
+    
     for (i = 0; i < finalDict.length; i++) {
 
       if (finalDict[i].food_category === 'Entree') {
@@ -95,7 +93,6 @@ async function deleteAccountHandler(event) {
 
 }
 // event listener
-//document.addEventListener("load", reportHandler);
 document.body.onload = function () { reportHandler(); }
 
 delAcc.addEventListener('click', openModalHandler);
