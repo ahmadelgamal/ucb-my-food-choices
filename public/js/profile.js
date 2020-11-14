@@ -3,7 +3,7 @@ const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
 const deleteAccount = document.querySelector('#delete');
-window.onload= async function profilePageHandler(event) {
+async function profilePageHandler(event) {
   event.preventDefault();
 
   const removeArray = [];
@@ -11,14 +11,12 @@ window.onload= async function profilePageHandler(event) {
   for (var i = 0; i < restrict.length-1; i++) {
     removeArray.push(restrict[i].value);
   }
-  console.log(removeArray);
 
 //   // for each element (not checkbox)...
   removeArray.forEach(uncheckPostData);
 
   // check if item is associated to profile table
   async function uncheckPostData(item) {
-    console.log(item)
     const response = await fetch(`/api/profiles/delete/` + item, {
       method: "delete",
       body: JSON.stringify({ restriction_id: item }),
@@ -81,6 +79,9 @@ async function deleteAccountHandler(event) {
   });
 }
 
+document
+  .querySelector(".profile-form")
+  .addEventListener("submit", profilePageHandler);
 
 document
   .querySelector(".profile-form")
