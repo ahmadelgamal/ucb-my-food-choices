@@ -1,3 +1,4 @@
+const loggedIn = document.querySelector("#current-password").dataset.loggedin;
 async function changePwFormHandler(event) {
   event.preventDefault();
 
@@ -9,7 +10,7 @@ async function changePwFormHandler(event) {
   //select guest or host login 
 
   const id = document.querySelector("#current-password").name;
-  const loggedIn = document.querySelector("#current-password").dataset.loggedin;
+  
   console.log(loggedIn);
   if (loggedIn === "guestLoggedIn") {
     if (currpw && newpw) {

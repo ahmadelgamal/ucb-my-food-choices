@@ -74,6 +74,7 @@ function closeModalHandler(event) {
 async function deleteAccountHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
+  
   const response = await fetch(`/api/users/${id}`, {
     method: "delete",
   });

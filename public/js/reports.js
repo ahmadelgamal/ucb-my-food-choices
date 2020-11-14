@@ -1,3 +1,9 @@
+const delAcc = document.querySelector("#deleteAcc");
+const elems = document.querySelectorAll('.modal');
+const instances = M.Modal.init(elems);
+const closeModal = document.querySelector('#close');
+const deleteAccount = document.querySelector('#delete');
+
 async function reportFormHandler(event) {
     event.preventDefault();
     const response = await fetch("/profiles/user/:id", {
@@ -86,5 +92,35 @@ const filterBySelection = function (event) {
     }
 }
 
+function openModalHandler(event) {
+    event.preventDefault();
+    instances[0].open();
+  }
+  
+  function closeModalHandler(event) {
+    event.preventDefault();
+    instances[0].close();
+  }
+  
+  async function deleteAccountHandler(event) {
+    event.preventDefault();
+    const id = parseInt(delAcc.dataset.account);
+    
+    const response = await fetch(`/api/admin/${id}`, {
+      method: "delete",
+    });
+    console.log(response.body);
+    if (response.ok){
+  
+      M.toast({ html: "Account Deleted Successfully!" });
+      logoutFormHandler();
+      
+    }
+    
+  }
+
 const reportFilterDropDownEl = document.querySelector('#report-filter-dropdown');
 reportFilterDropDownEl.addEventListener('click', filterBySelection);
+delAcc.addEventListener('click', openModalHandler);
+closeModal.addEventListener('click', closeModalHandler);
+deleteAccount.addEventListener('click', deleteAccountHandler);
