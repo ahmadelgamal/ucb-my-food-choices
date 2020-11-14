@@ -3,7 +3,7 @@ const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
 const deleteAccount = document.querySelector('#delete');
-console.log(delAcc);
+
 async function profileFormHandler(event) {
   event.preventDefault();
   M.toast({ html: 'Profile Updated Successfully!' });
@@ -22,7 +22,7 @@ async function profileFormHandler(event) {
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/profiles/restriction/`+ item,
+    const response = await fetch(`api/profiles/restriction/` + item,
       {
         method: "get",
         headers: { "Content-Type": "application/json" }
@@ -39,24 +39,24 @@ async function profileFormHandler(event) {
   }
 }
 
-function openModalHandler(event){
-     event.preventDefault();
-     instances[0].open();
+function openModalHandler(event) {
+  event.preventDefault();
+  instances[0].open();
 }
 
-function closeModalHandler(event){
-     event.preventDefault();
-     instances[0].close();
+function closeModalHandler(event) {
+  event.preventDefault();
+  instances[0].close();
 }
 
-async function deleteAccountHandler(event){
-     event.preventDefault();
-     const id = delAcc.dataset.account;
-     console.log(id);
-     response = await fetch(`/api/users/${id}`, {
-      method: "delete",
-      headers: { "Content-Type": "application/json" },
-    });
+async function deleteAccountHandler(event) {
+  event.preventDefault();
+  const id = delAcc.dataset.account;
+
+  response = await fetch(`/api/users/${id}`, {
+    method: "delete",
+    headers: { "Content-Type": "application/json" },
+  });
 }
 
 
@@ -65,6 +65,6 @@ document
   .querySelector(".profile-form")
   .addEventListener("submit", profileFormHandler);
 
-delAcc.addEventListener('click',openModalHandler);
-closeModal.addEventListener('click',closeModalHandler);
-deleteAccount.addEventListener('click',deleteAccountHandler);
+delAcc.addEventListener('click', openModalHandler);
+closeModal.addEventListener('click', closeModalHandler);
+deleteAccount.addEventListener('click', deleteAccountHandler);
