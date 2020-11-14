@@ -4,7 +4,6 @@ const withAuth = require("../utils/auth");
 
 router.get("/", htmlController.html_index);
 router.get("/signup", htmlController.html_signup);
-router.get("/admin-login", htmlController.html_login);
 router.get("/login", htmlController.html_login);
 router.get("/profile", withAuth, htmlController.html_profile);
 router.get("/favorite", withAuth, htmlController.html_favorites);
