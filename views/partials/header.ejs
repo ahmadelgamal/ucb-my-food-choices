@@ -3,8 +3,8 @@
     <% if (title === "Reports") { %>
     <li><a href="#" class="blue-text">Reports</a></li>
     <li class="divider"></li>
-    <li><a href="/change-admin-email" class="blue-text">Change Email</a></li>
-    <li><a href="/change-admin-pw" data-constrainwidth="false" class="blue-text">Change Password</a></li>
+    <li><a href="/change-email" class="blue-text">Change Email</a></li>
+    <li><a href="/change-pw" data-constrainwidth="false" class="blue-text">Change Password</a></li>
     <li><a href="#" class="blue-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <li class="divider"></li>
     <li><a class="blue-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
@@ -58,15 +58,15 @@
       <li class="divider"></li>
       <li><a href="/change-email">Change Email</a></li>
       <li><a href="/change-pw">Change Password</a></li>
-      <li><a href="">Delete Account</a></li>
+      <li><a href="#" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <% } %>
 
     <% if (title === "Reports") { %>
       <li><a href="/reports">Reports</a></li>
       <li class="divider"></li>
-      <li><a href="">Change Email</a></li>
-      <li><a href="">Change Password</a></li>
-      <li><a href="">Delete Account</a></li>
+      <li><a href="/change-email">Change Email</a></li>
+      <li><a href="/change-pw">Change Password</a></li>
+      <li><a href="#" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <% } %>
       <li class="divider"></li>
       <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>

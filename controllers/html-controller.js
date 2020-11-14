@@ -219,45 +219,91 @@ const html_reports = (req, res) => {
 };
 
 const html_change_email = (req, res) => {
+  if (req.session.guestLoggedIn) {
+    User.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((userData) => {
 
-  User.findOne({
-    attributes: { exclude: ["password"] },
-    where: {
-      id: req.session.user_id,
-    }
-  }).then((userData) => {
-
-    res.render("changeEmail", {
-      title: "Change Email",
-      first_name: req.session.first_name,
-      userData: userData.id,
-      navLinkText: "Logout",
-      navLinkRoute: "",
-      navLinkId: "logout",
-      burgerNavLinkId: "burger-logout"
+      res.render("changeEmail", {
+        title: "Change Email",
+        first_name: req.session.first_name,
+        user_id: userData.id,
+        loggedIn: "guestLoggedIn",
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      })
     })
-  })
+  }
+  if (req.session.hostLoggedIn) {
+    Admin.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((adminData) => {
+
+      res.render("changeEmail", {
+        title: "Change Email",
+        first_name: req.session.first_name,
+        user_id: adminData.id,
+        loggedIn: "hostLoggedIn",
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      })
+    })
+  }
 }
 
 const html_change_pw = (req, res) => {
+  console.log(req.session.guestLoggedIn);
+  console.log(req.session.hostLoggedIn);
+  if (req.session.guestLoggedIn) {
+    User.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((userData) => {
 
-  User.findOne({
-    attributes: { exclude: ["password"] },
-    where: {
-      id: req.session.user_id,
-    }
-  }).then((userData) => {
-
-    res.render("changePassword", {
-      title: "Change Password",
-      first_name: req.session.first_name,
-      userData: userData.id,
-      navLinkText: "Logout",
-      navLinkRoute: "",
-      navLinkId: "logout",
-      burgerNavLinkId: "burger-logout"
+      res.render("changePassword", {
+        title: "Change Password",
+        first_name: req.session.first_name,
+        user_id: userData.id,
+        loggedIn: "guestLoggedIn",
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      })
     })
-  })
+  }
+  if (req.session.hostLoggedIn) {
+    Admin.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((userData) => {
+
+      res.render("changePassword", {
+        title: "Change Password",
+        first_name: req.session.first_name,
+        user_id: userData.id,
+        loggedIn: "hostLoggedIn",
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+      })
+    })
+  }
 }
 
 module.exports = {

@@ -9,17 +9,37 @@ async function changeEmailFormHandler(event) {
   //select guest or host login 
   console.dir(document.querySelector("#current-email"));
   const id = document.querySelector("#current-email").name;
-  if (curremail && newemail) {
-    const response = await fetch(`/api/users/${id}`, {
-      method: "put",
-      body: JSON.stringify({ email: newemail }),
-      headers: { "Content-Type": "application/json" },
-    });
+  const loggedIn = document.querySelector("#current-email").dataset.loggedin;
+  if (loggedIn === "guestLoggedIn") {
+    if (curremail && newemail) {
+      const response = await fetch(`/api/users/${id}`, {
+        method: "put",
+        body: JSON.stringify({ email: newemail }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    if (response.ok) {
-      M.toast({ html: 'Password changed successfully' });
-    } else {
-      M.toast({ html: 'Error!' });
+      if (response.ok) {
+        M.toast({ html: 'Email changed successfully' });
+        document.location.replace('/');
+      } else {
+        M.toast({ html: 'Error!' });
+      }
+    }
+  }
+  if (loggedIn === "hostLoggedIn") {
+    if (curremail && newemail) {
+      const response = await fetch(`/api/admin/${id}`, {
+        method: "put",
+        body: JSON.stringify({ email: newemail }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        M.toast({ html: 'Email changed successfully' });
+        document.location.replace('/');
+      } else {
+        M.toast({ html: 'Error!' });
+      }
     }
   }
 }
