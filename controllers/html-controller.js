@@ -306,6 +306,28 @@ const html_change_pw = (req, res) => {
   }
 }
 
+const html_foodfav_reports = (req, res) => {
+  if (req.session.hostLoggedIn) {
+    Admin.findOne({
+      attributes: { exclude: ["password"] },
+      where: {
+        id: req.session.user_id,
+      }
+    }).then((userData) => {
+      res.render("foodfavreport", {
+        title: "Favorite Food report",
+        first_name: req.session.first_name,
+        user_id: userData.id,
+        loggedIn: "hostLoggedIn",
+        navLinkText: "Logout",
+        navLinkRoute: "",
+        navLinkId: "logout",
+        burgerNavLinkId: "burger-logout"
+    })
+  })
+ }
+}
+
 module.exports = {
   html_index,
   html_signup,
@@ -314,5 +336,6 @@ module.exports = {
   html_favorites,
   html_reports,
   html_change_email,
-  html_change_pw
+  html_change_pw,
+  html_foodfav_reports
 }

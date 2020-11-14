@@ -65,7 +65,7 @@ router.get(`/user/:id`, (req, res) => {
     });
 });
 
-// GET all favorites /api/profiles
+// GET all favorites /api/userfav
 router.get("/", (req, res) => {
 
   console.log("====GET=userfav=BY=favorite====");
@@ -77,13 +77,28 @@ router.get("/", (req, res) => {
       "favorite_id",
       [
         sequelize.literal(
-          "(SELECT * FROM favorite WHERE favorite.id = userfav.favorite_id)"
+          "(SELECT food_name FROM favorite WHERE favorite.id = userfav.favorite_id)"
         ),
         "food_name",
       ]
     ]
   }).then((dbFavoriteData) => res.json(dbFavoriteData))
 });
+
+//Get all users grouped by favorites
+router.get("/favreports", (req,res) => {
+  UserFavorites.findAll({
+     attributes: ['favorite_id',[sequelize.fn('count', sequelize.col('user_id')),'count']],
+     group: ['favorite_id'],
+
+  }).then((reportData) => {
+        res.json(reportData);
+  }).catch((err) => {
+      console.log(err); 
+      res.status(303).json(err);
+  });
+ 
+})
 
 // GET a favorite by id /api/userfav/1
 router.get("/:id", (req, res) => {
@@ -117,6 +132,8 @@ router.get("/:id", (req, res) => {
       res.status(303).json(err);
     });
 });
+
+
 
 // POST create a favorite /api/userfav
 router.post("/", (req, res) => {

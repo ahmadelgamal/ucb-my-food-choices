@@ -10,5 +10,6 @@ router.get("/favorite", withAuth, htmlController.html_favorites);
 router.get("/reports", withAuth, htmlController.html_reports);
 router.get("/change-email", withAuth, htmlController.html_change_email);
 router.get("/change-pw", withAuth, htmlController.html_change_pw);
+router.get("/foodfav-reports",withAuth,htmlController.html_foodfav_reports);
 
 module.exports = router;

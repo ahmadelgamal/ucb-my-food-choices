@@ -1,6 +1,6 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
-    <% if (title === "Reports") { %>
+    <% if (title === "Reports" || title === "Favorite Food report") { %>
     <li><a href="#" class="blue-text">Reports</a></li>
     <li class="divider"></li>
     <li><a href="/change-email" class="blue-text">Change Email</a></li>
@@ -20,7 +20,7 @@
       <% } %>
   </ul>
   
-  <% if (title === "Reports") { %>
+  <% if (title === "Reports" || title === "Favorite Food report") { %>
   <nav class="blue">
   <% } else { %>
   <nav class="green">
