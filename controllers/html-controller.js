@@ -1,8 +1,19 @@
-const { Profile, User, Restriction, Admin, Favorite, UserFav } = require("../models");
+const { Profile, User, Restriction, Admin, Favorite, UserFavorites } = require("../models");
 const sequelize = require('../config/connection');
 
 const html_index = (req, res) => {
   res.redirect("/login");
+};
+
+const html_signup = (req, res) => {
+  console.log("=====GET=signup=app=======");
+  res.render("signup", {
+    title: "Sign Up",
+    navLinkText: "Login",
+    navLinkRoute: "login",
+    navLinkId: "login",
+    burgerNavLinkId: "burger-login"
+  });
 };
 
 const html_login = (req, res) => {
@@ -21,17 +32,6 @@ const html_login = (req, res) => {
     navLinkRoute: "signup",
     navLinkId: "signup",
     burgerNavLinkId: "burger-signup"
-  });
-};
-
-const html_signup = (req, res) => {
-  console.log("=====GET=signup=app=======");
-  res.render("signup", {
-    title: "Sign Up",
-    navLinkText: "Login",
-    navLinkRoute: "login",
-    navLinkId: "login",
-    burgerNavLinkId: "burger-login"
   });
 };
 
@@ -248,11 +248,11 @@ const html_change_pw = (req, res) => {
 
 module.exports = {
   html_index,
-  html_login,
   html_signup,
+  html_login,
   html_profile,
-  html_reports,
   html_favorites,
+  html_reports,
   html_change_email,
   html_change_pw
 }

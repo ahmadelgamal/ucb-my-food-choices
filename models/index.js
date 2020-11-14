@@ -3,7 +3,7 @@ const Profile = require("./Profile");
 const User = require("./User");
 const Restriction = require("./Restriction");
 const Admin = require("./Admin");
-const UserFav = require("./UserFav");
+const UserFavorites = require("./UserFavorites");
 const Favorite = require("./Favorite");
 
 User.hasMany(Profile, {
@@ -30,21 +30,20 @@ Favorite.belongsTo(User, {
   foreignKey: "favorite_id",
 });
 
-UserFav.belongsTo(User, {
+UserFavorites.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-UserFav.hasMany(Favorite, {
+UserFavorites.hasMany(Favorite, {
   foreignKey: "favorite_id",
 });
 
-Favorite.belongsTo(UserFav, {
+Favorite.belongsTo(UserFavorites, {
   foreignKey: "favorite_id",
 });
 
-User.hasMany(UserFav, {
+User.hasMany(UserFavorites, {
   foreignKey: "user_id",
-})
+});
 
-module.exports = { User, Profile, Restriction, Admin, UserFav, Favorite };
-
+module.exports = { User, Profile, Restriction, Admin, UserFavorites, Favorite };
