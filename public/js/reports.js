@@ -21,7 +21,7 @@ function createTableElem(restriction_name, id, newDict, table) {
     else {
       tdCountElem.textContent = 0;
     }
-    
+
     table.appendChild(document.createElement('tbody'));
     table.appendChild(tdElem);
     table.appendChild(tdCountElem);
