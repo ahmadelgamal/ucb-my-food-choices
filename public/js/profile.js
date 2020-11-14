@@ -3,7 +3,7 @@ window.onload= async function profilePageHandler(event) {
 
   const removeArray = [];
   const restrict = document.forms[0];
-  for (var i = 0; i < restrict.length; i++) {
+  for (var i = 0; i < restrict.length-1; i++) {
     removeArray.push(restrict[i].value);
   }
   console.log(removeArray);
@@ -14,22 +14,13 @@ window.onload= async function profilePageHandler(event) {
   // check if item is associated to profile table
   async function uncheckPostData(item) {
     console.log(item)
-    // const response = await fetch(`api/profiles/restriction/`+ item,
-    //   {
-    //     method: "get",
-    //     headers: { "Content-Type": "application/json" }
-    //   }
-    // );
-    // // if item is not associated post to profile table
-    // if (response.ok) {
-    // } else {
-    const response = await fetch(`/api/profiles/delete` + item, {
+    const response = await fetch(`/api/profiles/delete/` + item, {
       method: "delete",
       body: JSON.stringify({ restriction_id: item }),
       headers: { "Content-Type": "application/json" },
     });
   }
-}
+};
 
 async function profileFormHandler(event) {
   event.preventDefault();
