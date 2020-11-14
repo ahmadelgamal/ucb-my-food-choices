@@ -10,6 +10,7 @@ router.use('/api', apiRoutes);
 router.use((req, res) => {
   res.status(404).render("404", {
     title: "404",
+    user_id: req.session.user_id,
     navLinkText: "Login",
     navLinkRoute: "login",
     navLinkId: "login",
