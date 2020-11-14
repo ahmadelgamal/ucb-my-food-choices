@@ -3,22 +3,76 @@ const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
 const deleteAccount = document.querySelector('#delete');
+const allergyTable = document.getElementById("allergy-table");
+const medicalTable = document.getElementById("medical-table");
+const religiousTable = document.getElementById("religious-table");
+const substanceTable = document.getElementById("substance-table");
+const weightMgmtTable = document.getElementById("weight-table");
+const otherTable = document.getElementById("other-table");
+const guestRestrictCountEl = document.getElementById("guestRestrictCount");
 
-async function reportFormHandler(event) {
-    event.preventDefault();
-    const response = await fetch("/profiles/user/:id", {
-        method: "get",
-        body: JSON.stringify({ restriction_id: item }),
-        headers: { "Content-Type": "application/json" },
-    });
-    if (response.ok) {
-    } else {
-        alert(response.statusText);
+function createTableElem(restriction_name, id, newDict, table) {
+    let tdElem = document.createElement('td');
+    let tdCountElem = document.createElement('td');
+    tdElem.textContent = restriction_name;
+    if (id in newDict) {
+      tdCountElem.textContent = newDict[id];
     }
-}
+    else {
+      tdCountElem.textContent = 0;
+    }
+    
+    table.appendChild(document.createElement('tbody'));
+    table.appendChild(tdElem);
+    table.appendChild(tdCountElem);
+  }
+  
+async function reportFormHandler() {  
+    const response = await fetch(`/api/restrictions`, {
+      method: "get",
+      headers: { "Content-Type": "application/json" }
+    });
+    const responseCount = await fetch(`/api/profiles/reports`, {
+      method: "get",
+      headers: { "Content-Type": "application/json" }
+    })
+    if (response.ok && responseCount.ok) {
+      const finalDict = await response.json();
+      const finalCountDict = await responseCount.json(); 
+      const newDict = {};
+      let guestCount = 0;
+      for (j = 0; j < finalCountDict.length; j++) {
+        newDict[finalCountDict[j].restriction_id] = finalCountDict[j].count;
+        guestCount+=finalCountDict[j].count;
+      }
+      guestRestrictCountEl.textContent = guestCount;
+      
+      for (i = 0; i < finalDict.length; i++) {
+  
+        if (finalDict[i].category === 'Allergies') {
+          createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, allergyTable);
+        }
+        else if (finalDict[i].category === 'Medical') {
+          createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, medicalTable);
+        }
+        else if (finalDict[i].category === 'Religious') {
+          createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, religiousTable);
+        }
+        else if (finalDict[i].category === 'Substance') {
+            createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, substanceTable);
+        }
+        else if (finalDict[i].category === 'Weight Management') {
+            createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, weightMgmtTable);
+        }
+        else {
+          createTableElem(finalDict[i].restriction_name, finalDict[i].id, newDict, otherTable);
+        }
+      }
+    }
+  }
+  
 
-document.body
-    .addEventListener("load", reportFormHandler);
+document.body.onload = function () { reportFormHandler(); }
 
 
 //report filter dropdown

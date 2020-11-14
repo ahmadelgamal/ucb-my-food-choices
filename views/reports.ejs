@@ -9,7 +9,7 @@
 
         <h3>Bootcamp Inc.</h3>
         <p>
-          As of, <%= new Date().toLocaleDateString(); %>, the guests replied with the
+          As of, <%= new Date().toLocaleDateString(); %>, <span id="guestRestrictCount"></span> guests replied with the
           following:
         </p>
 
@@ -37,205 +37,73 @@
 
         <div class="row" id="allergies">
         <h3>Allergies</h3>
-        <table class="striped">
+        <table class="striped" id="allergy-table">
           <thead>
             <tr>
               <th class="col1">Allergy</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Eggs</td>
-              <td><%= restrictionsReport.eggsCount %></td>
-            </tr>
-            <tr>
-              <td>Fish</td>
-              <td><%= restrictionsReport.fishCount %></td>
-            </tr>
-            <tr>
-              <td>Gluten</td>
-              <td><%= restrictionsReport.glutenCount %></td>
-            </tr>
-            <tr>
-              <td>Peanuts</td>
-              <td><%= restrictionsReport.peanutsCount %></td>
-            </tr>
-            <tr>
-              <td>Shellfish</td>
-              <td><%= restrictionsReport.shellfishCount %></td>
-            </tr>
-            <tr>
-              <td>Soy</td>
-              <td><%= restrictionsReport.soyCount %></td>
-            </tr>
-            <tr>
-              <td>Tree Nuts</td>
-              <td><%= restrictionsReport.treenutsCount %></td>
-            </tr>
-            <tr>
-              <td>Wheat</td>
-              <td><%= restrictionsReport.wheatCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
 
       <div class="row" id="medical">
         <h3>Medical</h3>
-        <table class="striped">
+        <table class="striped" id="medical-table">
           <thead>
             <tr>
               <th class="col1">Medical Restriction</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Celiac Disease: Gluten Free</td>
-              <td><%= restrictionsReport.celiacCount %></td>
-            </tr>
-            <tr>
-              <td>Diabetes: Sugar Free</td>
-              <td><%= restrictionsReport.diabetesCount %></td>
-            </tr>
-            <tr>
-              <td>Gout: High Vegetables & Low Meat</td>
-              <td><%= restrictionsReport.goutCount %></td>
-            </tr>
-            <tr>
-              <td>Hypertension: Low Salt</td>
-              <td><%= restrictionsReport.hypertensionCount %></td>
-            </tr>
-            <tr>
-              <td>Lactose Intolerance: Dairy Free</td>
-              <td><%= restrictionsReport.lactoseCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
 
       <div class="row" id="religious">
         <h3>Religious</h3>
-        <table class="striped">
+        <table class="striped" id="religious-table">
           <thead>
             <tr>
               <th class="col1">Religion</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Buddhist: No Meat, Garlic &amp; Onions</td>
-              <td><%= restrictionsReport.buddhistCount %></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>Hindu: No Meat, Garlic &amp; Onions</td>
-              <td><%= restrictionsReport.hinduCount %></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>Jewish: Kosher</td>
-              <td><%= restrictionsReport.jewishCount %></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>Muslim: Halal</td>
-              <td><%= restrictionsReport.muslimCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
 
       <div class="row" id="substance">
         <h3>Substance</h3>
-        <table class="striped">
+        <table class="striped" id="substance-table">
           <thead>
             <tr>
               <th class="col1">Substance</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Alcohol Free</td>
-              <td><%= restrictionsReport.alcoholCount %></td>
-            </tr>
-            <tr>
-              <td>Caffeine Free</td>
-              <td><%= restrictionsReport.caffeineCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
 
       <div class="row" id="weight">
         <h3>Weight Management</h3>
-        <table>
+        <table class="striped" id="weight-table">
           <thead>
             <tr>
               <th class="col1">Diet</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Atkins</td>
-              <td><%= restrictionsReport.atkinsCount %></td>
-            </tr>
-            <tr>
-              <td>Keto</td>
-              <td><%= restrictionsReport.ketoCount %></td>
-            </tr>
-            <tr>
-              <td>Low Carb</td>
-              <td><%= restrictionsReport.lowcardCount %></td>
-            </tr>
-            <tr>
-              <td>Low Fat</td>
-              <td><%= restrictionsReport.lowfatCount %></td>
-            </tr>
-            <tr>
-              <td>Paleo</td>
-              <td><%= restrictionsReport.paleoCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
 
       <div class="row" id="other">
         <h3>Other</h3>
-        <table class="striped">
+        <table class="striped" id="other-table">
           <thead>
             <tr>
               <th class="col1">Restriction</th>
               <th class="col2">No. of Guests</th>
             </tr>
           </thead>
-
-          <tbody>
-            <tr>
-              <td>Pescetarian</td>
-              <td><%= restrictionsReport.pescetarianCount %></td>
-            </tr>
-            <tr>
-              <td>Vegan</td>
-              <td><%= restrictionsReport.veganCount %></td>
-            </tr>
-            <tr>
-              <td>Vegetarian</td>
-              <td><%= restrictionsReport.vegetarianCount %></td>
-            </tr>
-          </tbody>
         </table>
       </div>
       </div>

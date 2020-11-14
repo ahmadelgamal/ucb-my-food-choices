@@ -76,6 +76,20 @@ router.get(`/user/:id`, (req, res) => {
     });
 });
 
+router.get("/reports", (req,res) => {
+  Profile.findAll({
+     attributes: ['restriction_id',[sequelize.fn('count', sequelize.col('user_id')),'count']],
+     group: ['restriction_id'],
+
+  }).then((reportData) => {
+        res.json(reportData);
+  }).catch((err) => {
+      console.log(err); 
+      res.status(303).json(err);
+  });
+ 
+})
+
 // GET all restrictions /api/profiles
 router.get("/", (req, res) => {
 
