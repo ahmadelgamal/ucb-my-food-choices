@@ -9,6 +9,7 @@ const html_signup = (req, res) => {
   console.log("=====GET=signup=app=======");
   res.render("signup", {
     title: "Sign Up",
+    user_id: req.session.user_id,
     navLinkText: "Login",
     navLinkRoute: "login",
     navLinkId: "login",

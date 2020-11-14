@@ -16,7 +16,7 @@ async function userfavFormHandler(event) {
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    const response = await fetch(`api/userfav` + item,
+    const response = await fetch(`api/userfav/` + item,
       {
         method: "get",
         headers: { "Content-Type": "application/json" }
@@ -24,7 +24,7 @@ async function userfavFormHandler(event) {
     );
     if (response.ok) {
     } else {
-      const response = await fetch("/api/userfav", {
+      const response = await fetch("/api/userfav/", {
         method: "post",
         body: JSON.stringify({ favorite_id: item }),
         headers: { "Content-Type": "application/json" },
