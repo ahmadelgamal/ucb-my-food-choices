@@ -10,24 +10,26 @@ async function changePwFormHandler(event) {
   //select guest or host login 
 
   const id = document.querySelector("#current-password").name;
-  
+
   console.log(loggedIn);
   if (loggedIn === "guestLoggedIn") {
-    if (currpw && newpw) {
-      const response = await fetch(`/api/users/${id}`, {
-        method: "put",
-        body: JSON.stringify({ password: newpw }),
-        headers: { "Content-Type": "application/json" },
-      });
+    if (currpw.length < 8) {
+      M.toast({ html: 'Password must be at least 8 characters long' });
+      if (currpw && newpw) {
+        const response = await fetch(`/api/users/${id}`, {
+          method: "put",
+          body: JSON.stringify({ password: newpw }),
+          headers: { "Content-Type": "application/json" },
+        });
 
-      if (response.ok) {
-        M.toast({ html: 'Password changed successfully' });
-        document.location.replace('/');
-      } else {
-        M.toast({ html: 'Error!' });
+        if (response.ok) {
+          M.toast({ html: 'Password changed successfully' });
+          document.location.replace('/');
+        } else {
+          M.toast({ html: 'Error!' });
+        }
       }
     }
-
   }
 
   if (loggedIn === "hostLoggedIn") {

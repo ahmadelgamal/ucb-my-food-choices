@@ -9,11 +9,11 @@ async function profilePageHandler(event) {
 
   const removeArray = [];
   const restrict = document.forms[0];
-  for (var i = 0; i < restrict.length-1; i++) {
+  for (var i = 0; i < restrict.length - 1; i++) {
     removeArray.push(restrict[i].value);
   }
 
-//   // for each element (not checkbox)...
+  // for each unchecked element
   removeArray.forEach(uncheckPostData);
 
   // check if item is associated to profile table
@@ -28,7 +28,7 @@ async function profilePageHandler(event) {
 };
 
 async function profileFormHandler() {
-  
+
   M.toast({ html: "Profile Updated Successfully!" });
 
   const restrictionsArray = [];
@@ -40,7 +40,7 @@ async function profileFormHandler() {
     }
   }
 
-  // for each element (checkbox)...
+  // for each checked element
   restrictionsArray.forEach(checkPostData);
 
   // check if item is associated to profile table
@@ -74,18 +74,17 @@ function closeModalHandler(event) {
 async function deleteAccountHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
-  
+
   const response = await fetch(`/api/users/${id}`, {
     method: "delete",
   });
-  console.log(response.body);
-  if (response.ok){
+  if (response.ok) {
 
     M.toast({ html: "Account Deleted Successfully!" });
     logoutFormHandler();
-    
+
   }
-  
+
 }
 
 document
