@@ -15,20 +15,6 @@ router.get("/favorite", (req, res) => {
     });
 });
 
-router.get("/food-category", (req, res) => {
-  console.log("=========GET=FAVORITE========");
-  Favorite.findAll({
-    attributes: ["id", "food_name", "food_category",
-    [sequelize.fn('count', sequelize.col('food_name')),'count']
-    ],
-    group: 'food_category',
-  })
-    .then((dbFavoriteData) => res.json(dbFavoriteData))
-    .catch((err) => {
-      console.log(err);
-      res.status(303).json(err);
-    });
-});
 
 // GET a favorite by id /api/favorite/1
 router.get("/:id", (req, res) => {

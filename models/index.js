@@ -6,9 +6,10 @@ const Admin = require("./Admin");
 const UserFavorites = require("./UserFavorites");
 const Favorite = require("./Favorite");
 
+//this order is important, before creating the foreign key, the table has to be asssociated with the parent table first.
 User.hasMany(Profile, {
-  foreignKey: "user_id",
-  onDelete: "cascade"
+ foreignKey: "user_id",
+ onDelete: "cascade"
 });
 
 Profile.belongsTo(User, {
@@ -31,6 +32,12 @@ Favorite.belongsTo(User, {
   foreignKey: "favorite_id",
 });
 
+//this order is important , before creating the foreign key, the table has to be asssociated with the parent table first.
+User.hasMany(UserFavorites, {
+  foreignKey: "user_id",
+  onDelete: "cascade"
+});
+
 UserFavorites.belongsTo(User, {
   foreignKey: "user_id",
 });
@@ -43,9 +50,6 @@ Favorite.belongsTo(UserFavorites, {
   foreignKey: "favorite_id",
 });
 
-User.hasMany(UserFavorites, {
-  foreignKey: "user_id",
-  onDelete: "cascade"
-});
+
 
 module.exports = { User, Profile, Restriction, Admin, UserFavorites, Favorite };
