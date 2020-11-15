@@ -95,7 +95,7 @@ const html_reports = (req, res) => {
       res.render("reports", {
         title: "Reports",
         first_name: req.session.first_name,
-        user_id: userData.user_id,
+        user_id: userData.id,
         navLinkText: "Logout",
         navLinkRoute: "",
         navLinkId: "logout",

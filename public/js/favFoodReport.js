@@ -81,14 +81,14 @@ async function deleteAccountHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
 
-  const response = await fetch(`/api/users/${id}`, {
+  const response = await fetch(`/api/admin/${id}`, {
     method: "delete",
   });
   console.log(response.body);
   if (response.ok) {
 
     M.toast({ html: "Account Deleted Successfully!" });
-    logoutFormHandler();
+    adminLogoutFormHandler();
 
   }
 

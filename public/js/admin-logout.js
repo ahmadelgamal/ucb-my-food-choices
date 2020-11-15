@@ -1,4 +1,4 @@
-async function logoutFormHandler() {
+async function adminLogoutFormHandler() {
   const response = await fetch('/api/admin/admin-logout', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' }
@@ -12,5 +12,5 @@ async function logoutFormHandler() {
   }
 }
 
-document.querySelector('#logout').addEventListener("click", logoutFormHandler);
-document.querySelector('#burger-logout').addEventListener("click", logoutFormHandler);
+document.querySelector('#logout').addEventListener("click", adminLogoutFormHandler);
+document.querySelector('#burger-logout').addEventListener("click", adminLogoutFormHandler);

@@ -178,7 +178,7 @@ function openModalHandler(event) {
   async function deleteAccountHandler(event) {
     event.preventDefault();
     const id = parseInt(delAcc.dataset.account);
-    
+    console.log(delAcc);
     const response = await fetch(`/api/admin/${id}`, {
       method: "delete",
     });
@@ -186,7 +186,7 @@ function openModalHandler(event) {
     if (response.ok){
   
       M.toast({ html: "Account Deleted Successfully!" });
-      logoutFormHandler();
+      adminLogoutFormHandler();
       
     }
     
