@@ -21,7 +21,7 @@ router.get("/users", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["first_name", "last_name"],
+        attributes: ["first_name", "last_name","email"],
       },
     ],
   })
@@ -30,11 +30,6 @@ router.get("/users", (req, res) => {
       console.log(err);
       res.status(303).json(err);
     });
-});
-
-router.get("/user/user", (req, res) => {
-  console.log("==== try GET=user====");
-  console.log(req.session.user_id);
 });
 
 // GET all restrictions /api/profiles

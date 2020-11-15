@@ -10,6 +10,8 @@ const substanceTable = document.getElementById("substance-table");
 const weightMgmtTable = document.getElementById("weight-table");
 const otherTable = document.getElementById("other-table");
 const guestRestrictCountEl = document.getElementById("guestRestrictCount");
+const h3El = document.getElementsByTagName("h3");
+console.log(h3El);
 
 function createTableElem(restriction_name, id, newDict, table) {
     let tdElem = document.createElement('td');
@@ -28,6 +30,23 @@ function createTableElem(restriction_name, id, newDict, table) {
   }
   
 async function reportFormHandler() {  
+    const responseCategory = await fetch(`/api/restrictions/category`,{
+        method: "get",
+        headers: { "Content-Type": "application/json" }
+    })
+    if (responseCategory.ok){
+        const categoryArray = await responseCategory.json();
+    
+        for (i=0;i<categoryArray.length;i++){
+            console.log(categoryArray[i]);
+            console.log(i);
+            console.log(h3El[i+1]);
+            if (h3El[i+1].id === categoryArray[i].category.toLowerCase()){
+                     h3El[i+1].textContent = categoryArray[i].category;
+            }  
+        }
+        
+    }
     const response = await fetch(`/api/restrictions`, {
       method: "get",
       headers: { "Content-Type": "application/json" }

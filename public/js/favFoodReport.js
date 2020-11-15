@@ -8,6 +8,7 @@ const sidesTable = document.getElementById("sides-table");
 const dessertTable = document.getElementById("dessert-table");
 const beverageTable = document.getElementById("beverage-table");
 const guestCountEl = document.getElementById("guestCount");
+const h3El = document.getElementsByTagName("h3");
 
 function createTableElem(food_name, id, newDict, table) {
   let tdElem = document.createElement('td');
@@ -24,9 +25,9 @@ function createTableElem(food_name, id, newDict, table) {
   table.appendChild(tdCountElem);
 }
 
+
 async function reportHandler() {
 
-  
   const response = await fetch(`/api/favorite/favorite`, {
     method: "get",
     headers: { "Content-Type": "application/json" }
@@ -37,16 +38,16 @@ async function reportHandler() {
   })
   if (response.ok && responseCount.ok) {
     const finalDict = await response.json();
-    const finalCountDict = await responseCount.json(); 
+    const finalCountDict = await responseCount.json();
     const newDict = {};
 
     let guestCount = 0;
     for (j = 0; j < finalCountDict.length; j++) {
       newDict[finalCountDict[j].favorite_id] = finalCountDict[j].count;
-      guestCount+=finalCountDict[j].count;
+      guestCount += finalCountDict[j].count;
     }
     guestCountEl.textContent = guestCount;
-    
+
     for (i = 0; i < finalDict.length; i++) {
 
       if (finalDict[i].food_category === 'Entree') {
