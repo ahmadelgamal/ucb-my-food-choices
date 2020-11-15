@@ -4,8 +4,33 @@ const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
 const deleteAccount = document.querySelector('#delete');
 
-async function userfavFormHandler(event) {
+async function userFavPageHandler(event) {
   event.preventDefault();
+
+  const removeArray = [];
+  const fav = document.forms[0];
+  for (var i = 0; i < fav.length - 1; i++) {
+    removeArray.push(fav[i].value);
+  }
+
+  // for each unchecked element
+  removeArray.forEach(uncheckPostData);
+
+  // check if item is associated to profile table
+  async function uncheckPostData(item) {
+    const response = await fetch(`/api/userfav/delete/` + item, {
+      method: "delete",
+      body: JSON.stringify({ favorite_id: item }),
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+   userfavFormHandler();
+};
+
+
+
+async function userfavFormHandler(event) {
+  
   M.toast({ html: 'Favorite foods Updated Successfully!' });
 
   const userfavArray = [];
@@ -22,22 +47,13 @@ async function userfavFormHandler(event) {
 
   // check if item has a value & post data
   async function checkPostData(item) {
-
-    const response = await fetch(`/api/userfav/` + item,
-      {
-        method: "get",
-        headers: { "Content-Type": "application/json" }
-      }
-    );
-
-    if (response.ok) {
-    } else {
+    console.log(item);
+      console.log('here');
       const response = await fetch("/api/userfav/", {
         method: "post",
         body: JSON.stringify({ favorite_id: item }),
         headers: { "Content-Type": "application/json" },
       });
-    }
   }
 }
 
@@ -70,7 +86,7 @@ async function deleteAccountHandler(event) {
 // event listener
 document
   .querySelector(".userfav-form")
-  .addEventListener("submit", userfavFormHandler);
+  .addEventListener("submit", userFavPageHandler);
 
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);

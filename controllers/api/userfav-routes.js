@@ -177,17 +177,19 @@ router.put("/:id", (req, res) => {
     });
 });
 
-// DELETE a favorite by id /api/profiles/1
-router.delete("/:id", (req, res) => {
-  console.log("=====DELETE==userfav=====");
+// DELETE a restriction by id /api/userfav/delete/1
+router.delete("/delete/:id", (req, res) => {
+  console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
-  UserFav.destroy({
+  UserFavorites.destroy({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
+      favorite_id: req.params.id,
+
     },
   })
     .then((dbUserFavData) => {
-      if (!dbUserFavData) {
+      if (dbUserFavData.length === 0){
         res.status(404).json({ message: "No favorite found with this id" });
         return;
       }

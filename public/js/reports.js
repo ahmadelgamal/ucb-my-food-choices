@@ -41,7 +41,8 @@ async function reportFormHandler() {
             console.log(categoryArray[i]);
             console.log(i);
             console.log(h3El[i+1]);
-            if (h3El[i+1].id === categoryArray[i].category.toLowerCase()){
+            const heading = h3El[i+1].id.split('-')[0]
+            if (heading === categoryArray[i].category.toLowerCase()){
                      h3El[i+1].textContent = categoryArray[i].category;
             }  
         }
