@@ -33,14 +33,21 @@ https://github.com/ahmadelgamal/ucb-my-food-choices
 
 ## Demo
 
-### Host Report
+### Host (Admin) Sign Up
 
-![Host Gif Video](./lib/admin-my-food-choices.gif)
+![Host (Admin) Sign Up Gif Animation](./lib/admin-signup-mfc.gif)
 
-### Guest Profile
+### Host (Admin) Reports
 
-![Guest Gif Video](./lib/user-my-food-choices.gif)
+![Host (Admin) Reports Gif Animation](./lib/admin-reports-mfc.gif)
 
+### Guest (User) Login
+
+![Guest (User) Login Gif Animation](./lib/user-login-mfc.gif)
+
+### Guest (User) Profile Update
+
+![Guest (User) Login Gif Animation](./lib/user-update-profile-mfc.gif)
 
 ## Features
 
@@ -55,14 +62,12 @@ This first version is setup so that a company with an office kitchen can query i
    1. Save their profile.
    1. Update their profile.
    1. Change their password.
-   1. Change their email (username).
    1. Delete their account.
 1. Organizer will get a report with:
    1. The number of employees that signed up.
    1. The total number of employees in each dietary restriction category.
    1. This will help the organizer plan the food that better fits the employees' needs.
    1. Change their password.
-   1. Change their email (username).
    1. Delete their account.
 
 ## Usage
@@ -111,6 +116,7 @@ The list of upgrades can be endless, but the following are the top 7 upgrades fo
 ### For Host (admin)
 Give Host the option to:
 1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Change their email (username).
 1. Delete Guests (For example, if an employee leaves a company).
 1. Sign Up
 1. Recover the password
@@ -120,16 +126,17 @@ Give Host the option to:
 
 ### For Guests (users)
 Give Guests the option to:
-   1. Select food preferences, such as:
-      1. pasta vs. rice
-      1. french fries vs. mashed potatoes
-      1. shakes vs. ice cream
-   1. Select food dislikes
-   1. Add custom foods
-   1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
-   1. Share their profiles with hosts
-   1. Recover the password
-   1. Add their profile picture
+1. Change their email (username).
+1. Select food preferences, such as:
+   1. pasta vs. rice
+   1. french fries vs. mashed potatoes
+   1. shakes vs. ice cream
+1. Select food dislikes
+1. Add custom foods
+1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
+1. Share their profiles with hosts
+1. Recover the password
+1. Add their profile picture
 
 ## Contributors
 
