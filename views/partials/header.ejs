@@ -1,30 +1,21 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
-    <% if (title === "Reports" || title === "Favorite Food report") { %>
-    <li><a href="#" class="blue-text">Reports</a></li>
+  <% if (title !== "Sign Up" && title !== "Login") { %>
+  <% if (loggedIn === 'hostLoggedIn') { %>
+    <li><a href="/reports" class="<%= color %>-text">Reports</a></li>
+  <% } else if (loggedIn === 'guestLoggedIn') { %>
+    <li><a href="/profile" class="<%= color %>-text">Profile</a></li>
+  <% } %>
     <li class="divider"></li>
-    <li><a href="/change-email" class="blue-text">Change Email</a></li>
-    <li><a href="/change-pw" data-constrainwidth="false" class="blue-text">Change Password</a></li>
-    <li><a href="#" class="blue-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
+    <li><a href="/change-email" class="<%= color %>-text">Change Email</a></li>
+    <li><a href="/change-pw" data-constrainwidth="false" class="<%= color %>-text">Change Password</a></li>
+    <li><a href="" class="<%= color %>-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <li class="divider"></li>
-    <li><a class="blue-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
-    
-    <% } else { %>
-      <li><a href="/profile" class="green-text">Profile</a></li>
-      <li class="divider"></li>
-      <li><a href="/change-email" class="green-text">Change Email</a></li>
-      <li><a href="/change-pw" class="green-text">Change Password</a></li>
-      <li><a href="#" class="green-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
-      <li class="divider"></li>
-      <li><a class="green-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
-      <% } %>
+  <% } %>
+    <li><a class="<%= color %>-text" id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
   
-  <% if (title === "Reports" || title === "Favorite Food report") { %>
-  <nav class="blue">
-  <% } else { %>
-  <nav class="green">
-  <% } %>
+  <nav class="<%= color %>">
     <div class="container nav-wrapper">
       <a href="/" class="brand-logo hide-on-med-and-down">
         <i class="material-icons">local_dining</i>My Food Choices
@@ -51,24 +42,18 @@
     <% if (title !== "Sign Up" && title !== "Login") { %>
       <li><a>Welcome, <%= first_name %></a></li>
       <li class="divider"></li>
-    <% } %>
       
-    <% if (title === "Profile" || title === "Favorites") { %>
-      <li><a href="/profile">Profile</a></li>
-      <li class="divider"></li>
-      <li><a href="/change-email">Change Email</a></li>
-      <li><a href="/change-pw">Change Password</a></li>
-      <li><a href="#" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
+      <% if (loggedIn === 'hostLoggedIn') { %>
+        <li><a href="/reports">Reports</a></li>
+      <% } else if (loggedIn === 'guestLoggedIn') { %>
+        <li><a href="/profile">Profile</a></li>
+      <% } %>
+        <li class="divider"></li>
+        <li><a href="/change-email">Change Email</a></li>
+        <li><a href="/change-pw">Change Password</a></li>
+        <li><a href="" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
+        <li class="divider"></li>
     <% } %>
-
-    <% if (title === "Reports") { %>
-      <li><a href="/reports">Reports</a></li>
-      <li class="divider"></li>
-      <li><a href="/change-email">Change Email</a></li>
-      <li><a href="/change-pw">Change Password</a></li>
-      <li><a href="#" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
-    <% } %>
-      <li class="divider"></li>
       <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
   </ul>
   

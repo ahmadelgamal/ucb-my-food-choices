@@ -9,6 +9,7 @@ const html_signup = (req, res) => {
   console.log("=====GET=signup=app=======");
   res.render("signup", {
     title: "Sign Up",
+    color: "green",
     user_id: req.session.user_id,
     navLinkText: "Login",
     navLinkRoute: "login",
@@ -31,6 +32,7 @@ const html_login = (req, res) => {
 
   res.render("login", {
     title: "Login",
+    color: "green",
     user_id: req.session.user_id,
     navLinkText: "Sign Up",
     navLinkRoute: "signup",
@@ -49,6 +51,7 @@ const html_profile = (req, res) => {
     }).then((dbRestrictionData) => {
       res.render("profile", {
         title: "Profile",
+        color: "green",
         first_name: req.session.first_name,
         user_id: req.session.user_id,
         restriction_data: dbRestrictionData,
@@ -71,6 +74,7 @@ const html_favorites = (req, res) => {
 
       res.render("userfav", {
         title: "Favorites",
+        color: "green",
         favorite_data: dbFavoriteData,
         first_name: req.session.first_name,
         user_id: req.session.user_id,
@@ -96,6 +100,7 @@ const html_reports = (req, res) => {
 
       res.render("reports", {
         title: "Reports",
+        color: "blue",
         first_name: req.session.first_name,
         user_id: userData.id,
         loggedIn: "hostLoggedIn",
@@ -104,7 +109,7 @@ const html_reports = (req, res) => {
         navLinkId: "logout",
         burgerNavLinkId: "burger-logout"
       });
-    })  
+    })
   }
 };
 
@@ -119,6 +124,7 @@ const html_change_email = (req, res) => {
 
       res.render("changeEmail", {
         title: "Change Email",
+        color: "green",
         first_name: req.session.first_name,
         user_id: userData.id,
         loggedIn: "guestLoggedIn",
@@ -139,6 +145,7 @@ const html_change_email = (req, res) => {
 
       res.render("changeEmail", {
         title: "Change Email",
+        color: "blue",
         first_name: req.session.first_name,
         user_id: adminData.id,
         loggedIn: "hostLoggedIn",
@@ -164,6 +171,7 @@ const html_change_pw = (req, res) => {
 
       res.render("changePassword", {
         title: "Change Password",
+        color: "green",
         first_name: req.session.first_name,
         user_id: userData.id,
         loggedIn: "guestLoggedIn",
@@ -184,6 +192,7 @@ const html_change_pw = (req, res) => {
 
       res.render("changePassword", {
         title: "Change Password",
+        color: "blue",
         first_name: req.session.first_name,
         user_id: userData.id,
         loggedIn: "hostLoggedIn",
@@ -205,7 +214,8 @@ const html_foodfav_reports = (req, res) => {
       }
     }).then((userData) => {
       res.render("foodfavreport", {
-        title: "Favorite Food report",
+        title: "Favorite Food Report",
+        color: "blue",
         first_name: req.session.first_name,
         user_id: userData.id,
         loggedIn: "hostLoggedIn",
