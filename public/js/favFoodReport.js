@@ -76,37 +76,37 @@ const filterBySelection = function (event) {
   const beverageDivEl = document.querySelector('#beverage-filter');
 
   switch (event.target.id) {
-      case "filter-entree":
-          entreeDivEl.style.display = "";
-          sidesDivEl.style.display = "none";
-          dessertDivEl.style.display = "none";
-          beverageDivEl.style.display = "none";
-          break;
-      case "filter-sides":
-          entreeDivEl.style.display = "none";
-          sidesDivEl.style.display = "";
-          dessertDivEl.style.display = "none";
-          beverageDivEl.style.display = "none";
-          break;
-      case "filter-dessert":
-          entreeDivEl.style.display = "none";
-          sidesDivEl.style.display = "none";
-          dessertDivEl.style.display = "";
-          beverageDivEl.style.display = "none";
-          break;
-      case "filter-beverages":
-          entreeDivEl.style.display = "none";
-          sidesDivEl.style.display = "none";
-          dessertDivEl.style.display = "none";
-          beverageDivEl.style.display = "";
-          break;
-      
-      default:
-          entreeDivEl.style.display = "";
-          sidesDivEl.style.display = "";
-          dessertDivEl.style.display = "";
-          beverageDivEl.style.display = "";
-          break;
+    case "filter-entree":
+      entreeDivEl.style.display = "";
+      sidesDivEl.style.display = "none";
+      dessertDivEl.style.display = "none";
+      beverageDivEl.style.display = "none";
+      break;
+    case "filter-sides":
+      entreeDivEl.style.display = "none";
+      sidesDivEl.style.display = "";
+      dessertDivEl.style.display = "none";
+      beverageDivEl.style.display = "none";
+      break;
+    case "filter-dessert":
+      entreeDivEl.style.display = "none";
+      sidesDivEl.style.display = "none";
+      dessertDivEl.style.display = "";
+      beverageDivEl.style.display = "none";
+      break;
+    case "filter-beverages":
+      entreeDivEl.style.display = "none";
+      sidesDivEl.style.display = "none";
+      dessertDivEl.style.display = "none";
+      beverageDivEl.style.display = "";
+      break;
+
+    default:
+      entreeDivEl.style.display = "";
+      sidesDivEl.style.display = "";
+      dessertDivEl.style.display = "";
+      beverageDivEl.style.display = "";
+      break;
   }
 }
 
@@ -122,7 +122,7 @@ function closeModalHandler(event) {
   instances[0].close();
 }
 
-async function deleteAccountHandler(event) {
+async function deleteAdminHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
 
@@ -144,4 +144,4 @@ const reportFilterDropDownEl = document.querySelector('#report-filter-dropdown')
 reportFilterDropDownEl.addEventListener('click', filterBySelection);
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
-deleteAccount.addEventListener('click', deleteAccountHandler);
+deleteAccount.addEventListener('click', deleteAdminHandler);

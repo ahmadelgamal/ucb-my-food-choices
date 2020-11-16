@@ -24,13 +24,13 @@ async function userFavPageHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
   }
-   userfavFormHandler();
+  userfavFormHandler();
 };
 
 
 
 async function userfavFormHandler(event) {
-  
+
   M.toast({ html: 'Favorite foods Updated Successfully!' });
 
   const userfavArray = [];
@@ -48,12 +48,12 @@ async function userfavFormHandler(event) {
   // check if item has a value & post data
   async function checkPostData(item) {
     console.log(item);
-      console.log('here');
-      const response = await fetch("/api/userfav/", {
-        method: "post",
-        body: JSON.stringify({ favorite_id: item }),
-        headers: { "Content-Type": "application/json" },
-      });
+    console.log('here');
+    const response = await fetch("/api/userfav/", {
+      method: "post",
+      body: JSON.stringify({ favorite_id: item }),
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
 
@@ -67,7 +67,7 @@ function closeModalHandler(event) {
   instances[0].close();
 }
 
-async function deleteAccountHandler(event) {
+async function deleteUserHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
 
@@ -90,4 +90,4 @@ document
 
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
-deleteAccount.addEventListener('click', deleteAccountHandler);
+deleteAccount.addEventListener('click', deleteUserHandler);

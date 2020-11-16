@@ -71,7 +71,7 @@ function closeModalHandler(event) {
   instances[0].close();
 }
 
-async function deleteAccountHandler(event) {
+async function deleteUserHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
 
@@ -82,9 +82,7 @@ async function deleteAccountHandler(event) {
 
     M.toast({ html: "Account Deleted Successfully!" });
     logoutFormHandler();
-
   }
-
 }
 
 document
@@ -93,4 +91,4 @@ document
 
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
-deleteAccount.addEventListener('click', deleteAccountHandler);
+deleteAccount.addEventListener('click', deleteUserHandler);
