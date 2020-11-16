@@ -118,12 +118,12 @@ Give Host the option to:
 1. Receive email confirmation upon sign up, change of username and change of password.
 1. Recover the password.
 1. Change their email (username).
-1. View "detailed report", which lists all guests and their dietary restrictions.
-1. Delete Guests (For example, if an employee leaves a company).
+1. View "detailed report", which lists all guests and their profiles.
 1. Group Guests.
-1. Add company logo.
+1. Add company logo and/or event pictures.
 1. Create events.
 1. Invite Guests to events.
+1. Uninvite Guests to events.
 1. Combine host and guest into one account so that all users can be host or guest depending on the event.
 
 ### For Guests (users)
