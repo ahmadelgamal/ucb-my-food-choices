@@ -50,7 +50,7 @@ const html_profile = (req, res) => {
       attributes: ["id", "restriction_name", "category"]
     }).then((dbRestrictionData) => {
       res.render("profile", {
-        title: "Profile",
+        title: "Restrictions",
         color: "green",
         first_name: req.session.first_name,
         user_id: req.session.user_id,
@@ -99,7 +99,7 @@ const html_reports = (req, res) => {
     }).then((userData) => {
 
       res.render("reports", {
-        title: "Reports",
+        title: "Restrictions Reports",
         color: "blue",
         first_name: req.session.first_name,
         user_id: userData.id,
@@ -214,7 +214,7 @@ const html_foodfav_reports = (req, res) => {
       }
     }).then((userData) => {
       res.render("foodfavreport", {
-        title: "Favorite Food Report",
+        title: "Favorites Report",
         color: "blue",
         first_name: req.session.first_name,
         user_id: userData.id,

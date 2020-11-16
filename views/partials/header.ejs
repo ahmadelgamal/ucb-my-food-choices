@@ -1,12 +1,6 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
   <% if (title !== "Sign Up" && title !== "Login") { %>
-  <% if (loggedIn === 'hostLoggedIn') { %>
-    <li><a href="/reports" class="<%= color %>-text">Reports</a></li>
-  <% } else if (loggedIn === 'guestLoggedIn') { %>
-    <li><a href="/profile" class="<%= color %>-text">Profile</a></li>
-  <% } %>
-    <li class="divider"></li>
     <li><a href="/change-email" class="<%= color %>-text">Change Email</a></li>
     <li><a href="/change-pw" data-constrainwidth="false" class="<%= color %>-text">Change Password</a></li>
     <li><a href="" class="<%= color %>-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
@@ -30,7 +24,14 @@
       <ul class="right hide-on-med-and-down">
       <% if (title !== "Sign Up" && title !== "Login") { %>
         <li>Welcome, <%= first_name %></li>
-        <li><a id="profile-dropdown" class="dropdown-trigger" href="#!" data-target="account-dropdown"><i class="material-icons right">person</i></a></li>
+        <% if (loggedIn === 'hostLoggedIn') { %>
+          <li><a href="/reports">Restrictions</a></li>
+          <li><a href="/foodfav-reports">Favorites</a></li>
+        <% } else if (loggedIn === 'guestLoggedIn') { %>
+          <li><a href="/profile">Restrictions</a></li>
+          <li><a href="/favorite">Favorites</a></li>
+        <% } %>
+          <li><a id="profile-dropdown" class="dropdown-trigger" href="#!" data-target="account-dropdown"><i class="material-icons right">person</i></a></li>
       <% } else { %>
         <li><a id='<%= navLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>
       <% } %>
@@ -44,9 +45,11 @@
       <li class="divider"></li>
       
       <% if (loggedIn === 'hostLoggedIn') { %>
-        <li><a href="/reports">Reports</a></li>
+        <li><a href="/reports">Restrictions Report</a></li>
+        <li><a href="/foodfav-reports">Favorites Report</a></li>
       <% } else if (loggedIn === 'guestLoggedIn') { %>
-        <li><a href="/profile">Profile</a></li>
+        <li><a href="/profile">Dietary Restrictions</a></li>
+        <li><a href="/favorite">Food Favorites</a></li>
       <% } %>
         <li class="divider"></li>
         <li><a href="/change-email">Change Email</a></li>
