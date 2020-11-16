@@ -1,0 +1,4 @@
+/* Custom code to make material icons color blue darken-3 for admin ui */
+.material-icons.active {
+  color: #1565c0 !important;
+}

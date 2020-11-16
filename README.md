@@ -111,22 +111,27 @@ Are the bride and groom impressed? You betcha!
 
 ## Future Upgrades
 
-The list of upgrades can be endless, but the following are the top 7 upgrades for Host and Guests to make this a world-class app.
+The list of upgrades can be endless, but the following are the top 10 future upgrades for Host and Guests to make this a world-class app.
 
 ### For Host (admin)
 Give Host the option to:
-1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Receive email confirmation upon sign up, change of username and change of password.
+1. Recover the password.
 1. Change their email (username).
+1. View "detailed report", which lists all guests and their dietary restrictions.
 1. Delete Guests (For example, if an employee leaves a company).
-1. Sign Up
-1. Recover the password
-1. Group Guests
-1. Add company logo
-1. Add events with invitations
+1. Group Guests.
+1. Add company logo.
+1. Create events.
+1. Invite Guests to events.
+1. Combine host and guest into one account so that all users can be host or guest depending on the event.
 
 ### For Guests (users)
 Give Guests the option to:
+1. Receive email confirmation upon sign up, change of username and change of password.
+1. Recover the password.
 1. Change their email (username).
+1. Load profile checkmarks from database.
 1. Select food preferences, such as:
    1. pasta vs. rice
    1. french fries vs. mashed potatoes
@@ -135,7 +140,6 @@ Give Guests the option to:
 1. Add custom foods
 1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
 1. Share their profiles with hosts
-1. Recover the password
 1. Add their profile picture
 
 ## Contributors
