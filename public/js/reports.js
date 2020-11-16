@@ -12,7 +12,6 @@ const weightMgmtTable = document.getElementById("weight-table");
 const otherTable = document.getElementById("other-table");
 const guestRestrictCountEl = document.getElementById("guestRestrictCount");
 const h3El = document.getElementsByTagName("h3");
-console.log(h3El);
 
 function createTableElem(restriction_name, id, newDict, table) {
   let tdElem = document.createElement('td');
@@ -39,9 +38,6 @@ async function reportFormHandler() {
     const categoryArray = await responseCategory.json();
 
     for (i = 0; i < categoryArray.length; i++) {
-      console.log(categoryArray[i]);
-      console.log(i);
-      console.log(h3El[i + 1]);
       const heading = h3El[i + 1].id.split('-')[0]
       if (heading === categoryArray[i].category.toLowerCase()) {
         h3El[i + 1].textContent = categoryArray[i].category;
@@ -180,11 +176,9 @@ function closeModalHandler(event) {
 async function deleteAdminHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
-  console.log(delAcc);
   const response = await fetch(`/api/admin/${id}`, {
     method: "delete",
   });
-  console.log(response.body);
   if (response.ok) {
 
     M.toast({ html: "Account Deleted Successfully!" });

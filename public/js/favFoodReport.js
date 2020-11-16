@@ -130,7 +130,6 @@ async function deleteAdminHandler(event) {
   const response = await fetch(`/api/admin/${id}`, {
     method: "delete",
   });
-  console.log(response.body);
   if (response.ok) {
 
     M.toast({ html: "Account Deleted Successfully!" });

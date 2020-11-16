@@ -42,14 +42,11 @@ async function userfavFormHandler(event) {
       userfavArray.push(parseInt(userfav[i].value));
     }
   }
-  console.log(userfavArray);
   // for each element (checkbox)...
   userfavArray.forEach(checkPostData);
 
   // check if item has a value & post data
   async function checkPostData(item) {
-    console.log(item);
-    console.log('here');
     const response = await fetch("/api/userfav/", {
       method: "post",
       body: JSON.stringify({ favorite_id: item }),
@@ -75,7 +72,6 @@ async function deleteUserHandler(event) {
   const response = await fetch(`/api/users/${id}`, {
     method: "delete",
   });
-  console.log(response.body);
   if (response.ok) {
 
     M.toast({ html: "Account Deleted Successfully!" });

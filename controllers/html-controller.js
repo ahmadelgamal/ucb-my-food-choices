@@ -11,6 +11,7 @@ const html_signup = (req, res) => {
     title: "Sign Up",
     color: "green",
     user_id: req.session.user_id,
+    loggedIn: "",
     navLinkText: "Login",
     navLinkRoute: "login",
     navLinkId: "login",
@@ -34,6 +35,7 @@ const html_login = (req, res) => {
     title: "Login",
     color: "green",
     user_id: req.session.user_id,
+    loggedIn: "",
     navLinkText: "Sign Up",
     navLinkRoute: "signup",
     navLinkId: "signup",
@@ -159,8 +161,6 @@ const html_change_email = (req, res) => {
 }
 
 const html_change_pw = (req, res) => {
-  console.log(req.session.guestLoggedIn);
-  console.log(req.session.hostLoggedIn);
   if (req.session.guestLoggedIn) {
     User.findOne({
       attributes: { exclude: ["password"] },
