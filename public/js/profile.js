@@ -92,3 +92,4 @@ document
 delAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
 deleteAccount.addEventListener('click', deleteUserHandler);
+deleteAccount.addEventListener('click', deleteUserHandler);
