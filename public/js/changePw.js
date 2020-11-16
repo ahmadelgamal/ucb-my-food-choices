@@ -3,10 +3,12 @@ const loggedIn = document.querySelector("#current-password").dataset.loggedin;
 async function changePwFormHandler(event) {
   event.preventDefault();
 
+  // Will be used for future upgrade for checking current password
   const currentPassword = document.querySelector("#current-password").value.trim();
+
+  const id = document.querySelector("#current-password").name;
   const newPassword = document.querySelector("#new-password").value.trim();
   const confirmNewPassword = document.querySelector("#confirm-new-password").value.trim();
-  const userId = document.querySelector("#current-password").name;
 
   //select guest or host login 
 
