@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -55,7 +55,7 @@ router.get("/restriction", (req, res) => {
     .then((dbRestrictData) => res.json(dbRestrictData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -134,79 +134,79 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
-
-// POST create new user /api/users
+*/
+//POST create new user /api/users
 router.post("/", (req, res) => {
   console.log("========CREATE=USER========");
   // expects {first_name: 'User', last_name: Smith, email: 'user@email.com', password: '1234'}
-  User.create({
+  Admin.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
     password: req.body.password,
   })
-    .then((dbUserData) => {
+    .then((dbAdminData) => {
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
-        req.session.first_name = dbUserData.first_name;
-        req.session.loggedIn = true;
+        req.session.user_id = dbAdminData.id;
+        req.session.username = dbAdminData.username;
+        req.session.first_name = dbAdminData.first_name;
+        req.session.hostLoggedIn = true;
 
-        res.json(dbUserData);
+        res.json(dbAdminData);
       });
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // PUT update a user /api/users/1
 router.put("/:id", (req, res) => {
-  console.log("=========UPDATE=USER=ID========");
+  console.log("=========UPDATE=Admin========");
   // expects {first_name: 'User, last_name: Last, email: 'user@email.com', password: '1234'}
-  User.update(req.body, {
+  Admin.update(req.body, {
     individualHooks: true,
     where: {
       id: req.params.id,
     },
   })
-    .then((dbUserData) => {
-      if (!dbUserData[0]) {
+    .then((dbAdminData) => {
+      if (!dbAdminData[0]) {
         res.status(404).json({ message: "No user found with this id" });
         return;
       }
-      res.json(dbUserData);
+      res.json(dbAdminData);
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // DELETE delete a user /api/users/1
 router.delete("/:id", (req, res) => {
-  console.log("=========DELETE=USER========");
-  User.destroy({
+  console.log("=========DELETE=ADMIN========");
+  Admin.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((dbUserData) => {
-      if (!dbUserData) {
+    .then((dbAdminData) => {
+      if (!dbAdminData) {
         res.status(404).json({ message: "No user found with this id" });
         return;
       }
-      res.json(dbUserData);
+      res.json(dbAdminData);
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
-*/
+
 
 module.exports = router;

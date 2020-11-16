@@ -26,9 +26,19 @@ router.get("/", (req, res) => {
     .then((dbRestrictData) => res.json(dbRestrictData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
+
+router.get("/category", (req,res) => {
+    Restriction.findAll({
+        attributes: [[sequelize.fn('DISTINCT', sequelize.col('category')) ,'category']],
+    }).then((dbCategory) => res.json(dbCategory))
+    .catch((err) => {
+      console.log(err);
+      res.status(303).json(err);
+    });
+})
 
 // GET a restriction by id /api/restrictions/1
 router.get("/:id", (req, res) => {
@@ -63,7 +73,7 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -78,7 +88,7 @@ router.post("/", (req, res) => {
     .then((dbRestrictData) => res.json(dbRestrictData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -105,7 +115,7 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -127,7 +137,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 

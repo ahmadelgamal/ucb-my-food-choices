@@ -21,20 +21,15 @@ router.get("/users", (req, res) => {
     include: [
       {
         model: User,
-        attributes: ["first_name", "last_name"],
+        attributes: ["first_name", "last_name","email"],
       },
     ],
   })
     .then((dbRestrictData) => res.json(dbRestrictData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
-});
-
-router.get("/user/user", (req, res) => {
-  console.log("==== try GET=user====");
-  console.log(req.session.user_id);
 });
 
 // GET all restrictions /api/profiles
@@ -72,9 +67,23 @@ router.get(`/user/:id`, (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
+
+router.get("/reports", (req,res) => {
+  Profile.findAll({
+     attributes: ['restriction_id',[sequelize.fn('count', sequelize.col('user_id')),'count']],
+     group: ['restriction_id'],
+
+  }).then((reportData) => {
+        res.json(reportData);
+  }).catch((err) => {
+      console.log(err); 
+      res.status(303).json(err);
+  });
+ 
+})
 
 // GET all restrictions /api/profiles
 router.get("/", (req, res) => {
@@ -245,7 +254,7 @@ router.get("/restriction/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -284,7 +293,7 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -299,7 +308,7 @@ router.post("/", (req, res) => {
     .then((dbProfileData) => res.json(dbProfileData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -319,28 +328,30 @@ router.put("/:id", (req, res) => {
   )
     .then((dbProfileData) => {
       if (!dbProfileData) {
-        res.status(404).json({ message: "No restriction found with this id" });
+        res.status(303).json({ message: "No restriction found with this id" });
         return;
       }
       res.json(dbProfileData);
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // DELETE a restriction by id /api/profiles/1
-router.delete("/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
   Profile.destroy({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
+      restriction_id: req.params.id,
+
     },
   })
     .then((dbProfileData) => {
-      if (!dbProfileData) {
+      if (dbProfileData.length === 0){
         res.status(404).json({ message: "No restriction found with this id" });
         return;
       }
@@ -348,7 +359,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 

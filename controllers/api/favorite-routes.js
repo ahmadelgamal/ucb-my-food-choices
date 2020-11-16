@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Favorite, UserFav } = require("../../models");
+const { User, Favorite, UserFavorites } = require("../../models");
 
 // GET all favorite /api/favorite
 router.get("/favorite", (req, res) => {
@@ -11,9 +11,10 @@ router.get("/favorite", (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
+
 
 // GET a favorite by id /api/favorite/1
 router.get("/:id", (req, res) => {
@@ -22,22 +23,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "food_name"],
-
-    include: [
-      {
-        model: User,
-        attributes: ["first_name"],
-        include: {
-          model: User,
-          attributes: ["last_name"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
+    attributes: ["food_name","food_category"],
   })
     .then((dbFavoriteData) => {
       if (!dbFavoriteData) {
@@ -48,7 +34,7 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -63,7 +49,7 @@ router.post("/", (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -90,7 +76,7 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -112,7 +98,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -120,7 +106,7 @@ router.delete("/:id", (req, res) => {
 router.get("/favorite/:id", (req, res) => {
   console.log("====GET=profile=BY=favorite====");
   console.log(req.session.user_id);
-  UserFav.findAll({
+  UserFavorites.findAll({
     where: {
       favorite_id: req.params.id,
       user_id: req.session.user_id,
@@ -152,7 +138,7 @@ router.get("/favorite/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 

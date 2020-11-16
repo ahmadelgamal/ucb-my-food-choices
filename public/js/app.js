@@ -1,26 +1,22 @@
-$(document).ready(function () {
-  // init sidenav
-  $('.sidenav').sidenav();
-
-  // init navbar dropdown
-  $('.dropdown-trigger').dropdown({
-    constrainWidth: false, // Does not change width of dropdown to that of the activator
+document.addEventListener('DOMContentLoaded', function () {
+  const profileDropdownEl = document.querySelectorAll('#profile-dropdown');
+  const instances = M.Dropdown.init(profileDropdownEl, {
+    constrainWidth: false,
+    coverTrigger: false, // Displays dropdown below the button
     hover: true, // Activate on hover
-    coverTrigger: false // Displays dropdown below the button
+    alignment: 'right'
   });
-  // init dropdown button
-  // $('.dropdown-trigger').dropdown();
 });
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const elems = document.querySelectorAll('.dropdown-trigger');
-//   var instances = M.Dropdown.init(elems, {
-//     constrainWidth: false, // Does not change width of dropdown to that of the activator
-//     hover: true, // Activate on hover
-//     coverTrigger: false // Displays dropdown below the button
-//   });
-// });
-
+document.addEventListener('DOMContentLoaded', function () {
+  // class: dropdown-trigger
+  const filterByEl = document.querySelectorAll('#filter-by-dropdown');
+  const instances = M.Dropdown.init(filterByEl, {
+    constrainWidth: false,
+    coverTrigger: false, // Displays dropdown below the button
+    hover: true, // Activate on hover
+  });
+});
 
 // init materialize components
 M.AutoInit();

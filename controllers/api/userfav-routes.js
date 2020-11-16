@@ -1,13 +1,11 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Favorite, UserFav } = require("../../models");
-
-
+const { User, Favorite, UserFavorites } = require("../../models");
 
 // GET all  /api/userfav
 router.get("/users", (req, res) => {
   console.log("====GET=userfav====");
-  UserFav.findAll({
+  UserFavorites.findAll({
     attributes: [
       "id",
       "user_id",
@@ -30,14 +28,14 @@ router.get("/users", (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // GET all favorites /api/userfav
 router.get(`/user/:id`, (req, res) => {
   console.log("====GET=favorites=BY=user====");
-  UserFav.findAll({
+  UserFavorites.findAll({
     where: {
       user_id: req.session.user_id,
     },
@@ -63,25 +61,23 @@ router.get(`/user/:id`, (req, res) => {
     .then((dbFavoriteData) => res.json(dbFavoriteData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
-
-// GET all favorites /api/profiles
-
+// GET all favorites /api/userfav
 router.get("/", (req, res) => {
-  
+
   console.log("====GET=userfav=BY=favorite====");
-  
-  UserFav.findAll({
+
+  UserFavorites.findAll({
     attributes: [
       "id",
       "user_id",
       "favorite_id",
       [
         sequelize.literal(
-          "(SELECT * FROM favorite WHERE favorite.id = userfav.favorite_id)"
+          "(SELECT food_name FROM favorite WHERE favorite.id = userfav.favorite_id)"
         ),
         "food_name",
       ]
@@ -89,10 +85,25 @@ router.get("/", (req, res) => {
   }).then((dbFavoriteData) => res.json(dbFavoriteData))
 });
 
+//Get all users grouped by favorites
+router.get("/favreports", (req,res) => {
+  UserFavorites.findAll({
+     attributes: ['favorite_id',[sequelize.fn('count', sequelize.col('user_id')),'count']],
+     group: ['favorite_id'],
+
+  }).then((reportData) => {
+        res.json(reportData);
+  }).catch((err) => {
+      console.log(err); 
+      res.status(303).json(err);
+  });
+ 
+})
+
 // GET a favorite by id /api/userfav/1
 router.get("/:id", (req, res) => {
   console.log("====GET=ID=userfav====");
-  UserFav.findOne({
+  UserFavorites.findOne({
     where: {
       id: req.params.id,
     },
@@ -114,33 +125,35 @@ router.get("/:id", (req, res) => {
         res.status(303).json({ message: "No favorite found with this id" });
         return;
       }
-      res.json(dbFavoriteData);
+      res.json(dbUserFavData);
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
+
+
 
 // POST create a favorite /api/userfav
 router.post("/", (req, res) => {
   console.log("======POST=profile=====");
   // expects {"user_id": 1 ,"restriction_id": 8}
-  UserFav.create({
+  UserFavorites.create({
     user_id: req.session.user_id,
     favorite_id: req.body.favorite_id,
   })
     .then((dbUserFavData) => res.json(dbUserFavData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // PUT update a favorite by id /api/userfav/1
 router.put("/:id", (req, res) => {
   console.log("=====UPDATE==userfav=====");
-  UserFav.update(
+  UserFavorites.update(
     {
       user_id: req.session.user_id,
       favorite_id: req.body.favorite_id,
@@ -160,21 +173,23 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
-// DELETE a favorite by id /api/profiles/1
-router.delete("/:id", (req, res) => {
-  console.log("=====DELETE==userfav=====");
+// DELETE a restriction by id /api/userfav/delete/1
+router.delete("/delete/:id", (req, res) => {
+  console.log("=====DELETE==profile=====");
   console.log("id", req.params.id);
-  UserFav.destroy({
+  UserFavorites.destroy({
     where: {
-      id: req.params.id,
+      user_id: req.session.user_id,
+      favorite_id: req.params.id,
+
     },
   })
     .then((dbUserFavData) => {
-      if (!dbUserFavData) {
+      if (dbUserFavData.length === 0){
         res.status(404).json({ message: "No favorite found with this id" });
         return;
       }
@@ -182,7 +197,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 

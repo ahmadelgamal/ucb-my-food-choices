@@ -1,9 +1,9 @@
-async function logoutFormHandler() {
+async function adminLogoutFormHandler() {
   const response = await fetch('/api/admin/admin-logout', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' }
   });
-  
+
   if (response.ok) {
     M.toast({ html: "Logged out successfully" });
     document.location.replace('/');
@@ -12,5 +12,5 @@ async function logoutFormHandler() {
   }
 }
 
-document.querySelector('#logout').addEventListener("click", logoutFormHandler);
-document.querySelector('#burger-logout').addEventListener("touchstart", logoutFormHandler);
+document.querySelector('#logout').addEventListener("click", adminLogoutFormHandler);
+document.querySelector('#burger-logout').addEventListener("click", adminLogoutFormHandler);

@@ -6,7 +6,7 @@ const admindata = [
     first_name: 'Everett',
     last_name: 'Griffiths',
     email: 'admin@email.com',
-    password: '1234'
+    password: '1234abcd'
   }
 ];
 

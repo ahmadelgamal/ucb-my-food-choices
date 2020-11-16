@@ -25,7 +25,7 @@ It has an interface for Guests to enter their dietary choices, and another for e
 
 ## Deployment URL
 
-https://my-food-choices.herokuapp.com/
+https://myfoodchoices.herokuapp.com/
 
 ## GitHub Repo URL
 
@@ -33,14 +33,21 @@ https://github.com/ahmadelgamal/ucb-my-food-choices
 
 ## Demo
 
-### Host Report
+### Host (Admin) Sign Up
 
-![Host Gif Video](./lib/admin-my-food-choices.gif)
+![Host (Admin) Sign Up Gif Animation](./lib/admin-signup-mfc.gif)
 
-### Guest Profile
+### Host (Admin) Reports
 
-![Guest Gif Video](./lib/user-my-food-choices.gif)
+![Host (Admin) Reports Gif Animation](./lib/admin-reports-mfc.gif)
 
+### Guest (User) Login
+
+![Guest (User) Login Gif Animation](./lib/user-login-mfc.gif)
+
+### Guest (User) Profile Update
+
+![Guest (User) Login Gif Animation](./lib/user-update-profile-mfc.gif)
 
 ## Features
 
@@ -55,14 +62,12 @@ This first version is setup so that a company with an office kitchen can query i
    1. Save their profile.
    1. Update their profile.
    1. Change their password.
-   1. Change their email (username).
    1. Delete their account.
 1. Organizer will get a report with:
    1. The number of employees that signed up.
    1. The total number of employees in each dietary restriction category.
    1. This will help the organizer plan the food that better fits the employees' needs.
    1. Change their password.
-   1. Change their email (username).
    1. Delete their account.
 
 ## Usage
@@ -108,9 +113,10 @@ Are the bride and groom impressed? You betcha!
 
 The list of upgrades can be endless, but the following are the top 7 upgrades for Host and Guests to make this a world-class app.
 
-### For Host/Organizers
+### For Host (admin)
 Give Host the option to:
 1. Run multiple reports, such as: "detailed report", which lists all guests and their dietary restrictions.
+1. Change their email (username).
 1. Delete Guests (For example, if an employee leaves a company).
 1. Sign Up
 1. Recover the password
@@ -118,36 +124,36 @@ Give Host the option to:
 1. Add company logo
 1. Add events with invitations
 
-### For Guests
+### For Guests (users)
 Give Guests the option to:
-   1. Select food preferences, such as:
-      1. pasta vs. rice
-      1. french fries vs. mashed potatoes
-      1. shakes vs. ice cream
-   1. Select food dislikes
-   1. Add custom foods
-   1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
-   1. Share their profiles with hosts
-   1. Recover the password
-   1. Add their profile picture
+1. Change their email (username).
+1. Select food preferences, such as:
+   1. pasta vs. rice
+   1. french fries vs. mashed potatoes
+   1. shakes vs. ice cream
+1. Select food dislikes
+1. Add custom foods
+1. Have multiple profiles, such as one for lunch, and one for dinner (this will work well with food preferences)
+1. Share their profiles with hosts
+1. Recover the password
+1. Add their profile picture
 
 ## Contributors
 
 This app is group 1's project 2 at the University of California, Berkeley (UCB), extension's coding bootcamp (online-blended). The group members are:
 
 | Name             | Role                 | Technical Responsibilities                | GitHub Account                  |
-| ---------------- | -------------------- | ----------------------------------------- | ------------------------------- |
-| Aaditi Pai       | Full-Stack Developer | Host/Guest Login/Sign Up & Food Favorites | https://github.com/aadi1988     |
-| Ahmad El Gamal   | Project Manager      | Front-end, EJS, jQuery & Heroku           | https://github.com/ahmadelgamal |
-| Ann-Marie Orozco | Database Manager     | Database, Server & Authentication         | https://github.com/ann760       |
-| Brian Lopez      | Back-end Developer   | APIs, Routes & EJS                        | https://github.com/brianslopez  |
+| ---------------- | -------------------- | --------------------------------- | ------------------------------- |
+| Aaditi Pai       | Full-Stack Developer | Host/Guest Login/Sign Up, Account Services & Food Favorites | https://github.com/aadi1988     |
+| Ahmad El Gamal   | Project Manager      | Front-end, EJS & Heroku           | https://github.com/ahmadelgamal |
+| Ann-Marie Orozco | Database Manager     | Database, Server & Authentication | https://github.com/ann760       |
+| Brian Lopez      | Back-end Developer   | APIs, Routes & EJS                | https://github.com/brianslopez  |
 
 ## Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
-- jQuery
 - Node.js
 - Express.js
 - EJS

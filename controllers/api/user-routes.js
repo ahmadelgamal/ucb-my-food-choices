@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -55,7 +55,7 @@ router.get("/restriction", (req, res) => {
     .then((dbRestrictData) => res.json(dbRestrictData))
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -87,7 +87,7 @@ router.get("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -106,14 +106,14 @@ router.post("/", (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.first_name = dbUserData.first_name;
-        req.session.loggedIn = true;
+        req.session.guestLoggedIn = true;
 
         res.json(dbUserData);
       });
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
@@ -182,16 +182,17 @@ router.put("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
 // DELETE delete a user /api/users/1
 router.delete("/:id", (req, res) => {
   console.log("=========DELETE=USER========");
+  console.log(typeof(req.params.id));
   User.destroy({
     where: {
-      id: req.params.id,
+      id: parseInt(req.params.id),
     },
   })
     .then((dbUserData) => {
@@ -203,7 +204,7 @@ router.delete("/:id", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(303).json(err);
     });
 });
 
