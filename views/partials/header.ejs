@@ -1,7 +1,7 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
   <% if (title !== "Sign Up" && title !== "Login") { %>
-    <li><a href="/change-email" class="<%= color %>-text">Change Email</a></li>
+    <!-- <li><a href="/change-email" class="<%= color %>-text">Change Email</a></li> -->
     <li><a href="/change-pw" data-constrainwidth="false" class="<%= color %>-text">Change Password</a></li>
     <li><a href="" class="<%= color %>-text" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
     <li class="divider"></li>
@@ -52,9 +52,9 @@
         <li><a href="/favorite">Food Favorites</a></li>
       <% } %>
         <li class="divider"></li>
-        <li><a href="/change-email">Change Email</a></li>
+        <!-- <li><a href="/change-email">Change Email</a></li> -->
         <li><a href="/change-pw">Change Password</a></li>
-        <li><a href="" id="deleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
+        <li><a href="" id="burgerDeleteAcc" data-account='<%= user_id%>'>Delete Account</a></li>
         <li class="divider"></li>
     <% } %>
       <li><a id='<%= burgerNavLinkId %>' href='/<%= navLinkRoute %>'><%= navLinkText%></a></li>

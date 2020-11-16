@@ -1,4 +1,5 @@
 const delAcc = document.querySelector("#deleteAcc");
+const burgerDelAcc = document.querySelector("#burgerDeleteAcc");
 const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
@@ -143,5 +144,6 @@ document.body.onload = function () { reportHandler(); }
 const reportFilterDropDownEl = document.querySelector('#report-filter-dropdown');
 reportFilterDropDownEl.addEventListener('click', filterBySelection);
 delAcc.addEventListener('click', openModalHandler);
+burgerDelAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
 deleteAccount.addEventListener('click', deleteAdminHandler);

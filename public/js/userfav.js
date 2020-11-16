@@ -1,4 +1,5 @@
 const delAcc = document.querySelector("#deleteAcc");
+const burgerDelAcc = document.querySelector("#burgerDeleteAcc");
 const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
@@ -89,5 +90,6 @@ document
   .addEventListener("submit", userFavPageHandler);
 
 delAcc.addEventListener('click', openModalHandler);
+burgerDelAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
 deleteAccount.addEventListener('click', deleteUserHandler);

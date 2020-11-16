@@ -1,4 +1,5 @@
 const delAcc = document.querySelector("#deleteAcc");
+const burgerDelAcc = document.querySelector("#burgerDeleteAcc");
 const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems);
 const closeModal = document.querySelector('#close');
@@ -73,6 +74,7 @@ function closeModalHandler(event) {
 
 async function deleteUserHandler(event) {
   event.preventDefault();
+
   const id = parseInt(delAcc.dataset.account);
 
   const response = await fetch(`/api/users/${id}`, {
@@ -90,6 +92,6 @@ document
   .addEventListener("submit", profilePageHandler);
 
 delAcc.addEventListener('click', openModalHandler);
+burgerDelAcc.addEventListener('click', openModalHandler);
 closeModal.addEventListener('click', closeModalHandler);
-deleteAccount.addEventListener('click', deleteUserHandler);
 deleteAccount.addEventListener('click', deleteUserHandler);
