@@ -148,7 +148,7 @@ This app is group 1's project 2 at the University of California, Berkeley (UCB),
 
 | Name             | Role                 | Technical Responsibilities                | GitHub Account                  |
 | ---------------- | -------------------- | --------------------------------- | ------------------------------- |
-| Aaditi Pai       | Full-Stack Developer | Host/Guest Login/Sign Up, Account Services & Food Favorites | https://github.com/aadi1988     |
+| Aaditi Pai       | Full-Stack Developer | Added Host/Guest Login/Sign Up, Account Services & Food Favorites on both front-end and back-end. Also refactored EJS | https://github.com/aadi1988     |
 | Ahmad El Gamal   | Project Manager      | Front-end, EJS & Heroku           | https://github.com/ahmadelgamal |
 | Ann-Marie Orozco | Database Manager     | Database, Server & Authentication | https://github.com/ann760       |
 | Brian Lopez      | Back-end Developer   | APIs, Routes & EJS                | https://github.com/brianslopez  |
