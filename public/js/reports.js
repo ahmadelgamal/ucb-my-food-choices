@@ -176,6 +176,7 @@ function closeModalHandler(event) {
 async function deleteAdminHandler(event) {
   event.preventDefault();
   const id = parseInt(delAcc.dataset.account);
+
   const response = await fetch(`/api/admin/${id}`, {
     method: "delete",
   });
@@ -183,9 +184,7 @@ async function deleteAdminHandler(event) {
 
     M.toast({ html: "Account Deleted Successfully!" });
     adminLogoutFormHandler();
-
   }
-
 }
 
 const reportFilterDropDownEl = document.querySelector('#report-filter-dropdown');

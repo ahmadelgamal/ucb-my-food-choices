@@ -134,10 +134,9 @@ async function deleteAdminHandler(event) {
 
     M.toast({ html: "Account Deleted Successfully!" });
     adminLogoutFormHandler();
-
   }
-
 }
+
 // event listener
 document.body.onload = function () { reportHandler(); }
 const reportFilterDropDownEl = document.querySelector('#report-filter-dropdown');
