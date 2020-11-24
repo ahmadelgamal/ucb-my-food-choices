@@ -43,3 +43,16 @@ footer {
 .page-footer {
   padding-top: 0;
 }
+
+/* The following code, from materialize, makes the footer a "sticky footer",
+i.e. it stays on the bottom of the page regardless of how little content is on the page.
+However, this footer will be pushed down if there is a lot of content, so it is different from a fixed footer.*/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
